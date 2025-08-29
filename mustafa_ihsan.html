@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Proposal • Basic Cashier System with Cloud Sync & Inventory</title>
-  <meta name="description" content="Starter package proposal: POS + Cloud Sync + Reports + Inventory Backend." />
+  <meta name="description" content="Starter package proposal: POS + Cloud Sync + Reports + Inventory Backend. 2-week plan, pricing, and timeline." />
   <style>
     :root{
       --bg: #0f1220;
@@ -17,23 +17,31 @@
       --border:#2a3553;
       --ok:#22c55e;
       --warn:#f59e0b;
+      --danger:#ef4444;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; background: radial-gradient(1200px 800px at 90% -10%, #1a2a48 0%, #0f1220 60%) no-repeat, var(--bg);
-      color:var(--ink); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+      margin:0;
+      background:
+        radial-gradient(1200px 800px at 90% -10%, #1a2a48 0%, #0f1220 60%) no-repeat,
+        var(--bg);
+      color:var(--ink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
       line-height:1.55;
     }
-    .wrap{max-width:980px; margin:24px auto; padding:24px}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1000px; margin:24px auto; padding:24px}
     header{
       display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
-      padding:16px 20px; background:rgba(255,255,255,0.02); border:1px solid var(--border); border-radius:14px;
-      backdrop-filter: blur(6px);
+      padding:16px 20px; background:rgba(255,255,255,0.02);
+      border:1px solid var(--border); border-radius:14px; backdrop-filter: blur(6px);
     }
     .brand{display:flex; align-items:center; gap:12px}
     .brand img{width:48px; height:48px; border-radius:50%; background:#fff}
     .brand .name{font-weight:700; letter-spacing:.2px}
+    .tagline{color:var(--muted); font-size:.92rem}
     .badge{padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:var(--chip); color:var(--muted); font-size:.9rem}
     h1{margin:20px 0 6px; font-size:clamp(1.4rem, 2.6vw, 2rem)}
     .sub{color:var(--muted); margin:0 0 18px}
@@ -42,12 +50,13 @@
     main{margin-top:20px}
     .grid{display:grid; grid-template-columns: repeat(12,1fr); gap:18px}
     .card{
-      grid-column: span 12; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 18px 6px 18px;
+      grid-column: span 12; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 18px 10px;
       box-shadow: 0 10px 30px rgba(3,7,18,0.35);
     }
-    @media(min-width:860px){
+    @media(min-width:900px){
       .col-7{grid-column:span 7}
       .col-5{grid-column:span 5}
+      .col-6{grid-column:span 6}
     }
     .card h2{margin:4px 0 6px; font-size:1.15rem}
     .divider{height:1px; background:linear-gradient(90deg, transparent, #2a3553, transparent); margin:12px 0}
@@ -55,13 +64,43 @@
     .li{display:flex; align-items:flex-start; gap:10px; padding:8px 0}
     .li svg{flex:0 0 18px; margin-top:2px}
     .muted{color:var(--muted)}
+    /* Stepper / Timeline */
+    .stepper{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; margin:8px 0 16px; position:relative; padding:8px 6px;
+    }
+    .stepper::before{
+      content:""; position:absolute; left:30px; right:30px; top:50%; height:2px; background:linear-gradient(90deg, #2a3553, #324068);
+      transform:translateY(-50%); z-index:0;
+    }
+    .step{
+      display:flex; align-items:center; gap:10px; position:relative; z-index:1; flex:1;
+    }
+    .dot{
+      width:22px; height:22px; border-radius:50%; display:grid; place-items:center;
+      background:linear-gradient(180deg, #1c2540, #111827); border:2px solid #31406a; color:var(--ink); font-size:.82rem; font-weight:700;
+      box-shadow:0 0 0 4px rgba(110,231,255,0.15);
+    }
+    .step .label{font-weight:600}
+    .step .note{display:block; font-size:.9rem; color:var(--muted)}
+    /* Price */
     .price-wrap{display:flex; flex-wrap:wrap; gap:12px; margin:8px 0 14px}
-    .price{
+    .pill{
       display:flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--border); border-radius:12px; background:linear-gradient(180deg, #1c2540, #1a2036);
     }
-    .price .amt{font-size:1.2rem; font-weight:700}
-    .price .tag{font-size:.92rem; color:var(--muted)}
-    .cta{display:flex; gap:12px; flex-wrap:wrap; margin:6px 0 20px}
+    .pill .amt{font-size:1.2rem; font-weight:700}
+    .pill .tag{font-size:.92rem; color:var(--muted)}
+    .save{background:linear-gradient(180deg, #12331f, #0e2217); border-color:#1c5133}
+    .save .amt{color:var(--accent-2)}
+    .strike{position:relative; opacity:.8}
+    .strike .amt{text-decoration:line-through; text-decoration-thickness:2px; text-decoration-color:#ef4444}
+    .math{
+      display:grid; grid-template-columns: 1fr auto; gap:6px 12px; align-items:center; margin-top:4px; font-size:1.02rem;
+    }
+    .math .label{color:var(--muted)}
+    .math .value{font-weight:700}
+    .math .total{font-size:1.25rem; font-weight:800}
+    /* Buttons */
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin:10px 0 20px}
     .btn{
       appearance:none; border:1px solid var(--border); background:linear-gradient(180deg, #1f2937, #111827);
       color:var(--ink); padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600
@@ -72,9 +111,9 @@
     /* Print */
     @media print{
       body{background:#fff}
+      .wrap{margin:0; max-width:none}
       header, .btn{filter:none; box-shadow:none}
       .btn{display:none}
-      .wrap{margin:0; max-width:none}
       footer{color:#333}
     }
   </style>
@@ -83,10 +122,12 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <img src="https://aiforimpact.net/wp-content/uploads/2025/05/justcercile.png?w=118&h=118" alt="Ai For Impact logo" />
+        <a href="https://www.aiforimpact.net" target="_blank" rel="noopener">
+          <img src="https://aiforimpact.net/wp-content/uploads/2025/05/justcercile.png?w=118&h=118" alt="Ai For Impact logo" />
+        </a>
         <div>
-          <div class="name">Ai For Impact</div>
-          <div class="muted" style="font-size:.92rem">Practical AI & software that ships</div>
+          <div class="name"><a href="https://www.aiforimpact.net" target="_blank" rel="noopener">Ai For Impact</a></div>
+          <div class="tagline">We make you progress faster.</div>
         </div>
       </div>
       <div class="badge">Proposal • Starter Package</div>
@@ -99,14 +140,14 @@
         <div class="chip">POS + Inventory</div>
         <div class="chip">Cloud Sync</div>
         <div class="chip">Reports</div>
-        <div class="chip">Google Cloud</div>
+        <div class="chip"><a href="https://www.aiforimpact.net" target="_blank" rel="noopener">www.aiforimpact.net</a></div>
       </div>
     </section>
 
     <main class="grid">
       <!-- What's included -->
       <section class="card col-7">
-        <h2>What’s Included in the €900 Starter Package</h2>
+        <h2>What’s Included in the Starter Package</h2>
         <div class="divider"></div>
 
         <h3 class="muted" style="margin:6px 0 0">1) Cashier UI</h3>
@@ -147,42 +188,112 @@
         </p>
       </section>
 
-      <!-- Price & Delivery -->
+      <!-- Price & Delivery (with savings) -->
       <aside class="card col-5">
-        <h2>Price &amp; Delivery</h2>
+        <h2>Price, Savings &amp; Hosting</h2>
         <div class="divider"></div>
+
         <div class="price-wrap">
-          <div class="price" title="One-time development fee">
+          <div class="pill strike" title="List price before discount">
+            <span class="amt">€1,500</span>
+            <span class="tag">list price</span>
+          </div>
+          <div class="pill save" title="Discount applied">
+            <span class="amt">− €600</span>
+            <span class="tag">limited-time discount</span>
+          </div>
+          <div class="pill" title="Your final one-time price">
             <span class="amt">€900</span>
             <span class="tag">one-time development</span>
           </div>
-          <div class="price" title="Ongoing monthly server">
+          <div class="pill" title="Ongoing monthly server">
             <span class="amt">€50<span class="muted">/month</span></span>
             <span class="tag">cloud server hosting &amp; maintenance</span>
           </div>
         </div>
 
-        <p class="li">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <strong>Delivery:</strong>&nbsp;Fully working system delivered within <strong>2 weeks</strong>.
-        </p>
+        <div class="math">
+          <div class="label">Subtotal</div><div class="value">€1,500</div>
+          <div class="label">Discount</div><div class="value">− €600</div>
+          <div class="label total">Total Due (one-time)</div><div class="value total">€900</div>
+        </div>
 
-        <p class="muted" style="margin-top:10px">
-          Need a lighter version for chat? Use this:
-        </p>
+        <div class="divider"></div>
+
+        <p class="muted" style="margin-top:8px">Want a quick message version?</p>
         <p>
-          <code class="inline">Cashier + Cloud Sync + Reports + Inventory. €900 setup + €50/mo server. Delivery in 2 weeks.</code>
+          <code class="inline">Cashier + Cloud + Reports + Inventory → €1,500 − €600 = €900. Hosting €50/mo. Delivery in 2 weeks.</code>
         </p>
 
         <div class="cta">
           <button class="btn" onclick="window.print()">Print / Save PDF</button>
-          <a class="btn secondary" href="mailto:?subject=Starter%20Package%20Proposal&body=Hi%20Mustafa%2C%0A%0APlease%20see%20the%20attached%20starter%20package%20details%3A%0A-%20POS%20%2B%20Cloud%20Sync%20%2B%20Reports%20%2B%20Inventory%0A-%20%E2%82%AC900%20setup%20%2B%20%E2%82%AC50%2Fmonth%20server%0A-%20Delivery%3A%202%20weeks%0A%0ABest%2C%0A">Quick email</a>
+          <a class="btn secondary" href="mailto:?subject=Starter%20Package%20Proposal&body=Hi%20Mustafa%2C%0A%0APlease%20see%20the%20starter%20package%20details%3A%0A-%20POS%20%2B%20Cloud%20Sync%20%2B%20Reports%20%2B%20Inventory%0A-%20Total%3A%20%E2%82%AC1%2C500%20%E2%86%92%20Discount%20%E2%82%AC600%20%E2%86%92%20%E2%82%AC900%0A-%20Hosting%3A%20%E2%82%AC50%2Fmonth%0A-%20Delivery%3A%202%20weeks%0A%0ABest%2C%0A">Quick email</a>
         </div>
       </aside>
+
+      <!-- Timeline -->
+      <section class="card col-12">
+        <h2>Two‑Week Timeline</h2>
+        <div class="stepper" aria-hidden="true">
+          <div class="step">
+            <div class="dot">1</div>
+            <div>
+              <div class="label">Week 1 • Discover &amp; Plan</div>
+              <span class="note">Data collection, consultation, on‑site/remote survey</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">2</div>
+            <div>
+              <div class="label">Week 2 • Build &amp; Deliver</div>
+              <span class="note">System build, setup, QA, handover &amp; quick training</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="col-6">
+            <div class="divider"></div>
+            <h3 class="muted" style="margin:6px 0 0">Week 1 — Data Collection, Consultation, Survey</h3>
+            <ul class="list">
+              <li class="li">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M12 6v6l4 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Gather product list (names, prices, barcodes), payment flows, receipt preferences.
+              </li>
+              <li class="li">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Short consultations to confirm workflow: cashier steps, refunds, reports cadence.
+              </li>
+              <li class="li">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M5 12l5 5L20 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Environment survey (hardware check: PC, printer, scanner) & connectivity.
+              </li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <div class="divider"></div>
+            <h3 class="muted" style="margin:6px 0 0">Week 2 — Build, Setup & Handover</h3>
+            <ul class="list">
+              <li class="li">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M4 7h16M4 12h16M4 17h16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Implement POS (barcode/manual), cloud sync, reports, and inventory backend.
+              </li>
+              <li class="li">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M12 8v8m-4-4h8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Configure products & initial stock, connect receipt printer & card/cash options.
+              </li>
+              <li class="li">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 12H4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                QA pass & quick training session; go‑live checklist and handover.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
-      <div>© <span id="year">2025</span> Ai For Impact</div>
+      <div>© <span id="year">2025</span> <a href="https://www.aiforimpact.net" target="_blank" rel="noopener">Ai For Impact</a> • We make you progress faster.</div>
       <div class="muted">Prepared for: Mustafa Ihsan</div>
     </footer>
   </div>
