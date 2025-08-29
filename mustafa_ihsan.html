@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proposal • Basic Cashier System with Cloud Sync & Inventory</title>
+  <meta name="description" content="Starter package proposal: POS + Cloud Sync + Reports + Inventory Backend." />
+  <style>
+    :root{
+      --bg: #0f1220;
+      --card: #171a2b;
+      --ink: #e9ecf1;
+      --muted: #b8c0d1;
+      --accent: #6ee7ff;
+      --accent-2:#87ffa5;
+      --chip:#24304a;
+      --border:#2a3553;
+      --ok:#22c55e;
+      --warn:#f59e0b;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background: radial-gradient(1200px 800px at 90% -10%, #1a2a48 0%, #0f1220 60%) no-repeat, var(--bg);
+      color:var(--ink); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+      line-height:1.55;
+    }
+    .wrap{max-width:980px; margin:24px auto; padding:24px}
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+      padding:16px 20px; background:rgba(255,255,255,0.02); border:1px solid var(--border); border-radius:14px;
+      backdrop-filter: blur(6px);
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand img{width:48px; height:48px; border-radius:50%; background:#fff}
+    .brand .name{font-weight:700; letter-spacing:.2px}
+    .badge{padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:var(--chip); color:var(--muted); font-size:.9rem}
+    h1{margin:20px 0 6px; font-size:clamp(1.4rem, 2.6vw, 2rem)}
+    .sub{color:var(--muted); margin:0 0 18px}
+    .meta{display:flex; gap:12px; flex-wrap:wrap; margin-top:4px}
+    .meta .chip{background:var(--chip); border:1px solid var(--border); color:var(--ink); padding:6px 10px; border-radius:999px; font-size:.9rem}
+    main{margin-top:20px}
+    .grid{display:grid; grid-template-columns: repeat(12,1fr); gap:18px}
+    .card{
+      grid-column: span 12; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 18px 6px 18px;
+      box-shadow: 0 10px 30px rgba(3,7,18,0.35);
+    }
+    @media(min-width:860px){
+      .col-7{grid-column:span 7}
+      .col-5{grid-column:span 5}
+    }
+    .card h2{margin:4px 0 6px; font-size:1.15rem}
+    .divider{height:1px; background:linear-gradient(90deg, transparent, #2a3553, transparent); margin:12px 0}
+    .list{margin:8px 0 14px; padding:0; list-style:none}
+    .li{display:flex; align-items:flex-start; gap:10px; padding:8px 0}
+    .li svg{flex:0 0 18px; margin-top:2px}
+    .muted{color:var(--muted)}
+    .price-wrap{display:flex; flex-wrap:wrap; gap:12px; margin:8px 0 14px}
+    .price{
+      display:flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--border); border-radius:12px; background:linear-gradient(180deg, #1c2540, #1a2036);
+    }
+    .price .amt{font-size:1.2rem; font-weight:700}
+    .price .tag{font-size:.92rem; color:var(--muted)}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin:6px 0 20px}
+    .btn{
+      appearance:none; border:1px solid var(--border); background:linear-gradient(180deg, #1f2937, #111827);
+      color:var(--ink); padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600
+    }
+    .btn.secondary{background:transparent}
+    footer{margin:24px 0 8px; color:var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    code.inline{background:rgba(255,255,255,.06); border:1px solid var(--border); padding:2px 6px; border-radius:8px}
+    /* Print */
+    @media print{
+      body{background:#fff}
+      header, .btn{filter:none; box-shadow:none}
+      .btn{display:none}
+      .wrap{margin:0; max-width:none}
+      footer{color:#333}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img src="https://aiforimpact.net/wp-content/uploads/2025/05/justcercile.png?w=118&h=118" alt="Ai For Impact logo" />
+        <div>
+          <div class="name">Ai For Impact</div>
+          <div class="muted" style="font-size:.92rem">Practical AI & software that ships</div>
+        </div>
+      </div>
+      <div class="badge">Proposal • Starter Package</div>
+    </header>
+
+    <section>
+      <h1>Basic Cashier System with Cloud Sync &amp; Inventory</h1>
+      <p class="sub">Prepared for <strong>Mustafa Ihsan</strong> • <span class="muted">Date: August 29, 2025</span></p>
+      <div class="meta">
+        <div class="chip">POS + Inventory</div>
+        <div class="chip">Cloud Sync</div>
+        <div class="chip">Reports</div>
+        <div class="chip">Google Cloud</div>
+      </div>
+    </section>
+
+    <main class="grid">
+      <!-- What's included -->
+      <section class="card col-7">
+        <h2>What’s Included in the €900 Starter Package</h2>
+        <div class="divider"></div>
+
+        <h3 class="muted" style="margin:6px 0 0">1) Cashier UI</h3>
+        <ul class="list">
+          <li class="li">
+            <!-- check icon -->
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Simple point-of-sale interface for recording sales.
+          </li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Works with barcode scanning or manual item entry.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Supports cash and card transactions.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Receipt printing (basic support).</li>
+        </ul>
+
+        <h3 class="muted" style="margin:6px 0 0">2) Cloud Sync</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>All sales data stored securely in Google Cloud.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Real-time updates so data is always safe and accessible.</li>
+        </ul>
+
+        <h3 class="muted" style="margin:6px 0 0">3) Admin Access (Reports)</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Basic sales reports (daily, weekly, monthly).</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Export sales data for accounting (CSV/Excel).</li>
+        </ul>
+
+        <h3 class="muted" style="margin:6px 0 0">4) Inventory Backend</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Web-based admin panel to manage products and stock.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Add/edit/delete items with name, price, barcode, and quantity.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Automatic stock reduction after each sale.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Overview of remaining stock and simple stock reports.</li>
+        </ul>
+
+        <div class="divider"></div>
+        <p class="muted" style="margin-bottom:18px">
+          <strong>Optional future modules</strong> (scoped and quoted separately): multi-branch, advanced reports, suppliers, user roles, etc.
+        </p>
+      </section>
+
+      <!-- Price & Delivery -->
+      <aside class="card col-5">
+        <h2>Price &amp; Delivery</h2>
+        <div class="divider"></div>
+        <div class="price-wrap">
+          <div class="price" title="One-time development fee">
+            <span class="amt">€900</span>
+            <span class="tag">one-time development</span>
+          </div>
+          <div class="price" title="Ongoing monthly server">
+            <span class="amt">€50<span class="muted">/month</span></span>
+            <span class="tag">cloud server hosting &amp; maintenance</span>
+          </div>
+        </div>
+
+        <p class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <strong>Delivery:</strong>&nbsp;Fully working system delivered within <strong>2 weeks</strong>.
+        </p>
+
+        <p class="muted" style="margin-top:10px">
+          Need a lighter version for chat? Use this:
+        </p>
+        <p>
+          <code class="inline">Cashier + Cloud Sync + Reports + Inventory. €900 setup + €50/mo server. Delivery in 2 weeks.</code>
+        </p>
+
+        <div class="cta">
+          <button class="btn" onclick="window.print()">Print / Save PDF</button>
+          <a class="btn secondary" href="mailto:?subject=Starter%20Package%20Proposal&body=Hi%20Mustafa%2C%0A%0APlease%20see%20the%20attached%20starter%20package%20details%3A%0A-%20POS%20%2B%20Cloud%20Sync%20%2B%20Reports%20%2B%20Inventory%0A-%20%E2%82%AC900%20setup%20%2B%20%E2%82%AC50%2Fmonth%20server%0A-%20Delivery%3A%202%20weeks%0A%0ABest%2C%0A">Quick email</a>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© <span id="year">2025</span> Ai For Impact</div>
+      <div class="muted">Prepared for: Mustafa Ihsan</div>
+    </footer>
+  </div>
+
+  <script>
+    // Keep footer year current if opened later
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
