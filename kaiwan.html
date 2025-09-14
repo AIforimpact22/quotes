@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proposal • Full‑Stack Dental Clinic Management System</title>
+  <meta name="description" content="Offer for Dr. Kaiwan Feriq: Full-stack dental clinic system with patient portal, doctor, assistant, lab, website, CEO dashboards, and cloud database with domain. 12-month plan and pricing." />
+  <style>
+    :root{
+      --bg: #0f1220;
+      --card: #171a2b;
+      --ink: #e9ecf1;
+      --muted: #b8c0d1;
+      --accent: #6ee7ff;
+      --accent-2:#87ffa5;
+      --chip:#24304a;
+      --border:#2a3553;
+      --ok:#22c55e;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 800px at 90% -10%, #1a2a48 0%, #0f1220 60%) no-repeat,
+        var(--bg);
+      color:var(--ink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px; margin:24px auto; padding:24px}
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+      padding:16px 20px; background:rgba(255,255,255,0.02);
+      border:1px solid var(--border); border-radius:14px; backdrop-filter: blur(6px);
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand img{width:48px; height:48px; border-radius:50%; background:#fff}
+    .brand .name{font-weight:700; letter-spacing:.2px}
+    .tagline{color:var(--muted); font-size:.92rem}
+    .badge{padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:var(--chip); color:var(--muted); font-size:.9rem}
+    h1{margin:20px 0 6px; font-size:clamp(1.4rem, 2.6vw, 2rem)}
+    .sub{color:var(--muted); margin:0 0 18px}
+    .meta{display:flex; gap:12px; flex-wrap:wrap; margin-top:4px}
+    .meta .chip{background:var(--chip); border:1px solid var(--border); color:var(--ink); padding:6px 10px; border-radius:999px; font-size:.9rem}
+    main{margin-top:20px}
+    .grid{display:grid; grid-template-columns: repeat(12,1fr); gap:18px}
+    .card{
+      grid-column: span 12; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 18px 10px;
+      box-shadow: 0 10px 30px rgba(3,7,18,0.35);
+    }
+    @media(min-width:900px){
+      .col-7{grid-column:span 7}
+      .col-5{grid-column:span 5}
+      .col-6{grid-column:span 6}
+      .col-4{grid-column:span 4}
+      .col-8{grid-column:span 8}
+    }
+    .card h2{margin:4px 0 6px; font-size:1.15rem}
+    .divider{height:1px; background:linear-gradient(90deg, transparent, #2a3553, transparent); margin:12px 0}
+    .list{margin:8px 0 14px; padding:0; list-style:none}
+    .li{display:flex; align-items:flex-start; gap:10px; padding:8px 0}
+    .li svg{flex:0 0 18px; margin-top:2px}
+    .muted{color:var(--muted)}
+    /* Stepper / Timeline */
+    .stepper{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; margin:8px 0 16px; position:relative; padding:8px 6px;
+      overflow-x:auto;
+    }
+    .stepper::before{
+      content:""; position:absolute; left:30px; right:30px; top:50%; height:2px; background:linear-gradient(90deg, #2a3553, #324068);
+      transform:translateY(-50%); z-index:0;
+    }
+    .step{
+      display:flex; align-items:center; gap:10px; position:relative; z-index:1; min-width: 200px;
+    }
+    .dot{
+      width:22px; height:22px; border-radius:50%; display:grid; place-items:center;
+      background:linear-gradient(180deg, #1c2540, #111827); border:2px solid #31406a; color:var(--ink); font-size:.82rem; font-weight:700;
+      box-shadow:0 0 0 4px rgba(110,231,255,0.15);
+    }
+    .step .label{font-weight:700}
+    .step .note{display:block; font-size:.9rem; color:var(--muted)}
+    /* Price */
+    .price-wrap{display:flex; flex-wrap:wrap; gap:12px; margin:8px 0 14px}
+    .pill{
+      display:flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--border); border-radius:12px; background:linear-gradient(180deg, #1c2540, #1a2036);
+    }
+    .pill .amt{font-size:1.2rem; font-weight:700}
+    .pill .tag{font-size:.92rem; color:var(--muted)}
+    .math{
+      display:grid; grid-template-columns: 1fr auto; gap:6px 12px; align-items:center; margin-top:4px; font-size:1.02rem;
+    }
+    .math .label{color:var(--muted)}
+    .math .value{font-weight:700}
+    .math .total{font-size:1.25rem; font-weight:800}
+    /* Buttons */
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin:10px 0 20px}
+    .btn{
+      appearance:none; border:1px solid var(--border); background:linear-gradient(180deg, #1f2937, #111827);
+      color:var(--ink); padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600
+    }
+    .btn.secondary{background:transparent}
+    footer{margin:24px 0 8px; color:var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    code.inline{background:rgba(255,255,255,.06); border:1px solid var(--border); padding:2px 6px; border-radius:8px}
+    /* Print */
+    @media print{
+      body{background:#fff}
+      .wrap{margin:0; max-width:none}
+      header, .btn{filter:none; box-shadow:none}
+      .btn{display:none}
+      footer{color:#333}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <a href="https://www.aiforimpact.net" target="_blank" rel="noopener">
+          <img src="https://aiforimpact.net/wp-content/uploads/2025/05/justcercile.png?w=118&h=118" alt="Ai For Impact logo" />
+        </a>
+        <div>
+          <div class="name"><a href="https://www.aiforimpact.net" target="_blank" rel="noopener">Ai For Impact</a></div>
+          <div class="tagline">We make you progress faster.</div>
+        </div>
+      </div>
+      <div class="badge">Proposal • Dental Clinic Full‑Stack System</div>
+    </header>
+
+    <section>
+      <h1>Full‑Stack Dental Clinic Management System</h1>
+      <p class="sub">Prepared for <strong>Dr. Kaiwan Feriq</strong> • <span class="muted">Date: <span id="today">—</span></span></p>
+      <div class="meta">
+        <div class="chip">Patient Portal (authenticated)</div>
+        <div class="chip">Doctor Backend + Dental Inventory</div>
+        <div class="chip">Assistant Backend</div>
+        <div class="chip">Lab Backend</div>
+        <div class="chip">Website Interface (visibility)</div>
+        <div class="chip">CEO Dashboard (finance & resources)</div>
+        <div class="chip">Cloud DB + Domain</div>
+      </div>
+    </section>
+
+    <main class="grid">
+      <!-- Scope & Modules -->
+      <section class="card col-7">
+        <h2>Scope &amp; Modules</h2>
+        <div class="divider"></div>
+
+        <h3 class="muted" style="margin:6px 0 0">Patient Portal (Authenticated Users)</h3>
+        <ul class="list">
+          <li class="li">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Secure sign‑up/login, profile, treatment history, appointments, and reminders.
+          </li>
+          <li class="li">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
+            Document uploads (x‑rays, reports) and consent records.
+          </li>
+        </ul>
+
+        <h3 class="muted" style="margin:6px 0 0">Doctor Backend (with Dental Inventory)</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Dental charting, treatment plans, prescriptions.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Inventory of dental supplies (consumables & instruments), low‑stock alerts, usage logs.</li>
+        </ul>
+
+        <h3 class="muted" style="margin:6px 0 0">Assistant Backend</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Appointment scheduling, chair/room assignments, patient intake, task lists.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Queue management & check‑in.</li>
+        </ul>
+
+        <h3 class="muted" style="margin:6px 0 0">Lab Backend</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Lab case creation, tracking (status, due dates), attachments, delivery records.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Integration with doctor & assistant workflows.</li>
+        </ul>
+
+        <h3 class="muted" style="margin:6px 0 0">Website Interface (Visibility)</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Modern public website with services, team, and booking entry points.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Good visibility practices: clean structure, meta tags, performance, and analytics.</li>
+        </ul>
+
+        <h3 class="muted" style="margin:6px 0 0">CEO Dashboard (Finance & Resources)</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Revenue, costs, profitability, utilization, resource allocation reports.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>CSV/Excel export, period comparisons, and role‑based access.</li>
+        </ul>
+
+        <h3 class="muted" style="margin:6px 0 0">Cloud Database &amp; Domain</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Central cloud database with daily backups and SSL.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Custom domain & hosting included.</li>
+        </ul>
+      </section>
+
+      <!-- Price & Terms -->
+      <aside class="card col-5">
+        <h2>Pricing &amp; Terms</h2>
+        <div class="divider"></div>
+        <div class="price-wrap">
+          <div class="pill" title="Monthly subscription">
+            <span class="amt">€512<span class="muted">/month</span></span>
+            <span class="tag">subscription (hosting, domain, support)</span>
+          </div>
+          <div class="pill" title="Total for 12 months">
+            <span class="amt">€6,144</span>
+            <span class="tag">total (12 months)</span>
+          </div>
+        </div>
+        <div class="math">
+          <div class="label">Duration</div><div class="value">12 months</div>
+          <div class="label">Billing</div><div class="value">Monthly (invoice at start of month)</div>
+          <div class="label">Includes</div><div class="value">Cloud DB, domain, maintenance & monitoring</div>
+        </div>
+
+        <div class="divider"></div>
+        <p class="muted" style="margin-top:8px">Quick message version:</p>
+        <p>
+          <code class="inline">Dental full‑stack system: Patient, Doctor+Inventory, Assistant, Lab, Website, CEO dashboard. €512/mo for 12 months (total €6,144). M1 consult; M2–M6 delivery; M6–M12 monitoring.</code>
+        </p>
+
+        <div class="cta">
+          <button class="btn" onclick="window.print()">Print / Save PDF</button>
+          <a class="btn secondary" href="mailto:?subject=Dental%20System%20Proposal&body=Dear%20Dr.%20Kaiwan%2C%0A%0APlease%20find%20our%20offer%20for%20a%20full‑stack%20dental%20clinic%20system.%20Pricing%3A%20%E2%82%AC512%2Fmonth%20for%2012%20months%20(total%20%E2%82%AC6%2C144).%0A%0AKey%20modules%3A%20Patient%20Portal%2C%20Doctor%20(Inventory)%2C%20Assistant%2C%20Lab%2C%20Website%2C%20CEO%20Dashboard.%0A%0ATimeline%3A%20M1%20consultation%20%26%20data%20collection%3B%20M2%E2%80%93M6%20delivery%20(per%20plan)%3B%20M6%E2%80%9312%20monitoring%20%26%20maintenance.%0A%0ARegards%2C%0A">Quick email</a>
+        </div>
+      </aside>
+
+      <!-- Timeline -->
+      <section class="card col-12">
+        <h2>Timeline (12 Months)</h2>
+
+        <!-- Phase labels -->
+        <div class="meta" style="margin-top:2px">
+          <div class="chip">Phase 1 • Delivery (Months 1–6)</div>
+          <div class="chip">Phase 2 • Monitoring & Growth (Months 6–12)</div>
+        </div>
+        <div class="divider"></div>
+
+        <!-- Months 1–6 stepper -->
+        <div class="stepper" aria-label="Delivery milestones months 1 to 6">
+          <div class="step">
+            <div class="dot">M1</div>
+            <div>
+              <div class="label">Consultation & Data Collection</div>
+              <span class="note">Workflows, data model, domain setup plan</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">M2</div>
+            <div>
+              <div class="label">Patient Portal + Website & Domain</div>
+              <span class="note">Authenticated patient access; public website shell live</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">M3</div>
+            <div>
+              <div class="label">Doctor Backend (with Inventory)</div>
+              <span class="note">Dental charting, prescriptions, inventory tracking</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">M4</div>
+            <div>
+              <div class="label">Assistant Backend</div>
+              <span class="note">Scheduling, chair management, patient intake, queue</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">M5</div>
+            <div>
+              <div class="label">Lab Backend</div>
+              <span class="note">Case creation, tracking, delivery & attachments</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">M6</div>
+            <div>
+              <div class="label">CEO Dashboard + Go‑Live</div>
+              <span class="note">Finance & resources reports; integration QA; launch</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ops period -->
+        <div class="grid">
+          <div class="col-6">
+            <div class="divider"></div>
+            <h3 class="muted" style="margin:6px 0 0">Months 6–12 — Monitoring & Maintenance</h3>
+            <ul class="list">
+              <li class="li">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M12 6v6l4 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Uptime monitoring, security patches, database backups, performance tuning.
+              </li>
+              <li class="li">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M5 12l5 5L20 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Support & minor enhancements; user feedback incorporation.
+              </li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <div class="divider"></div>
+            <h3 class="muted" style="margin:6px 0 0">Future Development Planning</h3>
+            <ul class="list">
+              <li class="li">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Roadmap workshops each quarter; prioritize new features (e.g., advanced analytics, SMS/WhatsApp reminders, multi‑clinic).
+              </li>
+              <li class="li">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 12H4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Data exports, periodic audits, and training refreshers.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year">2025</span> <a href="https://www.aiforimpact.net" target="_blank" rel="noopener">Ai For Impact</a> • We make you progress faster.</div>
+      <div class="muted">Prepared for: Dr. Kaiwan Feriq</div>
+    </footer>
+  </div>
+
+  <script>
+    // Fill in today's date and current year
+    const today = new Date();
+    const fmt = today.toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
+    document.getElementById('today').textContent = fmt;
+    document.getElementById('year').textContent = today.getFullYear();
+  </script>
+</body>
+</html>
