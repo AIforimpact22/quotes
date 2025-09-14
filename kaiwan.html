@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Proposal • Full‑Stack Dental Clinic Management System</title>
-  <meta name="description" content="Offer for Dr. Kaiwan Feriq: Full-stack dental clinic system with patient portal, doctor, assistant, lab, website, CEO dashboards, and cloud database with domain. 12-month plan and pricing." />
+  <title>Proposal • Full-Stack Dental Clinic Management System</title>
+  <meta name="description" content="Offer for Dr. Kaiwan Feriq: Full-stack dental clinic system with patient portal, doctor, assistant, lab, website, CEO dashboards, and cloud database with domain. 12-month plan with go-live at Month 4 and monitoring through Month 12." />
   <style>
     :root{
       --bg: #0f1220;
@@ -15,9 +15,6 @@
       --accent-2:#87ffa5;
       --chip:#24304a;
       --border:#2a3553;
-      --ok:#22c55e;
-      --warn:#f59e0b;
-      --danger:#ef4444;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -32,21 +29,37 @@
     }
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
+
     .wrap{max-width:1100px; margin:24px auto; padding:24px}
+
     header{
       display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
       padding:16px 20px; background:rgba(255,255,255,0.02);
       border:1px solid var(--border); border-radius:14px; backdrop-filter: blur(6px);
     }
     .brand{display:flex; align-items:center; gap:12px}
-    .brand img{width:48px; height:48px; border-radius:50%; background:#fff}
+    /* Dark badge behind the white logo (no white background) */
+    .logo-badge{
+      width:52px; height:52px; border-radius:50%;
+      display:grid; place-items:center;
+      background: radial-gradient(60% 60% at 30% 30%, #263150 0%, #111827 70%);
+      border:1px solid var(--border);
+      overflow:hidden;
+    }
+    .logo-badge img{
+      width:42px; height:42px; display:block;
+      /* keep transparency, add subtle glow so white logo pops */
+      filter: drop-shadow(0 0 4px rgba(255,255,255,.25));
+    }
     .brand .name{font-weight:700; letter-spacing:.2px}
     .tagline{color:var(--muted); font-size:.92rem}
     .badge{padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:var(--chip); color:var(--muted); font-size:.9rem}
+
     h1{margin:20px 0 6px; font-size:clamp(1.4rem, 2.6vw, 2rem)}
     .sub{color:var(--muted); margin:0 0 18px}
     .meta{display:flex; gap:12px; flex-wrap:wrap; margin-top:4px}
     .meta .chip{background:var(--chip); border:1px solid var(--border); color:var(--ink); padding:6px 10px; border-radius:999px; font-size:.9rem}
+
     main{margin-top:20px}
     .grid{display:grid; grid-template-columns: repeat(12,1fr); gap:18px}
     .card{
@@ -66,6 +79,7 @@
     .li{display:flex; align-items:flex-start; gap:10px; padding:8px 0}
     .li svg{flex:0 0 18px; margin-top:2px}
     .muted{color:var(--muted)}
+
     /* Stepper / Timeline */
     .stepper{
       display:flex; align-items:center; justify-content:space-between; gap:12px; margin:8px 0 16px; position:relative; padding:8px 6px;
@@ -76,7 +90,7 @@
       transform:translateY(-50%); z-index:0;
     }
     .step{
-      display:flex; align-items:center; gap:10px; position:relative; z-index:1; min-width: 200px;
+      display:flex; align-items:center; gap:10px; position:relative; z-index:1; min-width: 220px;
     }
     .dot{
       width:22px; height:22px; border-radius:50%; display:grid; place-items:center;
@@ -85,6 +99,7 @@
     }
     .step .label{font-weight:700}
     .step .note{display:block; font-size:.9rem; color:var(--muted)}
+
     /* Price */
     .price-wrap{display:flex; flex-wrap:wrap; gap:12px; margin:8px 0 14px}
     .pill{
@@ -98,6 +113,7 @@
     .math .label{color:var(--muted)}
     .math .value{font-weight:700}
     .math .total{font-size:1.25rem; font-weight:800}
+
     /* Buttons */
     .cta{display:flex; gap:12px; flex-wrap:wrap; margin:10px 0 20px}
     .btn{
@@ -105,8 +121,10 @@
       color:var(--ink); padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600
     }
     .btn.secondary{background:transparent}
+
     footer{margin:24px 0 8px; color:var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
     code.inline{background:rgba(255,255,255,.06); border:1px solid var(--border); padding:2px 6px; border-radius:8px}
+
     /* Print */
     @media print{
       body{background:#fff}
@@ -121,19 +139,19 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <a href="https://www.aiforimpact.net" target="_blank" rel="noopener">
-          <img src="https://aiforimpact.net/wp-content/uploads/2025/05/justcercile.png?w=118&h=118" alt="Ai For Impact logo" />
+        <a href="https://www.aiforimpact.net" target="_blank" rel="noopener" class="logo-badge" aria-label="Ai For Impact">
+          <img src="https://aiforimpact.net/wp-content/uploads/2025/05/justcercile.png?w=118&h=118" alt="Ai For Impact logo (white on dark badge)" />
         </a>
         <div>
           <div class="name"><a href="https://www.aiforimpact.net" target="_blank" rel="noopener">Ai For Impact</a></div>
           <div class="tagline">We make you progress faster.</div>
         </div>
       </div>
-      <div class="badge">Proposal • Dental Clinic Full‑Stack System</div>
+      <div class="badge">Proposal • Dental Clinic Full-Stack System</div>
     </header>
 
     <section>
-      <h1>Full‑Stack Dental Clinic Management System</h1>
+      <h1>Full-Stack Dental Clinic Management System</h1>
       <p class="sub">Prepared for <strong>Dr. Kaiwan Feriq</strong> • <span class="muted">Date: <span id="today">—</span></span></p>
       <div class="meta">
         <div class="chip">Patient Portal (authenticated)</div>
@@ -143,6 +161,7 @@
         <div class="chip">Website Interface (visibility)</div>
         <div class="chip">CEO Dashboard (finance & resources)</div>
         <div class="chip">Cloud DB + Domain</div>
+        <div class="chip"><a href="https://www.aiforimpact.net" target="_blank" rel="noopener">www.aiforimpact.net</a></div>
       </div>
     </section>
 
@@ -156,24 +175,24 @@
         <ul class="list">
           <li class="li">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Secure sign‑up/login, profile, treatment history, appointments, and reminders.
+            Secure sign-up/login, profile, treatment history, appointments, and reminders.
           </li>
           <li class="li">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
-            Document uploads (x‑rays, reports) and consent records.
+            Document uploads (x-rays, reports) and consent records.
           </li>
         </ul>
 
         <h3 class="muted" style="margin:6px 0 0">Doctor Backend (with Dental Inventory)</h3>
         <ul class="list">
           <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Dental charting, treatment plans, prescriptions.</li>
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Inventory of dental supplies (consumables & instruments), low‑stock alerts, usage logs.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Inventory of dental supplies (consumables & instruments), low-stock alerts, usage logs.</li>
         </ul>
 
         <h3 class="muted" style="margin:6px 0 0">Assistant Backend</h3>
         <ul class="list">
           <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Appointment scheduling, chair/room assignments, patient intake, task lists.</li>
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Queue management & check‑in.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Queue management & check-in.</li>
         </ul>
 
         <h3 class="muted" style="margin:6px 0 0">Lab Backend</h3>
@@ -191,7 +210,7 @@
         <h3 class="muted" style="margin:6px 0 0">CEO Dashboard (Finance & Resources)</h3>
         <ul class="list">
           <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>Revenue, costs, profitability, utilization, resource allocation reports.</li>
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>CSV/Excel export, period comparisons, and role‑based access.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>CSV/Excel export, period comparisons, role-based access.</li>
         </ul>
 
         <h3 class="muted" style="margin:6px 0 0">Cloud Database &amp; Domain</h3>
@@ -224,12 +243,12 @@
         <div class="divider"></div>
         <p class="muted" style="margin-top:8px">Quick message version:</p>
         <p>
-          <code class="inline">Dental full‑stack system: Patient, Doctor+Inventory, Assistant, Lab, Website, CEO dashboard. €512/mo for 12 months (total €6,144). M1 consult; M2–M6 delivery; M6–M12 monitoring.</code>
+          <code class="inline">Dental full-stack system (Patient, Doctor+Inventory, Assistant, Lab, Website, CEO). Go-Live at Month 4. Monitoring Months 4–12. €512/mo × 12 = €6,144.</code>
         </p>
 
         <div class="cta">
           <button class="btn" onclick="window.print()">Print / Save PDF</button>
-          <a class="btn secondary" href="mailto:?subject=Dental%20System%20Proposal&body=Dear%20Dr.%20Kaiwan%2C%0A%0APlease%20find%20our%20offer%20for%20a%20full‑stack%20dental%20clinic%20system.%20Pricing%3A%20%E2%82%AC512%2Fmonth%20for%2012%20months%20(total%20%E2%82%AC6%2C144).%0A%0AKey%20modules%3A%20Patient%20Portal%2C%20Doctor%20(Inventory)%2C%20Assistant%2C%20Lab%2C%20Website%2C%20CEO%20Dashboard.%0A%0ATimeline%3A%20M1%20consultation%20%26%20data%20collection%3B%20M2%E2%80%93M6%20delivery%20(per%20plan)%3B%20M6%E2%80%9312%20monitoring%20%26%20maintenance.%0A%0ARegards%2C%0A">Quick email</a>
+          <a class="btn secondary" href="mailto:?subject=Dental%20System%20Proposal&body=Dear%20Dr.%20Kaiwan%2C%0A%0AFull-stack%20dental%20clinic%20system%20with%20Go-Live%20at%20Month%204%2C%20monitoring%20Months%204%E2%80%9312.%0A%0A%E2%82%AC512%2Fmonth%20for%2012%20months%20(total%20%E2%82%AC6%2C144).%0A%0AModules%3A%20Patient%20Portal%2C%20Doctor%20(Inventory)%2C%20Assistant%2C%20Lab%2C%20Website%2C%20CEO%20Dashboard%2C%20Cloud%20DB%20%2B%20Domain.%0A%0ARegards%2C%0A">Quick email</a>
         </div>
       </aside>
 
@@ -239,25 +258,25 @@
 
         <!-- Phase labels -->
         <div class="meta" style="margin-top:2px">
-          <div class="chip">Phase 1 • Delivery (Months 1–6)</div>
-          <div class="chip">Phase 2 • Monitoring & Growth (Months 6–12)</div>
+          <div class="chip">Phase 1 • Delivery (Months 1–4, Go-Live end of Month 4)</div>
+          <div class="chip">Phase 2 • Monitoring & Growth (Months 4–12)</div>
         </div>
         <div class="divider"></div>
 
-        <!-- Months 1–6 stepper -->
-        <div class="stepper" aria-label="Delivery milestones months 1 to 6">
+        <!-- Months 1–4 stepper -->
+        <div class="stepper" aria-label="Delivery milestones months 1 to 4">
           <div class="step">
             <div class="dot">M1</div>
             <div>
               <div class="label">Consultation & Data Collection</div>
-              <span class="note">Workflows, data model, domain setup plan</span>
+              <span class="note">Workflows, data model, domain plan, success criteria</span>
             </div>
           </div>
           <div class="step">
             <div class="dot">M2</div>
             <div>
               <div class="label">Patient Portal + Website & Domain</div>
-              <span class="note">Authenticated patient access; public website shell live</span>
+              <span class="note">Authenticated patient access; public website live (initial)</span>
             </div>
           </div>
           <div class="step">
@@ -270,39 +289,25 @@
           <div class="step">
             <div class="dot">M4</div>
             <div>
-              <div class="label">Assistant Backend</div>
-              <span class="note">Scheduling, chair management, patient intake, queue</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="dot">M5</div>
-            <div>
-              <div class="label">Lab Backend</div>
-              <span class="note">Case creation, tracking, delivery & attachments</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="dot">M6</div>
-            <div>
-              <div class="label">CEO Dashboard + Go‑Live</div>
-              <span class="note">Finance & resources reports; integration QA; launch</span>
+              <div class="label">Assistant + Lab + CEO Dashboard • Go-Live</div>
+              <span class="note">Scheduling, lab cases, finance/resources reports; integration QA; launch</span>
             </div>
           </div>
         </div>
 
-        <!-- Ops period -->
+        <!-- Months 4–12 Ops period -->
         <div class="grid">
           <div class="col-6">
             <div class="divider"></div>
-            <h3 class="muted" style="margin:6px 0 0">Months 6–12 — Monitoring & Maintenance</h3>
+            <h3 class="muted" style="margin:6px 0 0">Months 4–12 — Monitoring & Maintenance</h3>
             <ul class="list">
               <li class="li">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M12 6v6l4 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Uptime monitoring, security patches, database backups, performance tuning.
+                Uptime monitoring, security patches, backups, and performance tuning.
               </li>
               <li class="li">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M5 12l5 5L20 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Support & minor enhancements; user feedback incorporation.
+                Support & minor enhancements; user feedback incorporated into sprints.
               </li>
             </ul>
           </div>
@@ -312,11 +317,11 @@
             <ul class="list">
               <li class="li">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Roadmap workshops each quarter; prioritize new features (e.g., advanced analytics, SMS/WhatsApp reminders, multi‑clinic).
+                Quarterly roadmap sessions; potential features: advanced analytics, SMS/WhatsApp reminders, multi-clinic.
               </li>
               <li class="li">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M20 12H4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Data exports, periodic audits, and training refreshers.
+                Data exports, periodic audits, and refresher training.
               </li>
             </ul>
           </div>
