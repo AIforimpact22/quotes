@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proposal • Orthotropics Learning Portal (Dr. Siruan)</title>
+  <meta name="description" content="Offer for Dr. Siruan: Learning portal with registration, payment, automated course invites, modules/subjects/lessons, members map UI, and fully managed hosting. Two plans: Basic and Plus." />
+  <style>
+    :root{
+      --bg: #0f1220;
+      --card: #171a2b;
+      --ink: #e9ecf1;
+      --muted: #b8c0d1;
+      --accent: #6ee7ff;
+      --accent-2:#87ffa5;
+      --chip:#24304a;
+      --border:#2a3553;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 800px at 90% -10%, #1a2a48 0%, #0f1220 60%) no-repeat,
+        var(--bg);
+      color:var(--ink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:1100px; margin:24px auto; padding:24px}
+
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+      padding:16px 20px; background:rgba(255,255,255,0.02);
+      border:1px solid var(--border); border-radius:14px; backdrop-filter: blur(6px);
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo-badge{
+      width:52px; height:52px; border-radius:50%;
+      display:grid; place-items:center;
+      background: radial-gradient(60% 60% at 30% 30%, #263150 0%, #111827 70%);
+      border:1px solid var(--border);
+      overflow:hidden;
+    }
+    .logo-badge img{
+      width:42px; height:42px; display:block;
+      filter: drop-shadow(0 0 4px rgba(255,255,255,.25));
+    }
+    .brand .name{font-weight:700; letter-spacing:.2px}
+    .tagline{color:var(--muted); font-size:.92rem}
+    .badge{padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:var(--chip); color:var(--muted); font-size:.9rem}
+
+    h1{margin:20px 0 6px; font-size:clamp(1.4rem, 2.6vw, 2rem)}
+    .sub{color:var(--muted); margin:0 0 18px}
+    .meta{display:flex; gap:12px; flex-wrap:wrap; margin-top:4px}
+    .meta .chip{background:var(--chip); border:1px solid var(--border); color:var(--ink); padding:6px 10px; border-radius:999px; font-size:.9rem}
+
+    main{margin-top:20px}
+    .grid{display:grid; grid-template-columns: repeat(12,1fr); gap:18px}
+    .card{
+      grid-column: span 12; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 18px 10px;
+      box-shadow: 0 10px 30px rgba(3,7,18,0.35);
+    }
+    @media(min-width:900px){
+      .col-7{grid-column:span 7}
+      .col-5{grid-column:span 5}
+      .col-6{grid-column:span 6}
+      .col-4{grid-column:span 4}
+      .col-8{grid-column:span 8}
+    }
+    .card h2{margin:4px 0 6px; font-size:1.15rem}
+    .divider{height:1px; background:linear-gradient(90deg, transparent, #2a3553, transparent); margin:12px 0}
+    .list{margin:8px 0 14px; padding:0; list-style:none}
+    .li{display:flex; align-items:flex-start; gap:10px; padding:8px 0}
+    .li svg{flex:0 0 18px; margin-top:2px}
+    .li svg path{stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; fill:none}
+    .muted{color:var(--muted)}
+
+    /* Stepper / Timeline */
+    .stepper{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; margin:8px 0 16px; position:relative; padding:8px 6px;
+      overflow-x:auto;
+    }
+    .stepper::before{
+      content:""; position:absolute; left:30px; right:30px; top:50%; height:2px; background:linear-gradient(90deg, #2a3553, #324068);
+      transform:translateY(-50%); z-index:0;
+    }
+    .step{display:flex; align-items:center; gap:10px; position:relative; z-index:1; min-width: 220px;}
+    .dot{
+      width:22px; height:22px; border-radius:50%; display:grid; place-items:center;
+      background:linear-gradient(180deg, #1c2540, #111827); border:2px solid #31406a; color:var(--ink); font-size:.82rem; font-weight:700;
+      box-shadow:0 0 0 4px rgba(110,231,255,0.15);
+    }
+    .step .label{font-weight:700}
+    .step .note{display:block; font-size:.9rem; color:var(--muted)}
+
+    /* Plan cards */
+    .plans{display:grid; grid-template-columns: 1fr; gap:12px; margin:8px 0 16px}
+    @media(min-width:900px){ .plans{grid-template-columns: 1fr} }
+    .plan{
+      border:1px solid var(--border); border-radius:12px; padding:14px; background:linear-gradient(180deg, #1b2339, #1a2036);
+    }
+    .plan h3{margin:4px 0 8px; font-size:1.05rem}
+    .tagline-sm{font-size:.92rem; color:var(--muted)}
+    .price{display:flex; align-items:baseline; gap:10px; margin:8px 0 6px}
+    .price .amt{font-size:1.25rem; font-weight:800}
+    .price .per{color:var(--muted)}
+    .incl{display:flex; flex-wrap:wrap; gap:8px; margin:8px 0}
+    .incl .chip{background:var(--chip); border:1px solid var(--border); padding:6px 10px; border-radius:999px; font-size:.88rem}
+
+    /* Buttons */
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin:10px 0 20px}
+    .btn{
+      appearance:none; border:1px solid var(--border); background:linear-gradient(180deg, #1f2937, #111827);
+      color:var(--ink); padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600
+    }
+    .btn.secondary{background:transparent}
+
+    footer{margin:24px 0 8px; color:var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    code.inline{background:rgba(255,255,255,.06); border:1px solid var(--border); padding:2px 6px; border-radius:8px}
+
+    /* Print */
+    @media print{
+      body{background:#fff}
+      .wrap{margin:0; max-width:none}
+      header, .btn{filter:none; box-shadow:none}
+      .btn{display:none}
+      footer{color:#333}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <a href="https://www.aiforimpact.net" target="_blank" rel="noopener" class="logo-badge" aria-label="Ai For Impact">
+          <img src="https://i.imgur.com/STm5VaG.png?w=118&h=118" alt="Ai For Impact logo (white on dark badge)" />
+        </a>
+        <div>
+          <div class="name"><a href="https://www.aiforimpact.net" target="_blank" rel="noopener">Ai For Impact</a></div>
+          <div class="tagline">We make you progress faster.</div>
+        </div>
+      </div>
+      <div class="badge">Proposal • Orthotropics Learning Portal</div>
+    </header>
+
+    <section>
+      <h1>Learning Portal for Orthotropics (Dr. Siruan)</h1>
+      <p class="sub">Prepared for <strong>Dr. Siruan</strong> • <span class="muted">Date: <span id="today">—</span></span></p>
+      <div class="meta">
+        <div class="chip">Registration &amp; Payment → Auto Invite</div>
+        <div class="chip">Course: Modules → Subjects → Lessons</div>
+        <div class="chip">Members Map (privacy‑safe)</div>
+        <div class="chip">Managed Hosting &amp; Support</div>
+        <div class="chip">Two Languages</div>
+        <div class="chip"><a href="https://www.aiforimpact.net" target="_blank" rel="noopener">www.aiforimpact.net</a></div>
+      </div>
+    </section>
+
+    <main class="grid">
+      <!-- Scope & Modules -->
+      <section class="card col-7">
+        <h2>Scope &amp; Modules</h2>
+        <div class="divider"></div>
+
+        <h3 class="muted" style="margin:6px 0 0">Core Portal &amp; Automation</h3>
+        <ul class="list">
+          <li class="li">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
+            User registration with email verification, secure login, and profile.
+          </li>
+          <li class="li">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
+            Payments (Stripe or local gateway). On success: <strong>automatic enrollment + invite email</strong>.
+          </li>
+        </ul>
+
+        <h3 class="muted" style="margin:6px 0 0">Course Delivery (Orthotropics)</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Course structure with <strong>Modules → Subjects → Lessons</strong> (video, article, quiz, assignment).</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Progress tracking, access control, and content management.</li>
+        </ul>
+
+        <h3 class="muted" style="margin:6px 0 0">Members Map (Nice UI)</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>City‑level or country‑level visualization with clustering and hover cards.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Privacy by default (no exact addresses), admin filters/search.</li>
+        </ul>
+
+        <h3 class="muted" style="margin:6px 0 0">Operations • “Managed by Us”</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Hosting, domain, SSL, daily backups, uptime monitoring, and security updates.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>Support & minor enhancements via monthly sprints.</li>
+        </ul>
+      </section>
+
+      <!-- Pricing & Plans -->
+      <aside class="card col-5">
+        <h2>Pricing &amp; Plans</h2>
+        <div class="divider"></div>
+
+        <div class="plans">
+          <!-- Basic Plan -->
+          <div class="plan" aria-label="Basic Plan">
+            <h3>Basic Plan</h3>
+            <div class="tagline-sm">Build + Hosting + Domain + SSL + <strong>Two Languages</strong> + Backups + Monitoring + Support</div>
+            <div class="price">
+              <span class="amt">€360<span class="per">/month</span></span>
+              <span class="per">× 12 = <strong>€4,320</strong></span>
+            </div>
+            <div class="incl">
+              <span class="chip">Registration &amp; Payment</span>
+              <span class="chip">Auto Course Invites</span>
+              <span class="chip">Modules/Subjects/Lessons</span>
+              <span class="chip">Members Map</span>
+              <span class="chip">Managed Service</span>
+              <span class="chip">Two Languages</span>
+            </div>
+          </div>
+
+          <!-- Plus Plan -->
+          <div class="plan" aria-label="Plus Plan">
+            <h3>Plus Plan</h3>
+            <div class="tagline-sm">Everything in <strong>Basic</strong> <em>plus</em>: Website running, Webinar integration, Certificates, Advanced analytics</div>
+            <div class="price">
+              <span class="amt">€530<span class="per">/month</span></span>
+              <span class="per">× 12 = <strong>€6,360</strong></span>
+            </div>
+            <div class="incl">
+              <span class="chip">Public Website (operational)</span>
+              <span class="chip">Webinar/Zoom Integration</span>
+              <span class="chip">User Certificates</span>
+              <span class="chip">Advanced Analytics</span>
+              <span class="chip">All Basic Features</span>
+            </div>
+            <p class="muted" style="margin:6px 0 0; font-size:.9rem">
+              <strong>Note:</strong> €530 × 12 months = €6,360.
+            </p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <p class="muted" style="margin-top:8px">Quick message versions:</p>
+        <p>
+          <code class="inline">Basic — Learning portal (2 languages), payments → auto invites, course modules, members map, fully managed. €360/mo × 12 = €4,320.</code>
+        </p>
+        <p>
+          <code class="inline">Plus — All Basic + website running, webinar integration, certificates, advanced analytics. €530/mo × 12 = €6,360.</code>
+        </p>
+
+        <div class="cta">
+          <button class="btn" onclick="window.print()">Print / Save PDF</button>
+          <a class="btn secondary" href="mailto:?subject=Learning%20Portal%20Proposal%20(Dr.%20Siruan)&body=Dear%20Dr.%20Siruan%2C%0A%0ALearning%20portal%20with%20registrations%20%2B%20payments%20%2B%20automated%20invites%2C%20course%20modules%2C%20members%20map%2C%20and%20full%20management.%0A%0APlans%3A%0A%E2%80%A2%20Basic%3A%20%E2%82%AC360%2Fmonth%20%C3%97%2012%20%3D%20%E2%82%AC4%2C320.%0A%E2%80%A2%20Plus%3A%20%E2%82%AC530%2Fmonth%20%C3%97%2012%20%3D%20%E2%82%AC6%2C360.%0A%0ARegards%2C%0A">Quick email</a>
+        </div>
+
+        <p class="muted" style="font-size:.88rem">
+          * Gateway/processor fees are billed by the payment provider and are not included.
+        </p>
+      </aside>
+
+      <!-- Timeline -->
+      <section class="card col-12">
+        <h2>Timeline (12 Months)</h2>
+
+        <div class="meta" style="margin-top:2px">
+          <div class="chip">Phase 1 • Delivery (Months 1–4, Go‑Live end of Month 4)</div>
+          <div class="chip">Phase 2 • Monitoring &amp; Growth (Months 4–12)</div>
+        </div>
+        <div class="divider"></div>
+
+        <!-- Months 1–4 stepper -->
+        <div class="stepper" aria-label="Delivery milestones months 1 to 4">
+          <div class="step">
+            <div class="dot">M1</div>
+            <div>
+              <div class="label">Planning &amp; Setup</div>
+              <span class="note">Workflows, data model, payments, languages</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">M2</div>
+            <div>
+              <div class="label">Registration &amp; Payment</div>
+              <span class="note">Enrollments, receipts, auto invites</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">M3</div>
+            <div>
+              <div class="label">Course Delivery + Map</div>
+              <span class="note">Modules/Subjects/Lessons, members map UI</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">M4</div>
+            <div>
+              <div class="label">Go‑Live</div>
+              <span class="note">QA, content load, launch</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Months 4–12 Ops period -->
+        <div class="grid">
+          <div class="col-6">
+            <div class="divider"></div>
+            <h3 class="muted" style="margin:6px 0 0">Months 4–12 — Monitoring &amp; Maintenance</h3>
+            <ul class="list">
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>Uptime monitoring, security patches, backups, performance tuning.</li>
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Support & minor enhancements; feedback into monthly sprints.</li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <div class="divider"></div>
+            <h3 class="muted" style="margin:6px 0 0">Growth &amp; Add‑ons (Plus highlights)</h3>
+            <ul class="list">
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Public website updates, webinar/live session workflows, certificates.</li>
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 12H4"/></svg>Advanced analytics for engagement and conversion.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year">2025</span> <a href="https://www.aiforimpact.net" target="_blank" rel="noopener">Ai For Impact</a> • We make you progress faster.</div>
+      <div class="muted">Prepared for: Dr. Siruan</div>
+    </footer>
+  </div>
+
+  <script>
+    const today = new Date();
+    const fmt = today.toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
+    document.getElementById('today').textContent = fmt;
+    document.getElementById('year').textContent = today.getFullYear();
+  </script>
+</body>
+</html>
