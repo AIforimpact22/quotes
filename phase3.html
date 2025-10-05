@@ -1,365 +1,428 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ai For Impact · AMAS Phase 3 Proposal</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
-  </head>
-  <body class="with-cover">
-    <!-- =========================
-         NAV
-    ========================== -->
-    <header class="site-nav" role="navigation" aria-label="Primary">
-      <div class="container">
-        <div class="nav-row">
-          <div class="brand-wrap">
-            <a class="brand-link" href="https://www.aiforimpact.net" target="_blank" rel="noopener noreferrer">
-              <img
-                class="brand-logo"
-                src="https://i.imgur.com/STm5VaG.png"
-                alt="Ai For Impact brand mark"
-                width="80"
-                height="80"
-                decoding="async"
-                loading="eager"
-                fetchpriority="high"
-              />
-              <span class="brand-text">Ai For Impact</span>
-            </a>
-          </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proposal • AMAS Hypermarket Management System — Phase 3</title>
+  <meta name="description" content="Proposal for AMAS Hypermarket Phase 3: LLM backend, Supplier & Customer backends, Bakery & Butchery integrations, and Enhancements (Data Room, Cashier, Automated PO, HR). Phase window Oct 11–Dec 31, 2025. Base $11,200 + 15% contingency = $12,880." />
+  <style>
+    :root{
+      --bg: #0f1220;
+      --card: #171a2b;
+      --ink: #e9ecf1;
+      --muted: #b8c0d1;
+      --accent: #6ee7ff;
+      --accent-2:#87ffa5;
+      --chip:#24304a;
+      --border:#2a3553;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 800px at 90% -10%, #1a2a48 0%, #0f1220 60%) no-repeat,
+        var(--bg);
+      color:var(--ink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:1100px; margin:24px auto; padding:24px}
+
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+      padding:16px 20px; background:rgba(255,255,255,0.02);
+      border:1px solid var(--border); border-radius:14px; backdrop-filter: blur(6px);
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo-badge{
+      width:52px; height:52px; border-radius:50%;
+      display:grid; place-items:center;
+      background: radial-gradient(60% 60% at 30% 30%, #263150 0%, #111827 70%);
+      border:1px solid var(--border);
+      overflow:hidden;
+    }
+    .logo-badge img{
+      width:42px; height:42px; display:block;
+      filter: drop-shadow(0 0 4px rgba(255,255,255,.25));
+    }
+    .brand .name{font-weight:700; letter-spacing:.2px}
+    .tagline{color:var(--muted); font-size:.92rem}
+    .badge{padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:var(--chip); color:var(--muted); font-size:.9rem}
+
+    h1{margin:20px 0 6px; font-size:clamp(1.4rem, 2.6vw, 2rem)}
+    .sub{color:var(--muted); margin:0 0 18px}
+    .meta{display:flex; gap:12px; flex-wrap:wrap; margin-top:4px}
+    .meta .chip{background:var(--chip); border:1px solid var(--border); color:var(--ink); padding:6px 10px; border-radius:999px; font-size:.9rem}
+
+    main{margin-top:20px}
+    .grid{display:grid; grid-template-columns: repeat(12,1fr); gap:18px}
+    .card{
+      grid-column: span 12; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 18px 10px;
+      box-shadow: 0 10px 30px rgba(3,7,18,0.35);
+    }
+    @media(min-width:900px){
+      .col-7{grid-column:span 7}
+      .col-5{grid-column:span 5}
+      .col-6{grid-column:span 6}
+      .col-4{grid-column:span 4}
+      .col-8{grid-column:span 8}
+    }
+    .card h2{margin:4px 0 6px; font-size:1.15rem}
+    .divider{height:1px; background:linear-gradient(90deg, transparent, #2a3553, transparent); margin:12px 0}
+    .list{margin:8px 0 14px; padding:0; list-style:none}
+    .li{display:flex; align-items:flex-start; gap:10px; padding:8px 0}
+    .li svg{flex:0 0 18px; margin-top:2px}
+    .li svg path{stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; fill:none}
+    .muted{color:var(--muted)}
+
+    .stepper{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; margin:8px 0 16px; position:relative; padding:8px 6px;
+      overflow-x:auto;
+    }
+    .stepper::before{
+      content:""; position:absolute; left:30px; right:30px; top:50%; height:2px; background:linear-gradient(90deg, #2a3553, #324068);
+      transform:translateY(-50%); z-index:0;
+    }
+    .step{
+      display:flex; align-items:center; gap:10px; position:relative; z-index:1; min-width: 240px;
+    }
+    .dot{
+      width:22px; height:22px; border-radius:50%; display:grid; place-items:center;
+      background:linear-gradient(180deg, #1c2540, #111827); border:2px solid #31406a; color:var(--ink); font-size:.82rem; font-weight:700;
+      box-shadow:0 0 0 4px rgba(110,231,255,0.15);
+    }
+    .step .label{font-weight:700}
+    .step .note{display:block; font-size:.9rem; color:var(--muted)}
+
+    .price-wrap{display:flex; flex-wrap:wrap; gap:12px; margin:8px 0 14px}
+    .pill{
+      display:flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--border); border-radius:12px; background:linear-gradient(180deg, #1c2540, #1a2036);
+    }
+    .pill .amt{font-size:1.2rem; font-weight:700}
+    .pill .tag{font-size:.92rem; color:var(--muted)}
+    .math{
+      display:grid; grid-template-columns: 1fr auto; gap:6px 12px; align-items:center; margin-top:4px; font-size:1.02rem;
+    }
+    .math .label{color:var(--muted)}
+    .math .value{font-weight:700}
+    .math .total{font-size:1.25rem; font-weight:800}
+
+    .table-wrap{overflow:auto; margin-top:10px; border:1px solid var(--border); border-radius:12px}
+    table.cost-table{width:100%; border-collapse:separate; border-spacing:0}
+    .cost-table thead th{
+      position:sticky; top:0; background:rgba(255,255,255,0.03);
+      color:var(--muted); text-align:left; font-weight:700; padding:10px 12px; border-bottom:1px solid var(--border);
+    }
+    .cost-table tbody td{
+      padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top; font-size:.95rem;
+    }
+    .cost-table tbody tr:last-child td{border-bottom:none}
+    .cost-table td.num{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums}
+    .cost-table tfoot td{
+      padding:12px; font-weight:800; border-top:1px solid var(--border);
+    }
+    .cost-note{font-size:.88rem; color:var(--muted); margin-top:6px}
+
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin:10px 0 20px}
+    .btn{
+      appearance:none; border:1px solid var(--border); background:linear-gradient(180deg, #1f2937, #111827);
+      color:var(--ink); padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600
+    }
+    .btn.secondary{background:transparent}
+
+    footer{margin:24px 0 8px; color:var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    code.inline{background:rgba(255,255,255,.06); border:1px solid var(--border); padding:2px 6px; border-radius:8px}
+
+    @media print{
+      body{background:#fff}
+      .wrap{margin:0; max-width:none}
+      header, .btn{filter:none; box-shadow:none}
+      .btn{display:none}
+      footer{color:#333}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <a href="https://www.aiforimpact.net" target="_blank" rel="noopener" class="logo-badge" aria-label="Ai For Impact">
+          <img src="https://i.imgur.com/STm5VaG.png?w=118&h=118" alt="Ai For Impact logo (white on dark badge)" />
+        </a>
+        <div>
+          <div class="name"><a href="https://www.aiforimpact.net" target="_blank" rel="noopener">Ai For Impact</a></div>
+          <div class="tagline">We make you progress faster.</div>
         </div>
       </div>
+      <div class="badge">Proposal • AMAS Hypermarket — Phase 3</div>
     </header>
 
-    <!-- =========================
-         COVER / HERO
-    ========================== -->
-    <section class="cover-hero" aria-labelledby="hero-title">
-      <div
-        class="bg"
-        style="background-image:
-          radial-gradient(circle at top right, rgba(92, 169, 255, 0.32), transparent 55%),
-          radial-gradient(circle at bottom left, rgba(139, 224, 135, 0.24), transparent 50%),
-          linear-gradient(135deg, #0d1423 0%, #06070b 100%);"
-      ></div>
-      <div class="overlay" aria-hidden="true"></div>
-      <div class="inner">
-        <h1 id="hero-title">AMAS Hypermarket · Phase 3: Intelligent Integration & Automation</h1>
-        <p class="subhead">
-          Implementation window: <strong>October 11 – December 31, 2025</strong>.
-          This proposal connects departmental systems, elevates the Data Room, and introduces a
-          conversational AI assistant for founder‑level insights—while preserving simple operations.
-        </p>
-        <div class="hero-actions">
-          <a class="btn" href="#plan">View the plan</a>
-          <a class="btn ghost" href="#budget">See the budget</a>
-        </div>
+    <section>
+      <h1>AMAS Hypermarket Management System — Phase 3</h1>
+      <p class="sub">Prepared for <strong>AMAS Founders</strong> • <span class="muted">Date: <span id="today">—</span></span></p>
+      <div class="meta">
+        <div class="chip">LLM Backend</div>
+        <div class="chip">Supplier Backend</div>
+        <div class="chip">Customer Backend</div>
+        <div class="chip">Bakery Integration</div>
+        <div class="chip">Butchery Integration</div>
+        <div class="chip">Enhancements: Data Room, Cashier, Auto PO, HR</div>
+        <div class="chip">Phase Window: Oct 11 → Dec 31, 2025</div>
+        <div class="chip">Base: $11,200</div>
+        <div class="chip">Contingency: 15% ($1,680)</div>
+        <div class="chip">Grand Total: $12,880</div>
       </div>
     </section>
 
-    <main class="container">
-      <!-- =========================
-           PLAN & WORKSTREAMS
-      ========================== -->
-      <section class="section-card" id="plan" aria-labelledby="plan-title">
-        <div class="banner">
-          <h2 id="plan-title">Phase 3 workstreams (Oct 11 — Dec 31, 2025)</h2>
-          <p class="muted">
-            Prioritized integrations and platform enhancements designed to shift AMAS from
-            transactional workflows to <em>data‑driven, AI‑assisted</em> operations.
-          </p>
-          <p class="library-note">Prepared for AMAS Hypermarket · by Ai For Impact</p>
-        </div>
+    <main class="grid">
+      <!-- Scope & Modules -->
+      <section class="card col-7">
+        <h2>Scope &amp; Modules</h2>
+        <div class="divider"></div>
 
-        <div class="body">
-          <div class="entries" aria-labelledby="plan-title">
-            <!-- Entry: LLM Backend -->
-            <article class="card data-card entry-card">
-              <header class="entry-head">
-                <h3 class="entry-title">🤖 LLM Backend (AI Layer)</h3>
-                <div class="chip-row">
-                  <span class="chip">Budget: <strong>$2,300.00</strong></span>
-                  <span class="chip">Timeline: 2025‑10‑11 → 2025‑11‑30</span>
-                </div>
-              </header>
-              <ul class="entry-points">
-                <li>Conversational assistant for founders: summaries, anomalies, and “what/why” explanations.</li>
-                <li>Unified access to finance, supplier, inventory, and HR data.</li>
-                <li>Foundation for forecasting and automation (purchase orders, alerts).</li>
-              </ul>
-            </article>
+        <h3 class="muted" style="margin:6px 0 0">LLM Backend (AI Layer)</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Conversational interface for founders: insights, summaries, proactive alerts.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Connects to finance, inventory, supplier, and HR data for context-aware answers.</li>
+        </ul>
 
-            <!-- Entry: Supplier Backend -->
-            <article class="card data-card entry-card">
-              <header class="entry-head">
-                <h3 class="entry-title">🏬 Supplier Backend</h3>
-                <div class="chip-row">
-                  <span class="chip">Budget: <strong>$2,000.00</strong></span>
-                  <span class="chip">Timeline: 2025‑10‑11 → 2025‑11‑20</span>
-                </div>
-              </header>
-              <ul class="entry-points">
-                <li>POs, invoices, delivery tracking; supplier accounts and terms.</li>
-                <li>Tight integration with automated purchase order logic.</li>
-                <li>Improved supply chain visibility and accountability.</li>
-              </ul>
-            </article>
+        <h3 class="muted" style="margin:6px 0 0">Supplier Backend</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>PO lifecycle, invoices, delivery tracking; integrates with Automated PO logic.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Supplier accounts, terms, and performance analytics.</li>
+        </ul>
 
-            <!-- Entry: Customer Backend -->
-            <article class="card data-card entry-card">
-              <header class="entry-head">
-                <h3 class="entry-title">👥 Customer Backend</h3>
-                <div class="chip-row">
-                  <span class="chip">Budget: <strong>$2,000.00</strong></span>
-                  <span class="chip">Timeline: 2025‑11‑15 → 2025‑12‑20</span>
-                </div>
-              </header>
-              <ul class="entry-points">
-                <li>Profiles, loyalty/credit, and purchase history as a CRM foundation.</li>
-                <li>Signals for personalization in cashier and AI modules.</li>
-              </ul>
-            </article>
+        <h3 class="muted" style="margin:6px 0 0">Customer Backend</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Profiles, loyalty & credit, purchase history; CRM foundation.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Personalization signals for LLM and analytics.</li>
+        </ul>
 
-            <!-- Entry: Bakery Integration -->
-            <article class="card data-card entry-card">
-              <header class="entry-head">
-                <h3 class="entry-title">🍞 Bakery Integration</h3>
-                <div class="chip-row">
-                  <span class="chip">Budget: <strong>$1,300.00</strong></span>
-                  <span class="chip">Timeline: 2025‑12‑10 → 2025‑12‑31</span>
-                </div>
-              </header>
-              <ul class="entry-points">
-                <li>Production, ingredient usage, waste, and sales syncing.</li>
-                <li>Real‑time linkage to inventory and supplier reordering.</li>
-              </ul>
-            </article>
+        <h3 class="muted" style="margin:6px 0 0">Bakery Integration</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Ingredient usage, production, waste tracking, real-time sales syncing.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Links to inventory and supplier ordering to reduce stockouts.</li>
+        </ul>
 
-            <!-- Entry: Butchery Integration -->
-            <article class="card data-card entry-card">
-              <header class="entry-head">
-                <h3 class="entry-title">🥩 Butchery Integration</h3>
-                <div class="chip-row">
-                  <span class="chip">Budget: <strong>$1,300.00</strong></span>
-                  <span class="chip">Timeline: 2025‑12‑10 → 2025‑12‑31</span>
-                </div>
-              </header>
-              <ul class="entry-points">
-                <li>Batch tracking, yield, waste, costing, and sales synchronization.</li>
-                <li>Improves stock precision and profitability analytics.</li>
-              </ul>
-            </article>
+        <h3 class="muted" style="margin:6px 0 0">Butchery Integration</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Batch tracking, yield & waste, costing, and sales synchronization.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Improves stock precision and profitability analytics.</li>
+        </ul>
 
-            <!-- Entry: Enhancements (Total) -->
-            <article class="card data-card entry-card">
-              <header class="entry-head">
-                <h3 class="entry-title">⚙️ Enhancements (roll‑up)</h3>
-                <div class="chip-row">
-                  <span class="chip">Budget: <strong>$2,300.00</strong></span>
-                  <span class="chip">Timeline: 2025‑10‑11 → 2025‑12‑31</span>
-                </div>
-              </header>
-              <p class="muted">
-                Targeted upgrades across Data Room, Cashier, Automated Purchase Orders, and HR Monitoring.
-                <a href="#enhancements">See breakdown</a>.
-              </p>
-            </article>
-          </div>
-        </div>
+        <h3 class="muted" style="margin:6px 0 0">Enhancements (Targeted Upgrades)</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Data Room</strong>: more metrics, dashboards; double analysis depth.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Cashier</strong>: founder/role-aware balances, credits, KPIs, anomaly alerts.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Automated PO</strong>: refined forecasting signals, reorder rules, approvals.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>HR Monitoring</strong>: attendance & shift analytics; insights only (no auto decisions).</li>
+        </ul>
       </section>
 
-      <!-- =========================
-           ENHANCEMENTS BREAKDOWN
-      ========================== -->
-      <section class="section-card" id="enhancements" aria-labelledby="enh-title">
-        <div class="banner">
-          <h2 id="enh-title">Enhancements breakdown (included in the $2,300 roll‑up)</h2>
-          <p class="muted">These items are <strong>already included</strong> in the Enhancements total to avoid double counting.</p>
-        </div>
-        <div class="body">
-          <div class="steps-grid">
-            <article class="step-card">
-              <div class="step-head">
-                <span class="step-num">01</span>
-                <span class="step-title">Data Room Enhancement</span>
-              </div>
-              <p class="step-text">
-                Budget: <strong>$800.00</strong> · Oct 11 → Nov 10<br />
-                Improve dashboards and metrics coverage; <strong>double analysis depth</strong> for existing modules.
-              </p>
-            </article>
-            <article class="step-card">
-              <div class="step-head">
-                <span class="step-num">02</span>
-                <span class="step-title">Enhanced Cashier System</span>
-              </div>
-              <p class="step-text">
-                Budget: <strong>$700.00</strong> · Nov 01 → Dec 10<br />
-                Founder/role‑aware views, balances/credits, KPIs, alerts and anomaly checks.
-              </p>
-            </article>
-            <article class="step-card">
-              <div class="step-head">
-                <span class="step-num">03</span>
-                <span class="step-title">Automated PO Enhancement</span>
-              </div>
-              <p class="step-text">
-                Budget: <strong>$500.00</strong> · Nov 15 → Dec 20<br />
-                Refine forecasting signals, reorder rules, and approval thresholds.
-              </p>
-            </article>
-            <article class="step-card">
-              <div class="step-head">
-                <span class="step-num">04</span>
-                <span class="step-title">HR Monitoring Enhancement</span>
-              </div>
-              <p class="step-text">
-                Budget: <strong>$300.00</strong> · Dec 01 → Dec 20<br />
-                Attendance, shift analytics, productivity insights (monitoring only).
-              </p>
-            </article>
+      <!-- Price & Terms -->
+      <aside class="card col-5">
+        <h2>Pricing &amp; Terms</h2>
+        <div class="divider"></div>
+        <div class="price-wrap">
+          <div class="pill" title="Base subtotal">
+            <span class="amt">$11,200</span>
+            <span class="tag">base subtotal</span>
+          </div>
+          <div class="pill" title="Contingency">
+            <span class="amt">$1,680</span>
+            <span class="tag">contingency (15%)</span>
+          </div>
+          <div class="pill" title="Grand Total">
+            <span class="amt">$12,880</span>
+            <span class="tag">grand total</span>
           </div>
         </div>
-      </section>
 
-      <!-- =========================
-           IMPLEMENTATION WORKFLOW (WAVES)
-      ========================== -->
-      <section class="section-card" id="workflow" aria-labelledby="workflow-title">
-        <div class="banner">
-          <h2 id="workflow-title">How the implementation comes together</h2>
-          <p class="muted">Three waves balance data foundations, backend build‑out, and departmental go‑lives.</p>
+        <div class="math" aria-label="Billing summary">
+          <div class="label">Phase Window</div><div class="value">Oct 11 → Dec 31, 2025</div>
+          <div class="label">Billing</div><div class="value">Milestone-based</div>
+          <div class="label">Includes</div><div class="value">Implementation, integration, QA/hardening, handover & training</div>
         </div>
-        <div class="body">
-          <div class="steps-grid">
-            <article class="step-card">
-              <div class="step-head">
-                <span class="step-num">Wave 01</span>
-                <span class="step-title">AI & Data Foundations</span>
-              </div>
-              <p class="step-text">
-                <strong>Oct 11 – Nov 10</strong> · LLM core, Data Room uplift, Supplier backend kick‑off.
-              </p>
-            </article>
-            <article class="step-card">
-              <div class="step-head">
-                <span class="step-num">Wave 02</span>
-                <span class="step-title">Backends & Personalization</span>
-              </div>
-              <p class="step-text">
-                <strong>Nov 01 – Dec 10</strong> · Customer backend, enhanced cashier, PO enhancement, HR monitoring.
-              </p>
-            </article>
-            <article class="step-card">
-              <div class="step-head">
-                <span class="step-num">Wave 03</span>
-                <span class="step-title">Department Integrations</span>
-              </div>
-              <p class="step-text">
-                <strong>Dec 10 – Dec 31</strong> · Bakery & Butchery integrations; hardening and go‑live readiness.
-              </p>
-            </article>
+
+        <div class="divider"></div>
+        <h3 class="muted" style="margin:6px 0 0">Cost Breakdown by Module</h3>
+        <div class="table-wrap" role="region" aria-label="Cost breakdown table" tabindex="0">
+          <table class="cost-table">
+            <thead>
+              <tr>
+                <th scope="col">Module</th>
+                <th scope="col" class="num">Allocation</th>
+                <th scope="col" class="num">Budget (USD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>LLM Backend (AI Layer)</td>
+                <td class="num">20.5%</td>
+                <td class="num">2,300.00</td>
+              </tr>
+              <tr>
+                <td>Supplier Backend</td>
+                <td class="num">17.9%</td>
+                <td class="num">2,000.00</td>
+              </tr>
+              <tr>
+                <td>Customer Backend</td>
+                <td class="num">17.9%</td>
+                <td class="num">2,000.00</td>
+              </tr>
+              <tr>
+                <td>Bakery Integration</td>
+                <td class="num">11.6%</td>
+                <td class="num">1,300.00</td>
+              </tr>
+              <tr>
+                <td>Butchery Integration</td>
+                <td class="num">11.6%</td>
+                <td class="num">1,300.00</td>
+              </tr>
+              <tr>
+                <td>Enhancements (Total)</td>
+                <td class="num">20.5%</td>
+                <td class="num">2,300.00</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td><strong>Base Subtotal</strong></td>
+                <td class="num"><strong>100.0%</strong></td>
+                <td class="num"><strong>11,200.00</strong></td>
+              </tr>
+              <tr>
+                <td>+ Contingency</td>
+                <td class="num">15%</td>
+                <td class="num">1,680.00</td>
+              </tr>
+              <tr>
+                <td class="total"><strong>Grand Total</strong></td>
+                <td class="num"></td>
+                <td class="num total"><strong>12,880.00</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <p class="cost-note">Percentages are rounded to one decimal (may show minor rounding variance).</p>
+
+        <div class="divider"></div>
+        <h3 class="muted" style="margin:6px 0 0">Enhancements Breakdown</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Data Room Enhancement</strong> — $800</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Enhanced Cashier System</strong> — $700</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Automated Purchase Order Enhancement</strong> — $500</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>HR Monitoring Enhancement</strong> — $300</li>
+        </ul>
+        <p class="cost-note">Enhancement figures are already included in the “Enhancements (Total)” line above.</p>
+
+        <div class="divider"></div>
+        <p class="muted" style="margin-top:8px">Quick message version:</p>
+        <p>
+          <code class="inline">AMAS Phase 3 (Oct 11–Dec 31, 2025). Base $11,200 + 15% contingency $1,680 = $12,880. Modules: LLM $2,300; Supplier $2,000; Customer $2,000; Bakery $1,300; Butchery $1,300; Enhancements $2,300 (Data Room $800; Cashier $700; Auto PO $500; HR $300).</code>
+        </p>
+
+        <div class="cta">
+          <button class="btn" onclick="window.print()">Print / Save PDF</button>
+          <a class="btn secondary" href="mailto:?subject=AMAS%20Phase%203%20Proposal&body=Dear%20Team%2C%0A%0AAMAS%20Phase%203%20(Oct%2011%E2%80%93Dec%2031%2C%202025).%0ABase%20%2411%2C200%20%2B%2015%%20contingency%20%241%2C680%20%3D%20%2412%2C880.%0A%0AModules%3A%20LLM%20%242%2C300%3B%20Supplier%20%242%2C000%3B%20Customer%20%242%2C000%3B%20Bakery%20%241%2C300%3B%20Butchery%20%241%2C300%3B%20Enhancements%20%242%2C300%20(Data%20Room%20%24800%3B%20Cashier%20%24700%3B%20Auto%20PO%20%24500%3B%20HR%20%24300).%0A%0ARegards%2C%0A" rel="noopener">Quick email</a>
+        </div>
+      </aside>
+
+      <!-- Timeline -->
+      <section class="card col-12">
+        <h2>Timeline &amp; Milestones (Phase 3)</h2>
+
+        <div class="meta" style="margin-top:2px">
+          <div class="chip">Kickoff: Oct 11, 2025</div>
+          <div class="chip">Target completion: Dec 31, 2025</div>
+        </div>
+        <div class="divider"></div>
+
+        <div class="stepper" aria-label="Phase 3 milestones">
+          <div class="step">
+            <div class="dot">S1</div>
+            <div>
+              <div class="label">Kickoff & Architecture</div>
+              <span class="note">Phase plan, data contracts, environments ready (Oct 11)</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">S2</div>
+            <div>
+              <div class="label">LLM Foundation + Data Room Uplift</div>
+              <span class="note">LLM endpoints, prompts, analytics extension (Oct–Early Nov)</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">S3</div>
+            <div>
+              <div class="label">Supplier Backend</div>
+              <span class="note">POs, invoices, deliveries (Oct–Nov 20)</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">S4</div>
+            <div>
+              <div class="label">Customer Backend</div>
+              <span class="note">Profiles, loyalty & credit (Nov 15–Dec 20)</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">S5</div>
+            <div>
+              <div class="label">Enhancements (Cashier, Auto PO, HR)</div>
+              <span class="note">Targeted refinements (Nov–Dec 20)</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">S6</div>
+            <div>
+              <div class="label">Bakery & Butchery Integrations • Go‑Live</div>
+              <span class="note">Dept integrations, security pass, training & handover (Dec)</span>
+            </div>
           </div>
         </div>
-      </section>
 
-      <!-- =========================
-           BUDGET
-      ========================== -->
-      <section class="section-card" id="budget" aria-labelledby="budget-title">
-        <div class="banner">
-          <h2 id="budget-title">Budget summary</h2>
-          <p class="muted">Base subtotal plus a prudent 15% contingency for integration risks and scope adjustments.</p>
-        </div>
-        <div class="body">
-          <div class="card data-card">
-            <table class="budget-table" role="table" aria-label="Phase 3 budget table">
-              <thead>
-                <tr>
-                  <th scope="col">Workstream</th>
-                  <th scope="col">Start</th>
-                  <th scope="col">End</th>
-                  <th scope="col" style="text-align:right">Budget (USD)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>LLM Backend (AI Layer)</td>
-                  <td>2025‑10‑11</td>
-                  <td>2025‑11‑30</td>
-                  <td style="text-align:right">$2,300.00</td>
-                </tr>
-                <tr>
-                  <td>Supplier Backend</td>
-                  <td>2025‑10‑11</td>
-                  <td>2025‑11‑20</td>
-                  <td style="text-align:right">$2,000.00</td>
-                </tr>
-                <tr>
-                  <td>Customer Backend</td>
-                  <td>2025‑11‑15</td>
-                  <td>2025‑12‑20</td>
-                  <td style="text-align:right">$2,000.00</td>
-                </tr>
-                <tr>
-                  <td>Bakery Integration</td>
-                  <td>2025‑12‑10</td>
-                  <td>2025‑12‑31</td>
-                  <td style="text-align:right">$1,300.00</td>
-                </tr>
-                <tr>
-                  <td>Butchery Integration</td>
-                  <td>2025‑12‑10</td>
-                  <td>2025‑12‑31</td>
-                  <td style="text-align:right">$1,300.00</td>
-                </tr>
-                <tr>
-                  <td>Enhancements (roll‑up)</td>
-                  <td>2025‑10‑11</td>
-                  <td>2025‑12‑31</td>
-                  <td style="text-align:right">$2,300.00</td>
-                </tr>
-                <tr>
-                  <th scope="row" colspan="3" style="text-align:right">Base subtotal</th>
-                  <th style="text-align:right">$11,200.00</th>
-                </tr>
-                <tr>
-                  <th scope="row" colspan="3" style="text-align:right">Contingency (15%)</th>
-                  <th style="text-align:right">$1,680.00</th>
-                </tr>
-                <tr>
-                  <th scope="row" colspan="3" style="text-align:right">Grand total</th>
-                  <th style="text-align:right">$12,880.00</th>
-                </tr>
-              </tbody>
-            </table>
-
-            <p class="muted" style="margin-top:1rem">
-              <strong>Enhancements breakdown (included in roll‑up):</strong>
-              Data Room $800 · Enhanced Cashier $700 · Automated PO $500 · HR Monitoring $300.
-            </p>
+        <div class="grid">
+          <div class="col-6">
+            <div class="divider"></div>
+            <h3 class="muted" style="margin:6px 0 0">Oct–Nov Focus</h3>
+            <ul class="list">
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>LLM core, prompts, governance; Data Room expansion.</li>
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Supplier backend from PO to delivery tracking.</li>
+              <li class="li"><svg viewBox="0 0 24 24  " width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Start Customer backend and enhancement threads.</li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <div class="divider"></div>
+            <h3 class="muted" style="margin:6px 0 0">December • Stabilize & Launch</h3>
+            <ul class="list">
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Complete Customer backend; finalize enhancements.</li>
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 12H4"/></svg>Integrate Bakery & Butchery; cross‑module QA & hardening.</li>
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Training & handover; go‑live readiness.</li>
+            </ul>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
-    <footer class="site-footer" role="contentinfo" aria-label="Site footer">
-      <div class="container footer-layout">
-        <div class="footer-copy">
-          <p class="footer-text">
-            <strong>Questions or adjustments?</strong>
-            &nbsp;—&nbsp;
-            <a href="mailto:connect@aiforimpact.net">connect@aiforimpact.net</a>
-          </p>
-        </div>
-        <div class="footer-note">AMAS Phase 3 proposal · crafted by the Ai For Impact team.</div>
-      </div>
+    <footer>
+      <div>© <span id="year">2025</span> <a href="https://www.aiforimpact.net" target="_blank" rel="noopener">Ai For Impact</a> • We make you progress faster.</div>
+      <div class="muted">Prepared for: AMAS Founders</div>
     </footer>
+  </div>
 
-    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
-  </body>
+  <script>
+    const today = new Date();
+    const fmt = today.toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
+    document.getElementById('today').textContent = fmt;
+    document.getElementById('year').textContent = today.getFullYear();
+  </script>
+</body>
 </html>
