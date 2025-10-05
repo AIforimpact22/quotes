@@ -14,7 +14,320 @@
       --accent: #6ee7ff;
       --accent-2:#87ffa5;
       --chip:#24304a;
+      --border:#2a3553;<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI4Impact B.V. — Updated Partner Offer (Simple)</title>
+  <meta name="description" content="Updated Partner Offer for AI4Impact B.V.: 15% equity, reverse vesting 24 months from 1 Jan 2026 (3-month cliff), 0% shareholder loan, legal fees covered by Investor, ops guideline €500/mo, 12 months DGA salary once payroll starts, LLM Business Analysis milestone by 30 June 2026, ROFR/Tag/Drag, Dutch law." />
+  <style>
+    :root{
+      --bg: #0f1220;
+      --card: #171a2b;
+      --ink: #e9ecf1;
+      --muted: #b8c0d1;
+      --accent: #6ee7ff;
+      --accent-2:#87ffa5;
+      --chip:#24304a;
       --border:#2a3553;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 800px at 90% -10%, #1a2a48 0%, #0f1220 60%) no-repeat,
+        var(--bg);
+      color:var(--ink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:1100px; margin:24px auto; padding:24px}
+
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+      padding:16px 20px; background:rgba(255,255,255,0.02);
+      border:1px solid var(--border); border-radius:14px; backdrop-filter: blur(6px);
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo-badge{
+      width:52px; height:52px; border-radius:50%;
+      display:grid; place-items:center;
+      background: radial-gradient(60% 60% at 30% 30%, #263150 0%, #111827 70%);
+      border:1px solid var(--border);
+      overflow:hidden;
+    }
+    .logo-badge img{
+      width:42px; height:42px; display:block;
+      filter: drop-shadow(0 0 4px rgba(255,255,255,.25));
+    }
+    .brand .name{font-weight:700; letter-spacing:.2px}
+    .tagline{color:var(--muted); font-size:.92rem}
+    .badge{padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:var(--chip); color:var(--muted); font-size:.9rem}
+
+    h1{margin:20px 0 6px; font-size:clamp(1.4rem, 2.6vw, 2rem)}
+    .sub{color:var(--muted); margin:0 0 18px}
+    .meta{display:flex; gap:12px; flex-wrap:wrap; margin-top:4px}
+    .meta .chip{background:var(--chip); border:1px solid var(--border); color:var(--ink); padding:6px 10px; border-radius:999px; font-size:.9rem}
+
+    /* One-column cards */
+    .card{
+      background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 18px 10px;
+      box-shadow: 0 10px 30px rgba(3,7,18,0.35);
+      margin:18px 0;
+    }
+    .card h2{margin:4px 0 6px; font-size:1.15rem}
+    .divider{height:1px; background:linear-gradient(90deg, transparent, #2a3553, transparent); margin:12px 0}
+    .list{margin:8px 0 14px; padding:0; list-style:none}
+    .li{display:flex; align-items:flex-start; gap:10px; padding:8px 0}
+    .li svg{flex:0 0 18px; margin-top:2px}
+    .li svg path{stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; fill:none}
+    .muted{color:var(--muted)}
+
+    .stepper{
+      display:flex; align-items:center; gap:12px; margin:8px 0 16px; position:relative; padding:8px 6px; overflow-x:auto;
+    }
+    .stepper::before{
+      content:""; position:absolute; left:30px; right:30px; top:50%; height:2px; background:linear-gradient(90deg, #2a3553, #324068);
+      transform:translateY(-50%); z-index:0;
+    }
+    .step{
+      display:flex; align-items:center; gap:10px; position:relative; z-index:1; min-width: 240px;
+    }
+    .dot{
+      width:22px; height:22px; border-radius:50%; display:grid; place-items:center;
+      background:linear-gradient(180deg, #1c2540, #111827); border:2px solid #31406a; color:var(--ink); font-size:.82rem; font-weight:700;
+      box-shadow:0 0 0 4px rgba(110,231,255,0.15);
+    }
+    .step .label{font-weight:700}
+    .step .note{display:block; font-size:.9rem; color:var(--muted)}
+
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin:10px 0 20px}
+    .btn{
+      appearance:none; border:1px solid var(--border); background:linear-gradient(180deg, #1f2937, #111827);
+      color:var(--ink); padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600
+    }
+    .btn.secondary{background:transparent}
+
+    footer{margin:24px 0 8px; color:var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    code.inline{background:rgba(255,255,255,.06); border:1px solid var(--border); padding:2px 6px; border-radius:8px}
+
+    @media print{
+      body{background:#fff}
+      .wrap{margin:0; max-width:none}
+      header, .btn{filter:none; box-shadow:none}
+      .btn{display:none}
+      footer{color:#333}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <a href="https://www.aiforimpact.net" target="_blank" rel="noopener" class="logo-badge" aria-label="AI4Impact">
+          <img src="https://i.imgur.com/STm5VaG.png?w=118&h=118" alt="AI4Impact logo (white on dark badge)" />
+        </a>
+        <div>
+          <div class="name"><a href="https://www.aiforimpact.net" target="_blank" rel="noopener">AI4Impact B.V.</a></div>
+          <div class="tagline">We make you progress faster.</div>
+        </div>
+      </div>
+      <div class="badge">Updated Partner Offer • Simple</div>
+    </header>
+
+    <section>
+      <h1>AI4Impact B.V. — Updated Partner Offer (Simple)</h1>
+      <p class="sub"><strong>Start date:</strong> 1 January 2026</p>
+      <div class="meta">
+        <div class="chip">Founder: Hawkar Ali Abdulhaq</div>
+        <div class="chip">Investor/Partner: Mariwan Masoud</div>
+        <div class="chip">Company: AI4Impact B.V. <span class="muted">(current legal: Climate Fundraising Platform B.V.; trade name “AI4Impact”)</span></div>
+        <div class="chip">Equity: 15% ordinary</div>
+        <div class="chip">Vesting: 24 mo from 1 Jan 2026 • 3-mo cliff (reverse)</div>
+        <div class="chip">Loan: 0% shareholder loan</div>
+        <div class="chip">Ops guideline: €500/mo</div>
+        <div class="chip">DGA salary: 12 months once payroll starts</div>
+        <div class="chip">Milestone: LLM Business Analysis by 30 Jun 2026</div>
+        <div class="chip">ROFR • Tag-along • Drag-along 75%</div>
+        <div class="chip">Jurisdiction: Dutch law</div>
+      </div>
+    </section>
+
+    <!-- 1) Equity & Control -->
+    <section class="card">
+      <h2>1) Equity &amp; Control</h2>
+      <div class="divider"></div>
+      <ul class="list">
+        <li class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
+          <strong>15% ordinary shares</strong> to Investor at closing.
+        </li>
+        <li class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
+          <strong>Vesting:</strong> 24 months from 1 Jan 2026 (reverse vesting), <strong>3-month cliff</strong>.
+        </li>
+        <li class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
+          <strong>Governance:</strong> 1 share = 1 vote. Founder remains statutory director and runs day-to-day.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 2) Funding -->
+    <section class="card">
+      <h2>2) Funding (0% shareholder loan)</h2>
+      <div class="divider"></div>
+      <ul class="list">
+        <li class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
+          <strong>Instrument:</strong> 0% interest shareholder loan, unsecured &amp; subordinated; draw as needed; repay when cash allows.
+        </li>
+      </ul>
+      <h3 class="muted" style="margin:6px 0 0">Covers</h3>
+      <ul class="list">
+        <li class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
+          <strong>All legal/notary/lawyer fees</strong> for share issue/transfer, trade/statutory name change, and related filings (<strong>no cap</strong>, paid by Investor).
+        </li>
+        <li class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
+          <strong>Monthly ops</strong> (rent, servers/APIs, domains) — guideline up to <strong>&euro;500/month</strong>; above by mutual approval.
+        </li>
+        <li class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
+          <strong>One standard DGA salary</strong> for the Founder (incl. employer on-costs) for <strong>12 months</strong> once payroll starts.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 3) Roles & Light Commitments -->
+    <section class="card">
+      <h2>3) Roles &amp; Light Commitments</h2>
+      <div class="divider"></div>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Founder:</strong> product, tech, operations.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Investor:</strong> sales/strategy support; board-observer rights.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Light KPI:</strong> e.g., 1 warm intro/month or 1 qualified lead/quarter.</li>
+      </ul>
+    </section>
+
+    <!-- 4) Product Milestone -->
+    <section class="card">
+      <h2>4) Product Milestone (Your Give-Back)</h2>
+      <div class="divider"></div>
+      <p>AI4Impact will develop the <strong>“LLM Business Analysis”</strong> product within 6 months of 1 Jan 2026 — target <strong>30 June 2026</strong> — and prepare it for sale (<em>v1 ready, pricing, landing page, demo deck, onboarding docs, basic T&amp;Cs/privacy</em>).</p>
+    </section>
+
+    <!-- 5) Exits & Transfers -->
+    <section class="card">
+      <h2>5) Exits &amp; Transfers</h2>
+      <div class="divider"></div>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>24-month lock-up</strong> on transfers.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Afterward: <strong>ROFR</strong> (Right of First Refusal), <strong>tag-along</strong> for Investor, <strong>drag-along at 75%</strong> approval.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Unvested shares</strong> buy-backable at <strong>nominal value</strong> if contribution stops during vesting; <strong>vested at fair-market value</strong> (independent valuer if needed).</li>
+      </ul>
+    </section>
+
+    <!-- 6) Documents -->
+    <section class="card">
+      <h2>6) Documents</h2>
+      <div class="divider"></div>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Shareholders’ Agreement (SHA)</strong> and <strong>Loan Agreement</strong> (0% terms, drawdowns, subordination, repayment).</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Notarial deed</strong> for share issue/transfer; <strong>update shareholder register</strong>.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>KVK trade name filing “AI4Impact”</strong> now; legal name change later if desired.</li>
+      </ul>
+      <p class="muted"><strong>Note:</strong> Non-binding summary. Final terms will be set in the SHA and Loan Agreement (Dutch law).</p>
+    </section>
+
+    <!-- Tiny To-Do List -->
+    <section class="card">
+      <h2>Tiny To-Do List</h2>
+      <div class="divider"></div>
+
+      <div class="stepper" aria-label="Timeline">
+        <div class="step">
+          <div class="dot">S1</div>
+          <div>
+            <div class="label">This Week</div>
+            <span class="note">Confirm terms, get notary quotes, draft SHA &amp; Loan</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">S2</div>
+          <div>
+            <div class="label">Notary Day</div>
+            <span class="note">Execute deed; update shareholder register</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">S3</div>
+          <div>
+            <div class="label">+7 Days</div>
+            <span class="note">Fund initial drawdowns; start monthly check-ins</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">S4</div>
+          <div>
+            <div class="label">By 30 Jun 2026</div>
+            <span class="note">Deliver LLM Business Analysis (sale-ready)</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="muted" style="margin:6px 0 0">This Week</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>Confirm start date (1 Jan 2026), 24-month vesting, and salary coverage scope.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Get 2–3 notary quotes; book share issue/transfer (and name change if doing now).</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Draft &amp; sign short <strong>SHA</strong> + <strong>Loan Agreement</strong> (plain).</li>
+      </ul>
+
+      <h3 class="muted" style="margin:6px 0 0">Notary Day</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 12H4"/></svg>Execute deed; update shareholder register.</li>
+      </ul>
+
+      <h3 class="muted" style="margin:6px 0 0">Within 7 Days After</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Investor funds initial drawdowns (legal fees + ops; payroll when set).</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Start monthly check-ins (cash, KPI, milestone).</li>
+      </ul>
+
+      <h3 class="muted" style="margin:6px 0 0">By 30 June 2026</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 18h18"/></svg>Deliver <strong>LLM Business Analysis</strong> product sale-ready.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Quick Actions</h2>
+      <div class="divider"></div>
+      <div class="cta">
+        <button class="btn" onclick="window.print()">Print / Save PDF</button>
+        <a class="btn secondary" rel="noopener"
+           href="mailto:?subject=AI4Impact%20B.V.%20%E2%80%94%20Updated%20Partner%20Offer%20(Simple)&body=Start%20date%3A%201%20January%202026%0AFounder%3A%20Hawkar%20Ali%20Abdulhaq%0AInvestor%2FPartner%3A%20Mariwan%20Masoud%0ACompany%3A%20AI4Impact%20B.V.%20(current%20legal%3A%20Climate%20Fundraising%20Platform%20B.V.%3B%20trade%20name%20%E2%80%9CAI4Impact%E2%80%9D)%0A%0A1)%20Equity%20%26%20Control%3A%2015%%20ordinary%20at%20closing.%20Reverse%20vesting%2024%20mo%20from%201%20Jan%202026%20(w%2F%203-mo%20cliff).%20Governance%3A%201%20share%20%3D%201%20vote%3B%20Founder%20remains%20statutory%20director.%0A%0A2)%20Funding%3A%200%%20shareholder%20loan%20(unsecured%2C%20subordinated%2C%20draw%20as%20needed%2C%20repay%20when%20cash%20allows).%20Covers%3A%20all%20legal%2Fnotary%2Flawyer%20fees%20(no%20cap%2C%20paid%20by%20Investor)%3B%20monthly%20ops%20guideline%20%E2%82%AC500%2Fmo%3B%20one%20standard%20DGA%20salary%20(12%20months)%20once%20payroll%20starts.%0A%0A3)%20Roles%20%26%20Light%20Commitments%3A%20Founder%20(product%2C%20tech%2C%20ops);%20Investor%20(sales%2Fstrategy%2C%20board-observer);%20light%20KPI%3A%201%20intro%2Fmo%20or%201%20lead%2Fqtr.%0A%0A4)%20Product%20Milestone%3A%20%E2%80%9CLLM%20Business%20Analysis%E2%80%9D%20v1%20sale-ready%20by%2030%20June%202026.%0A%0A5)%20Exits%20%26%20Transfers%3A%2024-mo%20lock-up;%20ROFR;%20tag-along;%20drag-along%20@75%%;%20unvested%20buy-back%20at%20nominal;%20vested%20at%20FMV.%0A%0A6)%20Documents%3A%20SHA%20%26%20Loan%20Agreement;%20notary%20deed;%20update%20shareholder%20register;%20KVK%20trade%20name%20%E2%80%9CAI4Impact%E2%80%9D%20(now);%20legal%20name%20change%20later.%0A%0ANote%3A%20Non-binding%20summary%20(terms%20set%20in%20SHA%20%26%20Loan%2C%20Dutch%20law).">Quick email</a>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year">2025</span> <a href="https://www.aiforimpact.net" target="_blank" rel="noopener">AI4Impact B.V.</a> • We make you progress faster.</div>
+      <div class="muted">Prepared for: Founder (Hawkar Ali Abdulhaq) &amp; Investor/Partner (Mariwan Masoud)</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
     }
     *{box-sizing:border-box}
     html,body{height:100%}
