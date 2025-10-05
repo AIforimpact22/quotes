@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI4Impact B.V. — Updated Partner Offer (Simple, 24‑Month Cover)</title>
-  <meta name="description" content="Updated Partner Offer for AI4Impact B.V.: 15% equity, reverse vesting (24 months from 1 Jan 2026, 3-month cliff), 0% shareholder loan, 24-month coverage window, ops guideline €500/mo (≈€12,000 over 24 months), investor covers legal fees (at actuals), DGA salary for 12 months once payroll starts, milestone by 30 June 2026, ROFR/Tag/Drag. Includes Nov & Dec 2025 tasks and pop-up help." />
+  <meta name="description" content="Updated Partner Offer for AI4Impact B.V.: 15% equity, reverse vesting (24 months from 1 Jan 2026, 3-month cliff), 0% shareholder loan, 24-month coverage window, ops guideline €500/mo (≈€12,000/24m), investor covers legal fees (actuals), DGA salary 12 months inside 24m, milestone by 30 June 2026, ROFR/Tag/Drag. Includes Nov & Dec 2025 tasks, calculator, and extended pop-up help with examples." />
   <style>
     :root{
       --bg: #0f1220;
@@ -123,12 +123,16 @@
     }
     .help-btn:focus{outline:2px solid var(--accent)}
     .bubble{
-      position:absolute; top:100%; left:0; min-width:220px; max-width:360px; margin-top:8px;
+      position:absolute; top:100%; left:0; min-width:260px; max-width:420px; margin-top:8px;
       background:linear-gradient(180deg,#1a2036,#0f1220); border:1px solid var(--border); color:var(--ink);
-      border-radius:10px; padding:10px 12px; box-shadow:0 12px 24px var(--shadow); display:none; z-index:10;
+      border-radius:10px; padding:12px 14px; box-shadow:0 12px 24px var(--shadow); display:none; z-index:10;
     }
-    .bubble .title{font-weight:700; margin-bottom:4px; color:var(--accent)}
-    .bubble .text{font-size:.9rem}
+    .bubble .title{font-weight:800; margin-bottom:6px; color:var(--accent)}
+    .bubble .text{font-size:.92rem; line-height:1.45}
+    .bubble .bul{margin:8px 0 0 18px; padding:0}
+    .bubble .bul li{margin:4px 0}
+    .bubble .ex{display:block; margin-top:8px; font-size:.9rem; color:var(--muted)}
+    .bubble .ex strong{color:var(--ink)}
     .bubble::before{
       content:""; position:absolute; top:-7px; left:14px; width:12px; height:12px; transform:rotate(45deg);
       background:linear-gradient(180deg,#1a2036,#0f1220); border-left:1px solid var(--border); border-top:1px solid var(--border);
@@ -140,7 +144,7 @@
     .row{display:grid; grid-template-columns: 1fr auto auto; gap:10px; align-items:center}
     .row label{font-size:.95rem; color:var(--muted)}
     .row input{
-      width:140px; padding:8px 10px; border:1px solid var(--border); border-radius:10px;
+      width:160px; padding:8px 10px; border:1px solid var(--border); border-radius:10px;
       background:linear-gradient(180deg,#161c30,#111827); color:var(--ink); font-size:.95rem;
     }
     .totals{display:grid; grid-template-columns: 1fr auto; gap:8px 10px; margin-top:8px; align-items:center}
@@ -183,6 +187,12 @@
             <span class="bubble" role="tooltip">
               <span class="title">Ordinary shares</span>
               <span class="text">Standard ownership with normal voting & profit rights (no special investor preferences).</span>
+              <ul class="bul">
+                <li><strong>Voting:</strong> 1 share = 1 vote on shareholder matters.</li>
+                <li><strong>Dividends:</strong> Paid pro‑rata if the company declares dividends.</li>
+                <li><strong>No preference:</strong> No liquidation preference or anti‑dilution.</li>
+              </ul>
+              <span class="ex"><strong>Example:</strong> If 1,000 total shares exist and you hold 150 ordinary shares (15%), you have 15% of votes and any dividend pool.</span>
             </span>
           </span>
         </div>
@@ -191,7 +201,12 @@
             <button class="help-btn" aria-label="What is reverse vesting & cliff?" aria-expanded="false">?</button>
             <span class="bubble" role="tooltip">
               <span class="title">Reverse vesting & cliff</span>
-              <span class="text">Shares are issued now but can be bought back if you leave early. A 3‑month “cliff” means nothing vests until month 3, then vesting continues monthly.</span>
+              <span class="text">Shares are issued now but can be bought back if someone leaves before they “vest”. A cliff delays the first vest.</span>
+              <ul class="bul">
+                <li><strong>Schedule:</strong> 24 months total; nothing vests until month 3 (the cliff), then vesting accrues monthly.</li>
+                <li><strong>Buy‑back if early exit:</strong> Unvested portion can be repurchased (usually at nominal value).</li>
+              </ul>
+              <span class="ex"><strong>Example:</strong> 15% grant over 24 months. Leaving at month 8 → vested months = 5 (months 4–8). Vested = 15% × (5/24) = <strong>3.125%</strong>; remaining 11.875% is unvested.</span>
             </span>
           </span>
         </div>
@@ -200,7 +215,13 @@
             <button class="help-btn" aria-label="What is a 0% shareholder loan?" aria-expanded="false">?</button>
             <span class="bubble" role="tooltip">
               <span class="title">0% shareholder loan</span>
-              <span class="text">Money lent to the company by the investor at 0% interest; drawn when needed; no fixed repayment date.</span>
+              <span class="text">Investor lends money to the company at zero interest. It’s flexible and cheaper than bank debt.</span>
+              <ul class="bul">
+                <li><strong>Draw as needed:</strong> Take funds in tranches (“drawdowns”).</li>
+                <li><strong>No interest, no fixed due date:</strong> Repay when cash is available.</li>
+                <li><strong>Subordination:</strong> Usually ranked below bank/critical creditors.</li>
+              </ul>
+              <span class="ex"><strong>Example:</strong> Jan: draw €2,000 for notary; Feb: €500 ops; repay €1,000 in May when cash improves.</span>
             </span>
           </span>
         </div>
@@ -209,7 +230,12 @@
             <button class="help-btn" aria-label="Coverage horizon help" aria-expanded="false">?</button>
             <span class="bubble" role="tooltip">
               <span class="title">Coverage horizon</span>
-              <span class="text">All “Covers” items below apply within these 24 months.</span>
+              <span class="text">The items under “Covers” are intended for this exact window.</span>
+              <ul class="bul">
+                <li><strong>In scope:</strong> Monthly ops during 2026–2027; legal costs to set up the deal; up to 12 months of DGA salary inside the window.</li>
+                <li><strong>Out of scope:</strong> Expenses before 1 Jan 2026 or after 31 Dec 2027 (unless both parties agree).</li>
+              </ul>
+              <span class="ex"><strong>Example:</strong> If payroll starts July 2026, the 12 months covered are Jul 2026–Jun 2027 (still inside the 24‑month period).</span>
             </span>
           </span>
         </div>
@@ -218,7 +244,13 @@
             <button class="help-btn" aria-label="Ops guideline meaning" aria-expanded="false">?</button>
             <span class="bubble" role="tooltip">
               <span class="title">Ops guideline</span>
-              <span class="text">Routine monthly costs (rent, servers, APIs, domains) around €500 without extra approvals; higher spend needs a quick mutual yes.</span>
+              <span class="text">A practical cap for routine monthly costs without extra approvals.</span>
+              <ul class="bul">
+                <li><strong>Included:</strong> Rent, servers, APIs, domains, small tools.</li>
+                <li><strong>Overages:</strong> If a month needs €900 (e.g., annual license), get a quick mutual “OK”.</li>
+                <li><strong>Planning:</strong> Annualized it’s ≈ €6,000/year if fully used.</li>
+              </ul>
+              <span class="ex"><strong>Example:</strong> Jan €450, Feb €520 (approved), Mar €480 → still around the guideline on average.</span>
             </span>
           </span>
         </div>
@@ -227,13 +259,59 @@
             <button class="help-btn" aria-label="DGA salary meaning" aria-expanded="false">?</button>
             <span class="bubble" role="tooltip">
               <span class="title">DGA salary</span>
-              <span class="text">Dutch “director‑major shareholder” salary. Covered for 12 months inside the 24‑month period.</span>
+              <span class="text">“Directeur‑Grootaandeelhouder”: the standard Dutch salary for a director‑major shareholder.</span>
+              <ul class="bul">
+                <li><strong>Coverage:</strong> 12 months inside the 24‑month window.</li>
+                <li><strong>Costs:</strong> Gross salary + employer taxes/benefits (on‑costs).</li>
+              </ul>
+              <span class="ex"><strong>Example:</strong> Monthly gross €3,500 + ~25% on‑costs ≈ €4,375/month → 12 months ≈ <strong>€52,500</strong>.</span>
             </span>
           </span>
         </div>
-        <div class="chip">Milestone: LLM Business Analysis by 30 Jun 2026</div>
-        <div class="chip">ROFR • Tag‑along • Drag‑along 75%</div>
-        <div class="chip">Jurisdiction: Dutch law</div>
+        <div class="chip">Milestone: LLM Business Analysis by 30 Jun 2026
+          <span class="help">
+            <button class="help-btn" aria-label="Milestone details" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip">
+              <span class="title">Milestone scope</span>
+              <span class="text">Deliver a sale‑ready v1 and basic go‑to‑market assets.</span>
+              <ul class="bul">
+                <li>Working v1, demoable end‑to‑end.</li>
+                <li>Pricing, landing page, demo deck.</li>
+                <li>Onboarding docs + basic T&Cs/privacy.</li>
+              </ul>
+              <span class="ex"><strong>Example:</strong> A prospect can see demo → sign basic T&Cs → pay → get onboarded without custom dev.</span>
+            </span>
+          </span>
+        </div>
+        <div class="chip">ROFR • Tag‑along • Drag‑along 75%
+          <span class="help">
+            <button class="help-btn" aria-label="ROFR, tag‑along, drag‑along?" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip">
+              <span class="title">Share transfer rules</span>
+              <ul class="bul">
+                <li><strong>ROFR:</strong> Must offer shares to current holders first at the same price/terms.</li>
+                <li><strong>Tag‑along:</strong> If majority sells, minority can sell on the same terms (protects minorities).</li>
+                <li><strong>Drag‑along (75%):</strong> If ≥75% approve a sale, all must sell on the approved terms (prevents hold‑up).</li>
+              </ul>
+              <span class="ex"><strong>Example:</strong> Founder accepts a buyer for 60%. Investor (15%) can “tag” for 15% at the same price; if 80% approve, they can “drag” everyone to close.</span>
+            </span>
+          </span>
+        </div>
+        <div class="chip">Jurisdiction: Dutch law
+          <span class="help">
+            <button class="help-btn" aria-label="Dutch law note" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip">
+              <span class="title">Dutch law</span>
+              <span class="text">Agreements follow Netherlands law and notarial practice.</span>
+              <ul class="bul">
+                <li>Share transfers/issues require a Dutch notary.</li>
+                <li>Docs can be in English; notary formalities are in Dutch.</li>
+                <li>Bring valid ID; KVK extracts often required.</li>
+              </ul>
+              <span class="ex"><strong>Example:</strong> Notary drafts the deed; parties appear/sign; shareholder register is updated the same day.</span>
+            </span>
+          </span>
+        </div>
       </div>
     </section>
 
@@ -246,7 +324,12 @@
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
           <strong>15% ordinary shares</strong>
           <span class="help"><button class="help-btn" aria-label="Ordinary shares help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Ordinary shares</span><span class="text">Regular shares—normal votes and dividends, no extra perks.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Ordinary shares</span>
+              <span class="text">Regular shares—normal votes and dividends, no extra perks.</span>
+              <ul class="bul"><li>Pro‑rata voting & dividends.</li><li>No liquidation preference.</li></ul>
+              <span class="ex"><strong>Example:</strong> 150/1,000 shares = 15% ownership & votes.</span>
+            </span>
           </span>
           to Investor at closing.
         </li>
@@ -254,11 +337,21 @@
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
           <strong>Vesting:</strong> 24 months from 1 Jan 2026
           <span class="help"><button class="help-btn" aria-label="Reverse vesting help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Reverse vesting</span><span class="text">You own the shares now, but the company can buy back the unvested part if you leave early.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Reverse vesting</span>
+              <span class="text">You own the shares now, but unvested shares can be bought back if you leave early.</span>
+              <ul class="bul"><li>Monthly vesting after the 3‑month cliff.</li></ul>
+              <span class="ex"><strong>Example:</strong> Leave at month 8 → 5/24 vested = 3.125%.</span>
+            </span>
           </span>
           , <strong>3‑month cliff</strong>
           <span class="help"><button class="help-btn" aria-label="Cliff help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Cliff</span><span class="text">Nothing vests until month 3; then vesting starts monthly.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Cliff</span>
+              <span class="text">No vesting accrues until month 3; then vests monthly.</span>
+              <ul class="bul"><li>Protects from very early exits.</li></ul>
+              <span class="ex"><strong>Example:</strong> Leave in month 2 → 0% vested.</span>
+            </span>
           </span>.
         </li>
         <li class="li">
@@ -266,7 +359,12 @@
           <strong>Governance:</strong> 1 share = 1 vote. Founder remains
           <strong>statutory director</strong>
           <span class="help"><button class="help-btn" aria-label="Statutory director help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Statutory director</span><span class="text">The legal company director under Dutch law; runs day‑to‑day operations.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Statutory director</span>
+              <span class="text">The legal company director under Dutch law; runs day‑to‑day.</span>
+              <ul class="bul"><li>Handles operations, signs on behalf of company.</li></ul>
+              <span class="ex"><strong>Example:</strong> Founder executes contracts and hires staff.</span>
+            </span>
           </span>
           and runs day‑to‑day.
         </li>
@@ -283,16 +381,31 @@
           <strong>Instrument:</strong> 0% interest shareholder loan,
           <strong>unsecured</strong>
           <span class="help"><button class="help-btn" aria-label="Unsecured help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Unsecured</span><span class="text">No collateral pledged (e.g., no assets as security).</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Unsecured</span>
+              <span class="text">No collateral is pledged for this loan.</span>
+              <ul class="bul"><li>Lower administrative overhead.</li><li>Higher investor risk vs secured loans.</li></ul>
+              <span class="ex"><strong>Example:</strong> Servers and IP are not “mortgaged” to the investor.</span>
+            </span>
           </span>
           &
           <strong>subordinated</strong>
           <span class="help"><button class="help-btn" aria-label="Subordinated help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Subordinated</span><span class="text">Gets repaid after other debts if the company is wound up.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Subordinated</span>
+              <span class="text">Repaid after senior creditors if the company is liquidated.</span>
+              <ul class="bul"><li>Often a requirement if bank finance is added later.</li></ul>
+              <span class="ex"><strong>Example:</strong> Bank gets paid first; remaining cash repays this loan.</span>
+            </span>
           </span>
           ; draw as needed; <strong>repay when cash allows</strong>
           <span class="help"><button class="help-btn" aria-label="Repay when cash allows help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Repay when cash allows</span><span class="text">No fixed schedule—repayment only when there’s spare cash.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Repay when cash allows</span>
+              <span class="text">No fixed repayment schedule—only when there’s surplus cash.</span>
+              <ul class="bul"><li>Protects runway; avoid repayments during tight months.</li></ul>
+              <span class="ex"><strong>Example:</strong> Skip March when churn spikes; repay extra in June after big invoice.</span>
+            </span>
           </span>.
         </li>
       </ul>
@@ -303,6 +416,16 @@
         <li class="li">
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>
           <strong>Coverage window:</strong> 24 months — <strong>1 Jan 2026 → 31 Dec 2027</strong>.
+          <span class="help"><button class="help-btn" aria-label="Coverage in/out examples" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip">
+              <span class="title">In vs Out</span>
+              <ul class="bul">
+                <li><strong>In:</strong> Ops bills dated 2026–2027; notary costs; DGA salary months within window.</li>
+                <li><strong>Out:</strong> Marketing paid in 2028; pre‑2026 expenses (unless mutually approved).</li>
+              </ul>
+              <span class="ex"><strong>Example:</strong> Salary Aug 2027 is covered; Salary Feb 2028 is outside window.</span>
+            </span>
+          </span>
         </li>
         <li class="li">
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
@@ -310,11 +433,22 @@
         </li>
         <li class="li">
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
-          <strong>Legal/notary/lawyer fees:</strong> <em>no cap</em>, at actuals (paid by Investor). Add your estimate in the calculator below for clarity.
+          <strong>Legal/notary/lawyer fees:</strong> <em>no cap</em>, at actuals (paid by Investor).
+          <span class="help"><button class="help-btn" aria-label="Legal fees examples" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip">
+              <span class="title">Legal costs</span>
+              <ul class="bul">
+                <li>Notary deed(s) for share issue/transfer.</li>
+                <li>Short SHA + Loan Agreement drafting/review.</li>
+                <li>Trade/statutory name change filings.</li>
+              </ul>
+              <span class="ex"><strong>Example:</strong> Notary €1,200 + filings €250 + brief legal review €800 = €2,250 (covered).</span>
+            </span>
+          </span>
         </li>
         <li class="li">
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
-          <strong>DGA salary:</strong> <strong>12 months</strong> (within the 24‑month window) × <em>your monthly gross + employer on‑costs</em>.
+          <strong>DGA salary:</strong> <strong>12 months</strong> inside the 24‑month window × (gross + on‑costs).
         </li>
       </ul>
 
@@ -354,7 +488,7 @@
           <div class="label grand">24‑month envelope (sum)</div><div id="grandTotal" class="value grand">€ 12.000</div>
         </div>
       </div>
-      <p class="muted" style="margin-top:6px">This is a planning aid only; actuals are recorded in the Loan Agreement and monthly reports. Ops guideline can exceed €500/mo by mutual approval.</p>
+      <p class="muted" style="margin-top:6px">Planning aid only; actuals are recorded in the Loan Agreement and monthly reports. Ops guideline can be exceeded with mutual approval.</p>
     </section>
 
     <!-- 3) Roles & Light Commitments -->
@@ -365,12 +499,21 @@
         <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Founder:</strong> product, tech, operations.</li>
         <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Investor:</strong> sales/strategy support; <strong>board‑observer rights</strong>
           <span class="help"><button class="help-btn" aria-label="Board‑observer help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Board‑observer</span><span class="text">Can attend board meetings and advise, but has no vote.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Board‑observer</span>
+              <ul class="bul"><li>Can attend board meetings and receive materials.</li><li>No vote; purely advisory.</li></ul>
+              <span class="ex"><strong>Example:</strong> Investor joins quarterly board calls, shares feedback, but doesn’t vote on resolutions.</span>
+            </span>
           </span>.
         </li>
         <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Light KPI:</strong> e.g., 1 warm intro/month or 1 <strong>qualified lead</strong>
           <span class="help"><button class="help-btn" aria-label="Qualified lead help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Qualified lead</span><span class="text">A prospect that fits the target customer and shows buying interest.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Qualified lead</span>
+              <span class="text">A prospect that matches target profile and shows buying intent.</span>
+              <ul class="bul"><li>Budget, need, timeframe, decision‑maker identified.</li></ul>
+              <span class="ex"><strong>Example:</strong> CIO of a 50‑store retailer asks for a pricing call within 2 weeks.</span>
+            </span>
           </span>/quarter.</li>
       </ul>
     </section>
@@ -389,28 +532,54 @@
       <ul class="list">
         <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>24‑month lock‑up</strong>
           <span class="help"><button class="help-btn" aria-label="Lock‑up help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Lock‑up</span><span class="text">No share transfers are allowed during this period.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Lock‑up</span>
+              <span class="text">No share transfers during this period after closing.</span>
+              <ul class="bul"><li>Stability for the first 24 months.</li></ul>
+              <span class="ex"><strong>Example:</strong> If closing is Jan 2026, transfers are restricted until Jan 2028.</span>
+            </span>
           </span> on transfers.</li>
         <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Afterward:
           <strong>ROFR</strong>
           <span class="help"><button class="help-btn" aria-label="ROFR help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Right of First Refusal</span><span class="text">You must offer shares to current holders first before selling to others.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Right of First Refusal (ROFR)</span>
+              <span class="text">Offer your shares to existing holders first, on the same terms you negotiated with an external buyer.</span>
+              <span class="ex"><strong>Example:</strong> Investor plans to sell at €10/share; company/holders may match that price before an outsider buys.</span>
+            </span>
           </span>,
           <strong>tag‑along</strong>
           <span class="help"><button class="help-btn" aria-label="Tag‑along help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Tag‑along</span><span class="text">If the majority sells, minority holders can sell alongside on the same terms.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Tag‑along</span>
+              <span class="text">Minority holders can join a majority sale at the same price and terms.</span>
+              <span class="ex"><strong>Example:</strong> Founder sells 60%; Investor (15%) tags along to sell all/part at same price.</span>
+            </span>
           </span>,
           <strong>drag‑along at 75%</strong>
           <span class="help"><button class="help-btn" aria-label="Drag‑along help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Drag‑along</span><span class="text">If 75% approve a sale, they can require all others to sell on the same terms.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Drag‑along (75%)</span>
+              <span class="text">If ≥75% approve a sale, all shareholders must sell on the same terms—prevents small holders from blocking exits.</span>
+              <span class="ex"><strong>Example:</strong> 80% approve acquisition; remaining 20% are “dragged” to close on equal terms.</span>
+            </span>
           </span>.
         </li>
         <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Unvested shares</strong> buy‑backable at <strong>nominal value</strong>
           <span class="help"><button class="help-btn" aria-label="Nominal value help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Nominal value</span><span class="text">The face value printed on the share (usually very small).</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Nominal value</span>
+              <span class="text">The face value printed on the share (often very small, e.g., €0.01).</span>
+              <span class="ex"><strong>Example:</strong> If nominal is €0.01/share, unvested shares are repurchased at €0.01 each.</span>
+            </span>
           </span> if contribution stops during vesting; <strong>vested at fair‑market value</strong>
           <span class="help"><button class="help-btn" aria-label="Fair‑market value help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Fair‑market value (FMV)</span><span class="text">A reasonable price between a willing buyer and seller; set by an independent valuer if needed.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Fair‑market value (FMV)</span>
+              <span class="text">A reasonable price between a willing buyer and seller.</span>
+              <ul class="bul"><li>Independent valuer if parties can’t agree.</li></ul>
+              <span class="ex"><strong>Example:</strong> Valuer considers revenue multiples and comps to set €12/share FMV.</span>
+            </span>
           </span>.
         </li>
       </ul>
@@ -423,23 +592,52 @@
       <ul class="list">
         <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Shareholders’ Agreement (SHA)</strong>
           <span class="help"><button class="help-btn" aria-label="SHA help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">SHA</span><span class="text">Contract between shareholders covering rights, duties, and how decisions are made.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">SHA</span>
+              <span class="text">Contract among shareholders setting governance & transfer rules.</span>
+              <ul class="bul">
+                <li>Board composition, reserved matters.</li>
+                <li>ROFR, tag, drag, vesting mechanics.</li>
+                <li>Information rights & reporting cadence.</li>
+              </ul>
+              <span class="ex"><strong>Example:</strong> SHA may require board consent for >€10k non‑budget spend.</span>
+            </span>
           </span> and <strong>Loan Agreement</strong>
           <span class="help"><button class="help-btn" aria-label="Loan Agreement help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Loan Agreement</span><span class="text">Sets the loan’s terms: 0% interest, drawdowns, subordination, repayment.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Loan Agreement</span>
+              <span class="text">Sets 0% terms, subordination, drawdown & repayment mechanics.</span>
+              <ul class="bul"><li>Simple drawdown email/notice; monthly ledger.</li></ul>
+              <span class="ex"><strong>Example:</strong> “Please draw €1,500 for March ops” → recorded against the loan balance.</span>
+            </span>
           </span>.
         </li>
         <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Notarial deed</strong>
           <span class="help"><button class="help-btn" aria-label="Notarial deed help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Notarial deed</span><span class="text">A formal document signed before a Dutch notary—required for share issue/transfer.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Notarial deed</span>
+              <span class="text">Required in NL to issue or transfer shares.</span>
+              <ul class="bul"><li>Public official validates and records the transaction.</li></ul>
+              <span class="ex"><strong>Example:</strong> Parties sign at notary; deed entered; register updated same day.</span>
+            </span>
           </span> for share issue/transfer; update <strong>shareholder register</strong>
           <span class="help"><button class="help-btn" aria-label="Shareholder register help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Shareholder register</span><span class="text">The company’s official list of who owns which shares.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Shareholder register</span>
+              <span class="text">The company’s official list of shareholdings.</span>
+              <ul class="bul"><li>Must reflect any new issue/transfer immediately.</li></ul>
+              <span class="ex"><strong>Example:</strong> Investor added as 15% holder right after notarization.</span>
+            </span>
           </span>.
         </li>
         <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>KVK</strong> trade name filing “AI4Impact”
           <span class="help"><button class="help-btn" aria-label="KVK help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">KVK</span><span class="text">Kamer van Koophandel = Dutch Chamber of Commerce. Trade name is your public name; legal name can be changed later.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">KVK</span>
+              <span class="text">Kamer van Koophandel = Dutch Chamber of Commerce.</span>
+              <ul class="bul"><li>Trade name is your public operating name; legal name change can be done later.</li></ul>
+              <span class="ex"><strong>Example:</strong> Keep legal name now; file “AI4Impact” as trade name immediately.</span>
+            </span>
           </span> now; legal name change later if desired.
         </li>
       </ul>
@@ -484,15 +682,27 @@
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>
           Gather <strong>KYC</strong>
           <span class="help"><button class="help-btn" aria-label="KYC help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">KYC</span><span class="text">“Know Your Customer”: ID checks and company info required by law.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">KYC (Know Your Customer)</span>
+              <ul class="bul"><li>Passport/ID, address proof, UBO declaration.</li><li>Company extracts and ownership structure.</li></ul>
+              <span class="ex"><strong>Example:</strong> Provide UBO form + passport + KVK extract for the BV.</span>
+            </span>
           </span> /
           <strong>KVK</strong>
           <span class="help"><button class="help-btn" aria-label="KVK help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">KVK</span><span class="text">Dutch Chamber of Commerce documents (extracts, numbers).</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">KVK</span>
+              <span class="text">Dutch Chamber of Commerce registration documents.</span>
+              <span class="ex"><strong>Example:</strong> Download the current KVK uittreksel (extract) for the notary.</span>
+            </span>
           </span>
           materials; align on <strong>cap table</strong>
           <span class="help"><button class="help-btn" aria-label="Cap table help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Cap table</span><span class="text">Ownership list showing who owns how many shares.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Cap table</span>
+              <span class="text">Table of who owns what—by shares and %.</span>
+              <span class="ex"><strong>Example:</strong> Founder 85% / Investor 15% post‑closing.</span>
+            </span>
           </span> and share classes.
         </li>
         <li class="li">
@@ -517,7 +727,11 @@
         <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>Select <strong>payroll provider</strong>; pick earliest month to start <strong>Founder DGA salary</strong>; gather onboarding details.</li>
         <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Plan <strong>initial drawdowns</strong>
           <span class="help"><button class="help-btn" aria-label="Drawdown help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Drawdown</span><span class="text">Each separate amount taken from the approved loan.</span></span>
+            <span class="bubble" role="tooltip">
+              <span class="title">Drawdown</span>
+              <span class="text">Each individual amount taken from the approved loan.</span>
+              <span class="ex"><strong>Example:</strong> “Draw €1,200 for January ops; draw €2,000 for notary fees.”</span>
+            </span>
           </span> schedule (Jan–Mar 2026).
         </li>
         <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>Decide on <strong>trade name</strong> filing timing (“AI4Impact”) and any branding updates.</li>
@@ -554,7 +768,7 @@
       <div class="cta">
         <button class="btn" onclick="window.print()">Print / Save PDF</button>
         <a class="btn secondary" rel="noopener"
-           href="mailto:?subject=AI4Impact%20B.V.%20%E2%80%94%20Updated%20Partner%20Offer%20(24%E2%80%91Month%20Cover)&body=Start%20date%3A%201%20January%202026%0AKey%3A%2015%%20equity%20with%2024m%20reverse%20vesting%20(3m%20cliff)%3B%200%%20shareholder%20loan%20(unsecured%2C%20subordinated)%3B%20coverage%20window%2024%20months%20(1%20Jan%202026%20%E2%86%92%2031%20Dec%202027).%0AOps%20guideline%3A%20%E2%82%AC500%2Fmo%20(%E2%89%88%E2%82%AC12k%2F24m).%20Legal%2Fnotary%3A%20no%20cap%20(at%20actuals).%20DGA%20salary%3A%2012%20months%20inside%20the%2024m%20window.%0AMilestone%3A%20LLM%20Business%20Analysis%20by%2030%20June%202026.%0AContains%20Nov%20%26%20Dec%202025%20prep%20tasks%20and%20a%2024m%20coverage%20calculator%20for%20totals.">Quick email</a>
+           href="mailto:?subject=AI4Impact%20B.V.%20%E2%80%94%20Updated%20Partner%20Offer%20(24%E2%80%91Month%20Cover)&body=Start%20date%3A%201%20January%202026%0AKey%3A%2015%%20equity%20with%2024m%20reverse%20vesting%20(3m%20cliff)%3B%200%%20shareholder%20loan%20(unsecured%2C%20subordinated)%3B%20coverage%20window%2024%20months%20(1%20Jan%202026%20%E2%86%92%2031%20Dec%202027).%0AOps%20guideline%3A%20%E2%82%AC500%2Fmo%20(%E2%89%88%E2%82%AC12k%2F24m).%20Legal%2Fnotary%3A%20no%20cap%20(at%20actuals).%20DGA%20salary%3A%2012%20months%20inside%20the%2024m%20window.%0AMilestone%3A%20LLM%20Business%20Analysis%20by%2030%20June%202026.%0AIncludes%20Nov%20%26%20Dec%202025%20prep%20tasks%20and%20extended%20help%20pop-ups%20with%20examples.">Quick email</a>
       </div>
     </section>
 
