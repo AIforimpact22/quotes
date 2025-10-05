@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Proposal • AMAS Hypermarket Management System — Phase 3</title>
-  <meta name="description" content="Proposal for AMAS Hypermarket Phase 3: LLM backend, Supplier & Customer backends, Bakery & Butchery integrations, and Enhancements (Data Room, Cashier, Automated PO, HR). Phase window Oct 11–Dec 31, 2025. Base $11,200 + 15% contingency = $12,880." />
+  <meta name="description" content="Proposal for AMAS Hypermarket Phase 3: Holdings backend, LLM backend, Supplier & Customer backends, Bakery & Butchery integrations, and Enhancements (Data Room, Cashier, Price, Automated PO, HR). Phase window Oct 11–Dec 31, 2025. Base $13,700 + 15% contingency = $15,755. Price Backend Enhancement is TBD and excluded from totals." />
   <style>
     :root{
       --bg: #0f1220;
@@ -165,16 +165,18 @@
       <h1>AMAS Hypermarket Management System — Phase 3</h1>
       <p class="sub">Prepared for <strong>AMAS Founders</strong> • <span class="muted">Date: <span id="today">—</span></span></p>
       <div class="meta">
+        <div class="chip">Holdings Backend</div>
         <div class="chip">LLM Backend</div>
         <div class="chip">Supplier Backend</div>
         <div class="chip">Customer Backend</div>
         <div class="chip">Bakery Integration</div>
         <div class="chip">Butchery Integration</div>
-        <div class="chip">Enhancements: Data Room, Cashier, Auto PO, HR</div>
+        <div class="chip">Enhancements: Data Room, Cashier, Price, Auto PO, HR</div>
         <div class="chip">Phase Window: Oct 11 → Dec 31, 2025</div>
-        <div class="chip">Base: $11,200</div>
-        <div class="chip">Contingency: 15% ($1,680)</div>
-        <div class="chip">Grand Total: $12,880</div>
+        <div class="chip">Base: $13,700</div>
+        <div class="chip">Contingency: 15% ($2,055)</div>
+        <div class="chip">Grand Total: $15,755</div>
+        <div class="chip">Price Enhancement: TBD (excluded)</div>
       </div>
     </section>
 
@@ -184,10 +186,16 @@
         <h2>Scope &amp; Modules</h2>
         <div class="divider"></div>
 
+        <h3 class="muted" style="margin:6px 0 0">Holdings Backend (Separate from Finance)</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Company holdings ledger: <strong>shares/cap table</strong>, <strong>fiscal</strong> overview, <strong>budget</strong> tracking, and <strong>inventory</strong> as an asset class.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Governance, audit trails, and cross-links to Finance & Inventory modules for consolidated reporting.</li>
+        </ul>
+
         <h3 class="muted" style="margin:6px 0 0">LLM Backend (AI Layer)</h3>
         <ul class="list">
           <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Conversational interface for founders: insights, summaries, proactive alerts.</li>
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Connects to finance, inventory, supplier, and HR data for context-aware answers.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Connects to holdings, finance, inventory, supplier, and HR data for context-aware answers.</li>
         </ul>
 
         <h3 class="muted" style="margin:6px 0 0">Supplier Backend</h3>
@@ -216,6 +224,7 @@
 
         <h3 class="muted" style="margin:6px 0 0">Enhancements (Targeted Upgrades)</h3>
         <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Price Backend</strong>: price catalogs, rules, promotions, margin guardrails, and pricing analytics (TBD budget).</li>
           <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Data Room</strong>: more metrics, dashboards; double analysis depth.</li>
           <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Cashier</strong>: founder/role-aware balances, credits, KPIs, anomaly alerts.</li>
           <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Automated PO</strong>: refined forecasting signals, reorder rules, approvals.</li>
@@ -229,15 +238,15 @@
         <div class="divider"></div>
         <div class="price-wrap">
           <div class="pill" title="Base subtotal">
-            <span class="amt">$11,200</span>
+            <span class="amt">$13,700</span>
             <span class="tag">base subtotal</span>
           </div>
           <div class="pill" title="Contingency">
-            <span class="amt">$1,680</span>
+            <span class="amt">$2,055</span>
             <span class="tag">contingency (15%)</span>
           </div>
           <div class="pill" title="Grand Total">
-            <span class="amt">$12,880</span>
+            <span class="amt">$15,755</span>
             <span class="tag">grand total</span>
           </div>
         </div>
@@ -261,33 +270,38 @@
             </thead>
             <tbody>
               <tr>
+                <td>Holdings Backend</td>
+                <td class="num">18.2%</td>
+                <td class="num">2,500.00</td>
+              </tr>
+              <tr>
                 <td>LLM Backend (AI Layer)</td>
-                <td class="num">20.5%</td>
+                <td class="num">16.8%</td>
                 <td class="num">2,300.00</td>
               </tr>
               <tr>
                 <td>Supplier Backend</td>
-                <td class="num">17.9%</td>
+                <td class="num">14.6%</td>
                 <td class="num">2,000.00</td>
               </tr>
               <tr>
                 <td>Customer Backend</td>
-                <td class="num">17.9%</td>
+                <td class="num">14.6%</td>
                 <td class="num">2,000.00</td>
               </tr>
               <tr>
                 <td>Bakery Integration</td>
-                <td class="num">11.6%</td>
+                <td class="num">9.5%</td>
                 <td class="num">1,300.00</td>
               </tr>
               <tr>
                 <td>Butchery Integration</td>
-                <td class="num">11.6%</td>
+                <td class="num">9.5%</td>
                 <td class="num">1,300.00</td>
               </tr>
               <tr>
                 <td>Enhancements (Total)</td>
-                <td class="num">20.5%</td>
+                <td class="num">16.8%</td>
                 <td class="num">2,300.00</td>
               </tr>
             </tbody>
@@ -295,22 +309,22 @@
               <tr>
                 <td><strong>Base Subtotal</strong></td>
                 <td class="num"><strong>100.0%</strong></td>
-                <td class="num"><strong>11,200.00</strong></td>
+                <td class="num"><strong>13,700.00</strong></td>
               </tr>
               <tr>
                 <td>+ Contingency</td>
                 <td class="num">15%</td>
-                <td class="num">1,680.00</td>
+                <td class="num">2,055.00</td>
               </tr>
               <tr>
                 <td class="total"><strong>Grand Total</strong></td>
                 <td class="num"></td>
-                <td class="num total"><strong>12,880.00</strong></td>
+                <td class="num total"><strong>15,755.00</strong></td>
               </tr>
             </tfoot>
           </table>
         </div>
-        <p class="cost-note">Percentages are rounded to one decimal (may show minor rounding variance).</p>
+        <p class="cost-note">Percentages are rounded to one decimal (may show minor rounding variance). <strong>Price Backend Enhancement is TBD and excluded from the Base/Grand totals above.</strong></p>
 
         <div class="divider"></div>
         <h3 class="muted" style="margin:6px 0 0">Enhancements Breakdown</h3>
@@ -319,18 +333,19 @@
           <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Enhanced Cashier System</strong> — $700</li>
           <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Automated Purchase Order Enhancement</strong> — $500</li>
           <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>HR Monitoring Enhancement</strong> — $300</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Price Backend Enhancement</strong> — <em>TBD</em></li>
         </ul>
-        <p class="cost-note">Enhancement figures are already included in the “Enhancements (Total)” line above.</p>
+        <p class="cost-note">Enhancement figures listed above (except Price Backend) are included in the “Enhancements (Total)” line.</p>
 
         <div class="divider"></div>
         <p class="muted" style="margin-top:8px">Quick message version:</p>
         <p>
-          <code class="inline">AMAS Phase 3 (Oct 11–Dec 31, 2025). Base $11,200 + 15% contingency $1,680 = $12,880. Modules: LLM $2,300; Supplier $2,000; Customer $2,000; Bakery $1,300; Butchery $1,300; Enhancements $2,300 (Data Room $800; Cashier $700; Auto PO $500; HR $300).</code>
+          <code class="inline">AMAS Phase 3 (Oct 11–Dec 31, 2025). Base $13,700 + 15% contingency $2,055 = $15,755. Modules: Holdings $2,500; LLM $2,300; Supplier $2,000; Customer $2,000; Bakery $1,300; Butchery $1,300; Enhancements $2,300 (Data Room $800; Cashier $700; Auto PO $500; HR $300; Price Backend TBD). Note: Price Backend Enhancement is TBD and excluded from totals.</code>
         </p>
 
         <div class="cta">
           <button class="btn" onclick="window.print()">Print / Save PDF</button>
-          <a class="btn secondary" href="mailto:?subject=AMAS%20Phase%203%20Proposal&body=Dear%20Team%2C%0A%0AAMAS%20Phase%203%20(Oct%2011%E2%80%93Dec%2031%2C%202025).%0ABase%20%2411%2C200%20%2B%2015%%20contingency%20%241%2C680%20%3D%20%2412%2C880.%0A%0AModules%3A%20LLM%20%242%2C300%3B%20Supplier%20%242%2C000%3B%20Customer%20%242%2C000%3B%20Bakery%20%241%2C300%3B%20Butchery%20%241%2C300%3B%20Enhancements%20%242%2C300%20(Data%20Room%20%24800%3B%20Cashier%20%24700%3B%20Auto%20PO%20%24500%3B%20HR%20%24300).%0A%0ARegards%2C%0A" rel="noopener">Quick email</a>
+          <a class="btn secondary" href="mailto:?subject=AMAS%20Phase%203%20Proposal&body=Dear%20Team%2C%0A%0AAMAS%20Phase%203%20(Oct%2011%E2%80%93Dec%2031%2C%202025).%0ABase%20%2413%2C700%20%2B%2015%25%20contingency%20%242%2C055%20%3D%20%2415%2C755.%0A%0AModules%3A%20Holdings%20%242%2C500%3B%20LLM%20%242%2C300%3B%20Supplier%20%242%2C000%3B%20Customer%20%242%2C000%3B%20Bakery%20%241%2C300%3B%20Butchery%20%241%2C300%3B%20Enhancements%20%242%2C300%20(Data%20Room%20%24800%3B%20Cashier%20%24700%3B%20Auto%20PO%20%24500%3B%20HR%20%24300%3B%20Price%20Backend%20TBD).%0A%0ANote%3A%20Price%20Backend%20Enhancement%20TBD%20(not%20included%20in%20totals).%0A%0ARegards%2C%0A" rel="noopener">Quick email</a>
         </div>
       </aside>
 
@@ -376,12 +391,19 @@
           <div class="step">
             <div class="dot">S5</div>
             <div>
-              <div class="label">Enhancements (Cashier, Auto PO, HR)</div>
-              <span class="note">Targeted refinements (Nov–Dec 20)</span>
+              <div class="label">Holdings Backend</div>
+              <span class="note">Shares, fiscal, budgets & inventory mapping (Nov–Dec)</span>
             </div>
           </div>
           <div class="step">
             <div class="dot">S6</div>
+            <div>
+              <div class="label">Enhancements (Cashier, Price, Auto PO, HR)</div>
+              <span class="note">Targeted refinements (Nov–Dec 20)</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">S7</div>
             <div>
               <div class="label">Bakery & Butchery Integrations • Go‑Live</div>
               <span class="note">Dept integrations, security pass, training & handover (Dec)</span>
@@ -396,14 +418,14 @@
             <ul class="list">
               <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>LLM core, prompts, governance; Data Room expansion.</li>
               <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Supplier backend from PO to delivery tracking.</li>
-              <li class="li"><svg viewBox="0 0 24 24  " width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Start Customer backend and enhancement threads.</li>
+              <li class="li"><svg viewBox="0 0 24 24  " width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Start Customer backend; begin Holdings foundations.</li>
             </ul>
           </div>
           <div class="col-6">
             <div class="divider"></div>
             <h3 class="muted" style="margin:6px 0 0">December • Stabilize & Launch</h3>
             <ul class="list">
-              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Complete Customer backend; finalize enhancements.</li>
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Complete Customer & Holdings; finalize enhancements (incl. Price backend).</li>
               <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 12H4"/></svg>Integrate Bakery & Butchery; cross‑module QA & hardening.</li>
               <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Training & handover; go‑live readiness.</li>
             </ul>
