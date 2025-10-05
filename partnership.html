@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI4Impact B.V. — Updated Partner Offer (Simple)</title>
-  <meta name="description" content="Updated Partner Offer for AI4Impact B.V.: 15% equity, reverse vesting 24 months from 1 Jan 2026 (3-month cliff), 0% shareholder loan, legal fees covered by Investor, ops guideline €500/mo, 12 months DGA salary once payroll starts, LLM Business Analysis milestone by 30 June 2026, ROFR/Tag/Drag, Dutch law." />
+  <meta name="description" content="Updated Partner Offer for AI4Impact B.V.: 15% equity, reverse vesting (24 months from 1 Jan 2026, 3-month cliff), 0% shareholder loan (unsecured, subordinated), investor covers legal fees, ops guideline €500/mo, 12 months DGA salary once payroll starts, LLM Business Analysis milestone by 30 June 2026, ROFR/Tag/Drag. Includes Nov & Dec 2025 pre-close tasks. Each key term has a simple pop-up help explanation." />
   <style>
     :root{
       --bg: #0f1220;
@@ -15,6 +15,8 @@
       --accent-2:#87ffa5;
       --chip:#24304a;
       --border:#2a3553;
+      --pill:#1a2036;
+      --shadow: rgba(3,7,18,0.45);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -56,7 +58,10 @@
     h1{margin:20px 0 6px; font-size:clamp(1.4rem, 2.6vw, 2rem)}
     .sub{color:var(--muted); margin:0 0 18px}
     .meta{display:flex; gap:12px; flex-wrap:wrap; margin-top:4px}
-    .meta .chip{background:var(--chip); border:1px solid var(--border); color:var(--ink); padding:6px 10px; border-radius:999px; font-size:.9rem}
+    .meta .chip{
+      background:var(--chip); border:1px solid var(--border); color:var(--ink);
+      padding:6px 10px; border-radius:999px; font-size:.9rem; display:inline-flex; align-items:center; gap:6px
+    }
 
     /* One-column cards */
     .card{
@@ -100,10 +105,43 @@
     footer{margin:24px 0 8px; color:var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
     code.inline{background:rgba(255,255,255,.06); border:1px solid var(--border); padding:2px 6px; border-radius:8px}
 
+    /* Month filter */
+    .filters{display:flex; gap:8px; flex-wrap:wrap; margin:8px 0 10px}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--border); border-radius:999px;
+      background:var(--pill); color:var(--ink); cursor:pointer; user-select:none; font-size:.92rem;
+    }
+    .pill.active{outline:2px solid var(--accent); box-shadow:0 0 0 3px rgba(110,231,255,0.15)}
+    .hidden{display:none !important}
+
+    /* Inline help (pop-up) */
+    .help{
+      position:relative; display:inline-flex; align-items:center; margin-left:6px;
+    }
+    .help-btn{
+      width:18px; height:18px; border-radius:50%; border:1px solid var(--border);
+      background:linear-gradient(180deg,#1f2937,#111827); color:var(--muted);
+      font-size:12px; font-weight:700; line-height:18px; text-align:center; cursor:pointer; padding:0;
+    }
+    .help-btn:focus{outline:2px solid var(--accent)}
+    .bubble{
+      position:absolute; top:100%; left:0; min-width:220px; max-width:360px; margin-top:8px;
+      background:linear-gradient(180deg,#1a2036,#0f1220); border:1px solid var(--border); color:var(--ink);
+      border-radius:10px; padding:10px 12px; box-shadow:0 12px 24px var(--shadow); display:none; z-index:10;
+    }
+    .bubble .title{font-weight:700; margin-bottom:4px; color:var(--accent)}
+    .bubble .text{font-size:.9rem}
+    .bubble::before{
+      content:""; position:absolute; top:-7px; left:14px; width:12px; height:12px; transform:rotate(45deg);
+      background:linear-gradient(180deg,#1a2036,#0f1220); border-left:1px solid var(--border); border-top:1px solid var(--border);
+    }
+    .help.open .bubble{display:block}
+
     @media print{
       body{background:#fff}
       .wrap{margin:0; max-width:none}
       header, .btn{filter:none; box-shadow:none}
+      .filters{display:none}
       .btn{display:none}
       footer{color:#333}
     }
@@ -128,17 +166,78 @@
       <h1>AI4Impact B.V. — Updated Partner Offer (Simple)</h1>
       <p class="sub"><strong>Start date:</strong> 1 January 2026</p>
       <div class="meta">
-        <div class="chip">Founder: Hawkar Ali Abdulhaq</div>
-        <div class="chip">Investor/Partner: Mariwan Masoud</div>
-        <div class="chip">Company: AI4Impact B.V. <span class="muted">(current legal: Climate Fundraising Platform B.V.; trade name “AI4Impact”)</span></div>
-        <div class="chip">Equity: 15% ordinary</div>
-        <div class="chip">Vesting: 24 mo from 1 Jan 2026 • 3-mo cliff (reverse)</div>
-        <div class="chip">Loan: 0% shareholder loan</div>
-        <div class="chip">Ops guideline: €500/mo</div>
-        <div class="chip">DGA salary: 12 months once payroll starts</div>
-        <div class="chip">Milestone: LLM Business Analysis by 30 Jun 2026</div>
-        <div class="chip">ROFR • Tag-along • Drag-along 75%</div>
-        <div class="chip">Jurisdiction: Dutch law</div>
+        <div class="chip">Equity: 15% ordinary
+          <span class="help">
+            <button class="help-btn" aria-label="What are ordinary shares?" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip">
+              <span class="title">Ordinary shares</span>
+              <span class="text">Standard ownership with normal voting & profit rights (no special investor preferences).</span>
+            </span>
+          </span>
+        </div>
+        <div class="chip">Vesting: 24 mo from 1 Jan 2026 • 3‑mo cliff (reverse)
+          <span class="help">
+            <button class="help-btn" aria-label="What is reverse vesting & cliff?" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip">
+              <span class="title">Reverse vesting & cliff</span>
+              <span class="text">Shares are issued now but can be bought back if you leave early. A 3‑month “cliff” means nothing vests until month 3, then vesting continues monthly.</span>
+            </span>
+          </span>
+        </div>
+        <div class="chip">Loan: 0% shareholder loan
+          <span class="help">
+            <button class="help-btn" aria-label="What is a 0% shareholder loan?" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip">
+              <span class="title">0% shareholder loan</span>
+              <span class="text">Money lent to the company by the investor at 0% interest; drawn when needed; no fixed repayment date.</span>
+            </span>
+          </span>
+        </div>
+        <div class="chip">Ops guideline: €500/mo
+          <span class="help">
+            <button class="help-btn" aria-label="What does the ops guideline mean?" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip">
+              <span class="title">Ops guideline</span>
+              <span class="text">Routine monthly costs (rent, servers, APIs, domains) around €500 without extra approvals; higher spend needs a quick mutual yes.</span>
+            </span>
+          </span>
+        </div>
+        <div class="chip">DGA salary: 12 months once payroll starts
+          <span class="help">
+            <button class="help-btn" aria-label="What is a DGA salary?" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip">
+              <span class="title">DGA salary</span>
+              <span class="text">Dutch term for “director‑major shareholder” salary. A standard salary for the Founder for 12 months after payroll begins.</span>
+            </span>
+          </span>
+        </div>
+        <div class="chip">Milestone: LLM Business Analysis by 30 Jun 2026
+          <span class="help">
+            <button class="help-btn" aria-label="What does the milestone cover?" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip">
+              <span class="title">Milestone scope</span>
+              <span class="text">Deliver v1 ready to sell: pricing, landing page, demo deck, onboarding docs, and basic terms & privacy.</span>
+            </span>
+          </span>
+        </div>
+        <div class="chip">ROFR • Tag‑along • Drag‑along 75%
+          <span class="help">
+            <button class="help-btn" aria-label="ROFR, tag‑along, drag‑along?" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip">
+              <span class="title">Share transfer rules</span>
+              <span class="text"><strong>ROFR:</strong> existing holders get first chance to buy. <strong>Tag‑along:</strong> minority can join a sale. <strong>Drag‑along:</strong> if 75% approve a sale, others must sell on the same terms.</span>
+            </span>
+          </span>
+        </div>
+        <div class="chip">Jurisdiction: Dutch law
+          <span class="help">
+            <button class="help-btn" aria-label="Dutch law note" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip">
+              <span class="title">Dutch law</span>
+              <span class="text">Agreements are governed by Netherlands law and notarial rules.</span>
+            </span>
+          </span>
+        </div>
       </div>
     </section>
 
@@ -149,15 +248,31 @@
       <ul class="list">
         <li class="li">
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
-          <strong>15% ordinary shares</strong> to Investor at closing.
+          <strong>15% ordinary shares</strong>
+          <span class="help"><button class="help-btn" aria-label="Ordinary shares help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Ordinary shares</span><span class="text">Regular shares—normal votes and dividends, no extra perks.</span></span>
+          </span>
+          to Investor at closing.
         </li>
         <li class="li">
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
-          <strong>Vesting:</strong> 24 months from 1 Jan 2026 (reverse vesting), <strong>3-month cliff</strong>.
+          <strong>Vesting:</strong> 24 months from 1 Jan 2026
+          <span class="help"><button class="help-btn" aria-label="Reverse vesting help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Reverse vesting</span><span class="text">You own the shares now, but the company can buy back the unvested part if you leave early.</span></span>
+          </span>
+          , <strong>3‑month cliff</strong>
+          <span class="help"><button class="help-btn" aria-label="Cliff help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Cliff</span><span class="text">Nothing vests until month 3; then vesting starts monthly.</span></span>
+          </span>.
         </li>
         <li class="li">
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
-          <strong>Governance:</strong> 1 share = 1 vote. Founder remains statutory director and runs day-to-day.
+          <strong>Governance:</strong> 1 share = 1 vote. Founder remains
+          <strong>statutory director</strong>
+          <span class="help"><button class="help-btn" aria-label="Statutory director help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Statutory director</span><span class="text">The legal company director under Dutch law; runs day‑to‑day operations.</span></span>
+          </span>
+          and runs day‑to‑day.
         </li>
       </ul>
     </section>
@@ -169,22 +284,45 @@
       <ul class="list">
         <li class="li">
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
-          <strong>Instrument:</strong> 0% interest shareholder loan, unsecured &amp; subordinated; draw as needed; repay when cash allows.
+          <strong>Instrument:</strong> 0% interest shareholder loan,
+          <strong>unsecured</strong>
+          <span class="help"><button class="help-btn" aria-label="Unsecured help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Unsecured</span><span class="text">No collateral pledged (e.g., no assets as security).</span></span>
+          </span>
+          &
+          <strong>subordinated</strong>
+          <span class="help"><button class="help-btn" aria-label="Subordinated help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Subordinated</span><span class="text">Gets repaid after other debts if the company is wound up.</span></span>
+          </span>
+          ; draw as needed; <strong>repay when cash allows</strong>
+          <span class="help"><button class="help-btn" aria-label="Repay when cash allows help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Repay when cash allows</span><span class="text">No fixed schedule—repayment only when there’s spare cash.</span></span>
+          </span>.
         </li>
       </ul>
       <h3 class="muted" style="margin:6px 0 0">Covers</h3>
       <ul class="list">
         <li class="li">
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
-          <strong>All legal/notary/lawyer fees</strong> for share issue/transfer, trade/statutory name change, and related filings (<strong>no cap</strong>, paid by Investor).
+          <strong>All legal/notary/lawyer fees</strong> for share issue/transfer, trade/statutory name change, and filings (<strong>no cap</strong>
+          <span class="help"><button class="help-btn" aria-label="No cap help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">No cap</span><span class="text">There isn’t a set maximum—actual legal costs are covered.</span></span>
+          </span>, paid by Investor).
         </li>
         <li class="li">
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
-          <strong>Monthly ops</strong> (rent, servers/APIs, domains) — guideline up to <strong>&euro;500/month</strong>; above by mutual approval.
+          <strong>Monthly ops</strong> (rent, servers/APIs, domains) — guideline up to <strong>&euro;500/month</strong>
+          <span class="help"><button class="help-btn" aria-label="Ops guideline help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Guideline</span><span class="text">A typical monthly cap; higher spend needs quick mutual approval.</span></span>
+          </span>; above by mutual approval.
         </li>
         <li class="li">
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
-          <strong>One standard DGA salary</strong> for the Founder (incl. employer on-costs) for <strong>12 months</strong> once payroll starts.
+          <strong>One standard DGA salary</strong>
+          <span class="help"><button class="help-btn" aria-label="DGA help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">DGA</span><span class="text">“Directeur‑Grootaandeelhouder” (director‑major shareholder) salary.</span></span>
+          </span>
+          for the Founder (incl. employer on‑costs) for <strong>12 months</strong> once payroll starts.
         </li>
       </ul>
     </section>
@@ -195,14 +333,21 @@
       <div class="divider"></div>
       <ul class="list">
         <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Founder:</strong> product, tech, operations.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Investor:</strong> sales/strategy support; board-observer rights.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Light KPI:</strong> e.g., 1 warm intro/month or 1 qualified lead/quarter.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Investor:</strong> sales/strategy support; <strong>board‑observer rights</strong>
+          <span class="help"><button class="help-btn" aria-label="Board‑observer help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Board‑observer</span><span class="text">Can attend board meetings and advise, but has no vote.</span></span>
+          </span>.
+        </li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Light KPI:</strong> e.g., 1 warm intro/month or 1 <strong>qualified lead</strong>
+          <span class="help"><button class="help-btn" aria-label="Qualified lead help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Qualified lead</span><span class="text">A prospect that fits the target customer and shows buying interest.</span></span>
+          </span>/quarter.</li>
       </ul>
     </section>
 
     <!-- 4) Product Milestone -->
     <section class="card">
-      <h2>4) Product Milestone (Your Give-Back)</h2>
+      <h2>4) Product Milestone (Your Give‑Back)</h2>
       <div class="divider"></div>
       <p>AI4Impact will develop the <strong>“LLM Business Analysis”</strong> product within 6 months of 1 Jan 2026 — target <strong>30 June 2026</strong> — and prepare it for sale (<em>v1 ready, pricing, landing page, demo deck, onboarding docs, basic T&amp;Cs/privacy</em>).</p>
     </section>
@@ -212,9 +357,32 @@
       <h2>5) Exits &amp; Transfers</h2>
       <div class="divider"></div>
       <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>24-month lock-up</strong> on transfers.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Afterward: <strong>ROFR</strong> (Right of First Refusal), <strong>tag-along</strong> for Investor, <strong>drag-along at 75%</strong> approval.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Unvested shares</strong> buy-backable at <strong>nominal value</strong> if contribution stops during vesting; <strong>vested at fair-market value</strong> (independent valuer if needed).</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>24‑month lock‑up</strong>
+          <span class="help"><button class="help-btn" aria-label="Lock‑up help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Lock‑up</span><span class="text">No share transfers are allowed during this period.</span></span>
+          </span> on transfers.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Afterward:
+          <strong>ROFR</strong>
+          <span class="help"><button class="help-btn" aria-label="ROFR help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Right of First Refusal</span><span class="text">You must offer shares to current holders first before selling to others.</span></span>
+          </span>,
+          <strong>tag‑along</strong>
+          <span class="help"><button class="help-btn" aria-label="Tag‑along help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Tag‑along</span><span class="text">If the majority sells, minority holders can sell alongside on the same terms.</span></span>
+          </span>,
+          <strong>drag‑along at 75%</strong>
+          <span class="help"><button class="help-btn" aria-label="Drag‑along help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Drag‑along</span><span class="text">If 75% approve a sale, they can require all others to sell on the same terms.</span></span>
+          </span>.
+        </li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Unvested shares</strong> buy‑backable at <strong>nominal value</strong>
+          <span class="help"><button class="help-btn" aria-label="Nominal value help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Nominal value</span><span class="text">The face value printed on the share (usually very small).</span></span>
+          </span> if contribution stops during vesting; <strong>vested at fair‑market value</strong>
+          <span class="help"><button class="help-btn" aria-label="Fair‑market value help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Fair‑market value (FMV)</span><span class="text">A reasonable price between a willing buyer and seller; set by an independent valuer if needed.</span></span>
+          </span>.
+        </li>
       </ul>
     </section>
 
@@ -223,80 +391,140 @@
       <h2>6) Documents</h2>
       <div class="divider"></div>
       <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Shareholders’ Agreement (SHA)</strong> and <strong>Loan Agreement</strong> (0% terms, drawdowns, subordination, repayment).</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Notarial deed</strong> for share issue/transfer; <strong>update shareholder register</strong>.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>KVK trade name filing “AI4Impact”</strong> now; legal name change later if desired.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Shareholders’ Agreement (SHA)</strong>
+          <span class="help"><button class="help-btn" aria-label="SHA help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">SHA</span><span class="text">Contract between shareholders covering rights, duties, and how decisions are made.</span></span>
+          </span> and <strong>Loan Agreement</strong>
+          <span class="help"><button class="help-btn" aria-label="Loan Agreement help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Loan Agreement</span><span class="text">Sets the loan’s terms: 0% interest, drawdowns, subordination, repayment.</span></span>
+          </span>.
+        </li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Notarial deed</strong>
+          <span class="help"><button class="help-btn" aria-label="Notarial deed help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Notarial deed</span><span class="text">A formal document signed before a Dutch notary—required for share issue/transfer.</span></span>
+          </span> for share issue/transfer; update <strong>shareholder register</strong>
+          <span class="help"><button class="help-btn" aria-label="Shareholder register help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Shareholder register</span><span class="text">The company’s official list of who owns which shares.</span></span>
+          </span>.
+        </li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>KVK</strong> trade name filing “AI4Impact”
+          <span class="help"><button class="help-btn" aria-label="KVK help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">KVK</span><span class="text">Kamer van Koophandel = Dutch Chamber of Commerce. Trade name is your public name; legal name can be changed later.</span></span>
+          </span> now; legal name change later if desired.
+        </li>
       </ul>
-      <p class="muted"><strong>Note:</strong> Non-binding summary. Final terms will be set in the SHA and Loan Agreement (Dutch law).</p>
+      <p class="muted"><strong>Note:</strong> Non‑binding summary. Final terms will be set in the SHA and Loan Agreement (Dutch law).</p>
     </section>
 
-    <!-- Tiny To-Do List -->
-    <section class="card">
-      <h2>Tiny To-Do List</h2>
+    <!-- Flexible Timeline & Tiny To-Do List -->
+    <section class="card" id="todo">
+      <h2>Flexible Timeline &amp; Tiny To‑Do List</h2>
       <div class="divider"></div>
 
-      <div class="stepper" aria-label="Timeline">
-        <div class="step">
-          <div class="dot">S1</div>
-          <div>
-            <div class="label">This Week</div>
-            <span class="note">Confirm terms, get notary quotes, draft SHA &amp; Loan</span>
-          </div>
-        </div>
-        <div class="step">
-          <div class="dot">S2</div>
-          <div>
-            <div class="label">Notary Day</div>
-            <span class="note">Execute deed; update shareholder register</span>
-          </div>
-        </div>
-        <div class="step">
-          <div class="dot">S3</div>
-          <div>
-            <div class="label">+7 Days</div>
-            <span class="note">Fund initial drawdowns; start monthly check-ins</span>
-          </div>
-        </div>
-        <div class="step">
-          <div class="dot">S4</div>
-          <div>
-            <div class="label">By 30 Jun 2026</div>
-            <span class="note">Deliver LLM Business Analysis (sale-ready)</span>
-          </div>
-        </div>
+      <!-- Month filter -->
+      <div class="filters" aria-label="Filter tasks by month">
+        <span class="pill active" data-filter="all" tabindex="0">All</span>
+        <span class="pill" data-filter="2025-11" tabindex="0">Nov ’25</span>
+        <span class="pill" data-filter="2025-12" tabindex="0">Dec ’25</span>
+        <span class="pill" data-filter="2026-01plus" tabindex="0">Jan ’26+</span>
       </div>
 
-      <h3 class="muted" style="margin:6px 0 0">This Week</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>Confirm start date (1 Jan 2026), 24-month vesting, and salary coverage scope.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Get 2–3 notary quotes; book share issue/transfer (and name change if doing now).</li>
+      <!-- Stepper overview -->
+      <div class="stepper" aria-label="Timeline">
+        <div class="step"><div class="dot">S‑Nov</div><div><div class="label">November 2025</div><span class="note">Pre‑close prep: quotes, drafts, KYC/KVK</span></div></div>
+        <div class="step"><div class="dot">S‑Dec</div><div><div class="label">December 2025</div><span class="note">Lock notary date, readiness</span></div></div>
+        <div class="step"><div class="dot">S1</div><div><div class="label">This Week</div><span class="note">Confirm terms & drafts</span></div></div>
+        <div class="step"><div class="dot">S2</div><div><div class="label">Notary Day</div><span class="note">Execute deed; register</span></div></div>
+        <div class="step"><div class="dot">S3</div><div><div class="label">+7 Days</div><span class="note">Fund drawdowns; check‑ins</span></div></div>
+        <div class="step"><div class="dot">S4</div><div><div class="label">By 30 Jun 2026</div><span class="note">LLM Business Analysis v1</span></div></div>
+      </div>
+
+      <!-- NOVEMBER 2025 -->
+      <h3 class="muted" style="margin:6px 0 0">November 2025</h3>
+      <ul class="list month 2025-11">
+        <li class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>
+          Confirm the package: <strong>15% equity</strong>, <strong>0% loan</strong>, <strong>reverse vesting</strong>, and <strong>salary coverage</strong> scope.
+        </li>
+        <li class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>
+          Get <strong>2–3 notary quotes</strong>; shortlist; pencil in a December signing window.
+        </li>
+        <li class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>
+          Gather <strong>KYC</strong>
+          <span class="help"><button class="help-btn" aria-label="KYC help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">KYC</span><span class="text">“Know Your Customer”: ID checks and company info required by law.</span></span>
+          </span> /
+          <strong>KVK</strong>
+          <span class="help"><button class="help-btn" aria-label="KVK help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">KVK</span><span class="text">Dutch Chamber of Commerce documents (extracts, numbers).</span></span>
+          </span>
+          materials; align on <strong>cap table</strong>
+          <span class="help"><button class="help-btn" aria-label="Cap table help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Cap table</span><span class="text">Ownership list showing who owns how many shares.</span></span>
+          </span> and share classes.
+        </li>
+        <li class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>
+          Draft short <strong>SHA</strong> + <strong>Loan Agreement</strong>; circulate for redlines.
+        </li>
+        <li class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>
+          Confirm <strong>monthly ops</strong> list and guideline budget (~&euro;500/mo).
+        </li>
+        <li class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>
+          Scope <strong>LLM Business Analysis</strong> v1 (deliverables, pricing, landing/demo, onboarding docs).
+        </li>
+      </ul>
+
+      <!-- DECEMBER 2025 -->
+      <h3 class="muted" style="margin:6px 0 0">December 2025</h3>
+      <ul class="list month 2025-12">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>Lock the <strong>notary</strong> date/time; pre‑clear documents (share issue/transfer; optional trade/statutory name change).</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Prepare <strong>board/shareholder resolutions</strong> and <strong>shareholder register</strong> update template.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>Select <strong>payroll provider</strong>; pick earliest month to start <strong>Founder DGA salary</strong>; gather onboarding details.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Plan <strong>initial drawdowns</strong>
+          <span class="help"><button class="help-btn" aria-label="Drawdown help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip"><span class="title">Drawdown</span><span class="text">Each separate amount taken from the approved loan.</span></span>
+          </span> schedule (Jan–Mar 2026).
+        </li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>Decide on <strong>trade name</strong> filing timing (“AI4Impact”) and any branding updates.</li>
+      </ul>
+
+      <!-- THIS WEEK -->
+      <h3 class="muted" style="margin:6px 0 0">This Week (next immediate actions)</h3>
+      <ul class="list month 2026-01plus 2025-11 2025-12">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg><strong>Confirm start date</strong> (1 Jan 2026), 24‑month vesting, and salary coverage scope.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Get <strong>2–3 notary quotes</strong>; book share issue/transfer (and name change if doing now).</li>
         <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Draft &amp; sign short <strong>SHA</strong> + <strong>Loan Agreement</strong> (plain).</li>
       </ul>
 
+      <!-- NOTARY DAY -->
       <h3 class="muted" style="margin:6px 0 0">Notary Day</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 12H4"/></svg>Execute deed; update shareholder register.</li>
+      <ul class="list month 2026-01plus 2025-12">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 12H4"/></svg>Execute <strong>share issue/transfer deed</strong>; <strong>update shareholder register</strong>.</li>
       </ul>
 
+      <!-- WITHIN 7 DAYS AFTER -->
       <h3 class="muted" style="margin:6px 0 0">Within 7 Days After</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Investor funds initial drawdowns (legal fees + ops; payroll when set).</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Start monthly check-ins (cash, KPI, milestone).</li>
+      <ul class="list month 2026-01plus">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Investor funds <strong>initial drawdowns</strong> (legal fees + ops; payroll when set).</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Start <strong>monthly check‑ins</strong> (cash, KPI, milestone).</li>
       </ul>
 
+      <!-- MILESTONE -->
       <h3 class="muted" style="margin:6px 0 0">By 30 June 2026</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 18h18"/></svg>Deliver <strong>LLM Business Analysis</strong> product sale-ready.</li>
+      <ul class="list month 2026-01plus">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 18h18"/></svg>Deliver <strong>LLM Business Analysis</strong> product <strong>sale‑ready</strong>.</li>
       </ul>
-    </section>
 
-    <section class="card">
-      <h2>Quick Actions</h2>
       <div class="divider"></div>
       <div class="cta">
         <button class="btn" onclick="window.print()">Print / Save PDF</button>
         <a class="btn secondary" rel="noopener"
-           href="mailto:?subject=AI4Impact%20B.V.%20%E2%80%94%20Updated%20Partner%20Offer%20(Simple)&body=Start%20date%3A%201%20January%202026%0AFounder%3A%20Hawkar%20Ali%20Abdulhaq%0AInvestor%2FPartner%3A%20Mariwan%20Masoud%0ACompany%3A%20AI4Impact%20B.V.%20(current%20legal%3A%20Climate%20Fundraising%20Platform%20B.V.%3B%20trade%20name%20%E2%80%9CAI4Impact%E2%80%9D)%0A%0A1)%20Equity%20%26%20Control%3A%2015%%20ordinary%20at%20closing.%20Reverse%20vesting%2024%20mo%20from%201%20Jan%202026%20(w%2F%203-mo%20cliff).%20Governance%3A%201%20share%20%3D%201%20vote%3B%20Founder%20remains%20statutory%20director.%0A%0A2)%20Funding%3A%200%%20shareholder%20loan%20(unsecured%2C%20subordinated%2C%20draw%20as%20needed%2C%20repay%20when%20cash%20allows).%20Covers%3A%20all%20legal%2Fnotary%2Flawyer%20fees%20(no%20cap%2C%20paid%20by%20Investor)%3B%20monthly%20ops%20guideline%20%E2%82%AC500%2Fmo%3B%20one%20standard%20DGA%20salary%20(12%20months)%20once%20payroll%20starts.%0A%0A3)%20Roles%20%26%20Light%20Commitments%3A%20Founder%20(product%2C%20tech%2C%20ops);%20Investor%20(sales%2Fstrategy%2C%20board-observer);%20light%20KPI%3A%201%20intro%2Fmo%20or%201%20lead%2Fqtr.%0A%0A4)%20Product%20Milestone%3A%20%E2%80%9CLLM%20Business%20Analysis%E2%80%9D%20v1%20sale-ready%20by%2030%20June%202026.%0A%0A5)%20Exits%20%26%20Transfers%3A%2024-mo%20lock-up;%20ROFR;%20tag-along;%20drag-along%20@75%%;%20unvested%20buy-back%20at%20nominal;%20vested%20at%20FMV.%0A%0A6)%20Documents%3A%20SHA%20%26%20Loan%20Agreement;%20notary%20deed;%20update%20shareholder%20register;%20KVK%20trade%20name%20%E2%80%9CAI4Impact%E2%80%9D%20(now);%20legal%20name%20change%20later.%0A%0ANote%3A%20Non-binding%20summary%20(terms%20set%20in%20SHA%20%26%20Loan%2C%20Dutch%20law).">Quick email</a>
+           href="mailto:?subject=AI4Impact%20B.V.%20%E2%80%94%20Updated%20Partner%20Offer%20(Single%20Page%20with%20Help)&body=Start%20date%3A%201%20January%202026%0AKey%3A%2015%%20equity%20with%2024m%20reverse%20vesting%20(3m%20cliff)%3B%200%%20shareholder%20loan%20(unsecured%2C%20subordinated)%3B%20legal%20fees%20covered%3B%20ops%20guideline%20%E2%82%AC500%2Fmo%3B%20DGA%20salary%2012%20months%20once%20payroll%20starts.%0AMilestone%3A%20LLM%20Business%20Analysis%20v1%20by%2030%20June%202026.%0ATasks%3A%20Nov%20%26%20Dec%202025%20prep%2C%20then%20This%20Week%2FNotary%2F%2B7%20Days.%0A(Each%20term%20has%20simple%20pop-up%20help%20in%20the%20HTML.)">Quick email</a>
       </div>
     </section>
 
@@ -307,7 +535,62 @@
   </div>
 
   <script>
+    // Year stamp
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Month filter logic
+    const pills = document.querySelectorAll('.pill');
+    const monthLists = document.querySelectorAll('.list.month');
+    function applyFilter(key){
+      monthLists.forEach(ul=>{
+        const classes = Array.from(ul.classList);
+        const isMatch = key === 'all' || classes.includes(key) || (key==='2026-01plus' && classes.includes('2026-01plus'));
+        ul.classList.toggle('hidden', !isMatch);
+      });
+      pills.forEach(p=>p.classList.toggle('active', p.dataset.filter===key));
+    }
+    pills.forEach(p => {
+      p.addEventListener('click', ()=>applyFilter(p.dataset.filter));
+      p.addEventListener('keypress', (e)=>{ if(e.key==='Enter' || e.key===' '){ applyFilter(p.dataset.filter); }});
+    });
+    applyFilter('all');
+
+    // Help pop-ups: toggle open/close, manage aria-expanded, close on outside click / Escape
+    function closeAllBubbles() {
+      document.querySelectorAll('.help.open').forEach(h => {
+        h.classList.remove('open');
+        const btn = h.querySelector('.help-btn');
+        if (btn) btn.setAttribute('aria-expanded','false');
+      });
+    }
+    document.querySelectorAll('.help').forEach((h, idx)=>{
+      const btn = h.querySelector('.help-btn');
+      const bubble = h.querySelector('.bubble');
+      if (!btn || !bubble) return;
+      // Assign ids for accessibility
+      const id = 'helpbubble-' + idx;
+      bubble.id = id;
+      btn.setAttribute('aria-controls', id);
+
+      btn.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        const isOpen = h.classList.contains('open');
+        closeAllBubbles();
+        if (!isOpen) {
+          h.classList.add('open');
+          btn.setAttribute('aria-expanded','true');
+        }
+      });
+      btn.addEventListener('keydown', (e)=>{
+        if (e.key === 'Escape') { closeAllBubbles(); btn.blur(); }
+      });
+    });
+    document.addEventListener('click', (e)=>{
+      if (!e.target.closest('.help')) closeAllBubbles();
+    });
+    document.addEventListener('keydown', (e)=>{
+      if (e.key === 'Escape') closeAllBubbles();
+    });
   </script>
 </body>
 </html>
