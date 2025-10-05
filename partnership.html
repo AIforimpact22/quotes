@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI4Impact B.V. — Updated Partner Offer (Simple)</title>
-  <meta name="description" content="Updated Partner Offer for AI4Impact B.V.: 15% equity, reverse vesting (24 months from 1 Jan 2026, 3-month cliff), 0% shareholder loan (unsecured, subordinated), investor covers legal fees, ops guideline €500/mo, 12 months DGA salary once payroll starts, LLM Business Analysis milestone by 30 June 2026, ROFR/Tag/Drag. Includes Nov & Dec 2025 pre-close tasks. Each key term has a simple pop-up help explanation." />
+  <title>AI4Impact B.V. — Updated Partner Offer (Simple, 24‑Month Cover)</title>
+  <meta name="description" content="Updated Partner Offer for AI4Impact B.V.: 15% equity, reverse vesting (24 months from 1 Jan 2026, 3-month cliff), 0% shareholder loan, 24-month coverage window, ops guideline €500/mo (≈€12,000 over 24 months), investor covers legal fees (at actuals), DGA salary for 12 months once payroll starts, milestone by 30 June 2026, ROFR/Tag/Drag. Includes Nov & Dec 2025 tasks and pop-up help." />
   <style>
     :root{
       --bg: #0f1220;
@@ -115,9 +115,7 @@
     .hidden{display:none !important}
 
     /* Inline help (pop-up) */
-    .help{
-      position:relative; display:inline-flex; align-items:center; margin-left:6px;
-    }
+    .help{ position:relative; display:inline-flex; align-items:center; margin-left:6px; }
     .help-btn{
       width:18px; height:18px; border-radius:50%; border:1px solid var(--border);
       background:linear-gradient(180deg,#1f2937,#111827); color:var(--muted);
@@ -136,6 +134,19 @@
       background:linear-gradient(180deg,#1a2036,#0f1220); border-left:1px solid var(--border); border-top:1px solid var(--border);
     }
     .help.open .bubble{display:block}
+
+    /* Calculator */
+    .calc-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:8px 0 6px}
+    .row{display:grid; grid-template-columns: 1fr auto auto; gap:10px; align-items:center}
+    .row label{font-size:.95rem; color:var(--muted)}
+    .row input{
+      width:140px; padding:8px 10px; border:1px solid var(--border); border-radius:10px;
+      background:linear-gradient(180deg,#161c30,#111827); color:var(--ink); font-size:.95rem;
+    }
+    .totals{display:grid; grid-template-columns: 1fr auto; gap:8px 10px; margin-top:8px; align-items:center}
+    .totals .label{color:var(--muted)}
+    .totals .value{font-weight:700}
+    .totals .grand{font-size:1.15rem; font-weight:800}
 
     @media print{
       body{background:#fff}
@@ -193,9 +204,18 @@
             </span>
           </span>
         </div>
-        <div class="chip">Ops guideline: €500/mo
+        <div class="chip">Coverage: 24 months (1 Jan 2026 → 31 Dec 2027)
           <span class="help">
-            <button class="help-btn" aria-label="What does the ops guideline mean?" aria-expanded="false">?</button>
+            <button class="help-btn" aria-label="Coverage horizon help" aria-expanded="false">?</button>
+            <span class="bubble" role="tooltip">
+              <span class="title">Coverage horizon</span>
+              <span class="text">All “Covers” items below apply within these 24 months.</span>
+            </span>
+          </span>
+        </div>
+        <div class="chip">Ops guideline: €500/mo (≈€12,000/24m)
+          <span class="help">
+            <button class="help-btn" aria-label="Ops guideline meaning" aria-expanded="false">?</button>
             <span class="bubble" role="tooltip">
               <span class="title">Ops guideline</span>
               <span class="text">Routine monthly costs (rent, servers, APIs, domains) around €500 without extra approvals; higher spend needs a quick mutual yes.</span>
@@ -204,40 +224,16 @@
         </div>
         <div class="chip">DGA salary: 12 months once payroll starts
           <span class="help">
-            <button class="help-btn" aria-label="What is a DGA salary?" aria-expanded="false">?</button>
+            <button class="help-btn" aria-label="DGA salary meaning" aria-expanded="false">?</button>
             <span class="bubble" role="tooltip">
               <span class="title">DGA salary</span>
-              <span class="text">Dutch term for “director‑major shareholder” salary. A standard salary for the Founder for 12 months after payroll begins.</span>
+              <span class="text">Dutch “director‑major shareholder” salary. Covered for 12 months inside the 24‑month period.</span>
             </span>
           </span>
         </div>
-        <div class="chip">Milestone: LLM Business Analysis by 30 Jun 2026
-          <span class="help">
-            <button class="help-btn" aria-label="What does the milestone cover?" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip">
-              <span class="title">Milestone scope</span>
-              <span class="text">Deliver v1 ready to sell: pricing, landing page, demo deck, onboarding docs, and basic terms & privacy.</span>
-            </span>
-          </span>
-        </div>
-        <div class="chip">ROFR • Tag‑along • Drag‑along 75%
-          <span class="help">
-            <button class="help-btn" aria-label="ROFR, tag‑along, drag‑along?" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip">
-              <span class="title">Share transfer rules</span>
-              <span class="text"><strong>ROFR:</strong> existing holders get first chance to buy. <strong>Tag‑along:</strong> minority can join a sale. <strong>Drag‑along:</strong> if 75% approve a sale, others must sell on the same terms.</span>
-            </span>
-          </span>
-        </div>
-        <div class="chip">Jurisdiction: Dutch law
-          <span class="help">
-            <button class="help-btn" aria-label="Dutch law note" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip">
-              <span class="title">Dutch law</span>
-              <span class="text">Agreements are governed by Netherlands law and notarial rules.</span>
-            </span>
-          </span>
-        </div>
+        <div class="chip">Milestone: LLM Business Analysis by 30 Jun 2026</div>
+        <div class="chip">ROFR • Tag‑along • Drag‑along 75%</div>
+        <div class="chip">Jurisdiction: Dutch law</div>
       </div>
     </section>
 
@@ -300,31 +296,65 @@
           </span>.
         </li>
       </ul>
-      <h3 class="muted" style="margin:6px 0 0">Covers</h3>
+
+      <!-- Coverage Horizon & Numbers -->
+      <h3 class="muted" style="margin:6px 0 0">Coverage Horizon &amp; Numbers</h3>
       <ul class="list">
         <li class="li">
-          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
-          <strong>All legal/notary/lawyer fees</strong> for share issue/transfer, trade/statutory name change, and filings (<strong>no cap</strong>
-          <span class="help"><button class="help-btn" aria-label="No cap help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">No cap</span><span class="text">There isn’t a set maximum—actual legal costs are covered.</span></span>
-          </span>, paid by Investor).
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>
+          <strong>Coverage window:</strong> 24 months — <strong>1 Jan 2026 → 31 Dec 2027</strong>.
         </li>
         <li class="li">
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
-          <strong>Monthly ops</strong> (rent, servers/APIs, domains) — guideline up to <strong>&euro;500/month</strong>
-          <span class="help"><button class="help-btn" aria-label="Ops guideline help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">Guideline</span><span class="text">A typical monthly cap; higher spend needs quick mutual approval.</span></span>
-          </span>; above by mutual approval.
+          <strong>Monthly ops guideline:</strong> €500/month → <strong>≈ €12,000 total over 24 months</strong>.
         </li>
         <li class="li">
           <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
-          <strong>One standard DGA salary</strong>
-          <span class="help"><button class="help-btn" aria-label="DGA help" aria-expanded="false">?</button>
-            <span class="bubble" role="tooltip"><span class="title">DGA</span><span class="text">“Directeur‑Grootaandeelhouder” (director‑major shareholder) salary.</span></span>
-          </span>
-          for the Founder (incl. employer on‑costs) for <strong>12 months</strong> once payroll starts.
+          <strong>Legal/notary/lawyer fees:</strong> <em>no cap</em>, at actuals (paid by Investor). Add your estimate in the calculator below for clarity.
+        </li>
+        <li class="li">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>
+          <strong>DGA salary:</strong> <strong>12 months</strong> (within the 24‑month window) × <em>your monthly gross + employer on‑costs</em>.
         </li>
       </ul>
+
+      <!-- Calculator -->
+      <h3 class="muted" style="margin:6px 0 0">24‑Month Coverage Calculator <span class="muted">(all amounts EUR)</span></h3>
+      <div class="calc-grid" role="region" aria-label="Coverage calculator">
+        <div class="row">
+          <label for="opsMonthly">Ops guideline per month</label>
+          <input id="opsMonthly" type="number" inputmode="decimal" step="50" min="0" value="500" aria-label="Ops guideline per month (€)" />
+          <span class="muted">€/mo</span>
+        </div>
+        <div class="row">
+          <label for="opsMonths">Ops months (max 24)</label>
+          <input id="opsMonths" type="number" inputmode="numeric" step="1" min="0" max="24" value="24" aria-label="Ops months" />
+          <span class="muted">months</span>
+        </div>
+        <div class="row">
+          <label for="legalEstimate">Legal / notary total estimate</label>
+          <input id="legalEstimate" type="number" inputmode="decimal" step="100" min="0" value="0" aria-label="Legal and notary estimate (€)" />
+          <span class="muted">€ total</span>
+        </div>
+        <div class="row">
+          <label for="dgaMonthly">DGA salary monthly (gross + on‑costs)</label>
+          <input id="dgaMonthly" type="number" inputmode="decimal" step="100" min="0" value="0" aria-label="DGA salary monthly (€)" />
+          <span class="muted">€/mo</span>
+        </div>
+        <div class="row">
+          <label for="dgaMonths">DGA months covered (of 24)</label>
+          <input id="dgaMonths" type="number" inputmode="numeric" step="1" min="0" max="24" value="12" aria-label="DGA months covered" />
+          <span class="muted">months</span>
+        </div>
+
+        <div class="totals">
+          <div class="label">Ops total</div><div id="opsTotal" class="value">€ 12.000</div>
+          <div class="label">Legal / notary (estimate)</div><div id="legalTotal" class="value">€ 0</div>
+          <div class="label">DGA salary total</div><div id="dgaTotal" class="value">€ 0</div>
+          <div class="label grand">24‑month envelope (sum)</div><div id="grandTotal" class="value grand">€ 12.000</div>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:6px">This is a planning aid only; actuals are recorded in the Loan Agreement and monthly reports. Ops guideline can exceed €500/mo by mutual approval.</p>
     </section>
 
     <!-- 3) Roles & Light Commitments -->
@@ -524,7 +554,7 @@
       <div class="cta">
         <button class="btn" onclick="window.print()">Print / Save PDF</button>
         <a class="btn secondary" rel="noopener"
-           href="mailto:?subject=AI4Impact%20B.V.%20%E2%80%94%20Updated%20Partner%20Offer%20(Single%20Page%20with%20Help)&body=Start%20date%3A%201%20January%202026%0AKey%3A%2015%%20equity%20with%2024m%20reverse%20vesting%20(3m%20cliff)%3B%200%%20shareholder%20loan%20(unsecured%2C%20subordinated)%3B%20legal%20fees%20covered%3B%20ops%20guideline%20%E2%82%AC500%2Fmo%3B%20DGA%20salary%2012%20months%20once%20payroll%20starts.%0AMilestone%3A%20LLM%20Business%20Analysis%20v1%20by%2030%20June%202026.%0ATasks%3A%20Nov%20%26%20Dec%202025%20prep%2C%20then%20This%20Week%2FNotary%2F%2B7%20Days.%0A(Each%20term%20has%20simple%20pop-up%20help%20in%20the%20HTML.)">Quick email</a>
+           href="mailto:?subject=AI4Impact%20B.V.%20%E2%80%94%20Updated%20Partner%20Offer%20(24%E2%80%91Month%20Cover)&body=Start%20date%3A%201%20January%202026%0AKey%3A%2015%%20equity%20with%2024m%20reverse%20vesting%20(3m%20cliff)%3B%200%%20shareholder%20loan%20(unsecured%2C%20subordinated)%3B%20coverage%20window%2024%20months%20(1%20Jan%202026%20%E2%86%92%2031%20Dec%202027).%0AOps%20guideline%3A%20%E2%82%AC500%2Fmo%20(%E2%89%88%E2%82%AC12k%2F24m).%20Legal%2Fnotary%3A%20no%20cap%20(at%20actuals).%20DGA%20salary%3A%2012%20months%20inside%20the%2024m%20window.%0AMilestone%3A%20LLM%20Business%20Analysis%20by%2030%20June%202026.%0AContains%20Nov%20%26%20Dec%202025%20prep%20tasks%20and%20a%2024m%20coverage%20calculator%20for%20totals.">Quick email</a>
       </div>
     </section>
 
@@ -567,7 +597,6 @@
       const btn = h.querySelector('.help-btn');
       const bubble = h.querySelector('.bubble');
       if (!btn || !bubble) return;
-      // Assign ids for accessibility
       const id = 'helpbubble-' + idx;
       bubble.id = id;
       btn.setAttribute('aria-controls', id);
@@ -591,6 +620,32 @@
     document.addEventListener('keydown', (e)=>{
       if (e.key === 'Escape') closeAllBubbles();
     });
+
+    // Calculator formatting & math
+    const euroFmt = (n)=> {
+      try { return n.toLocaleString(undefined, {style:'currency', currency:'EUR', maximumFractionDigits:0}); }
+      catch { return '€ ' + Math.round(n).toString(); }
+    };
+    const el = id => document.getElementById(id);
+    const fields = ['opsMonthly','opsMonths','legalEstimate','dgaMonthly','dgaMonths'];
+    function recalc(){
+      const opsMonthly = Math.max(0, Number(el('opsMonthly').value || 0));
+      const opsMonths  = Math.max(0, Math.min(24, Number(el('opsMonths').value || 0)));
+      const legal      = Math.max(0, Number(el('legalEstimate').value || 0));
+      const dgaMonthly = Math.max(0, Number(el('dgaMonthly').value || 0));
+      const dgaMonths  = Math.max(0, Math.min(24, Number(el('dgaMonths').value || 0)));
+
+      const opsTotal = opsMonthly * opsMonths;
+      const dgaTotal = dgaMonthly * dgaMonths;
+      const grand = opsTotal + legal + dgaTotal;
+
+      el('opsTotal').textContent   = euroFmt(opsTotal);
+      el('legalTotal').textContent = euroFmt(legal);
+      el('dgaTotal').textContent   = euroFmt(dgaTotal);
+      el('grandTotal').textContent = euroFmt(grand);
+    }
+    fields.forEach(id => el(id).addEventListener('input', recalc));
+    recalc(); // initial
   </script>
 </body>
 </html>
