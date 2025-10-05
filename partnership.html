@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI4Impact B.V. — Simple Partner Offer (1‑Pager)</title>
-  <meta name="description" content="Simple Partner Offer (1‑Pager) for AI4Impact B.V.: 15% equity, 24‑month vesting with 3‑month cliff, €10k 0% shareholder loan, ops cap €500/mo, one‑off cap €1,500, ROFR/Tag/Drag, board‑observer, IP belongs to AI4Impact B.V., to‑do checklist and signatures." />
+  <title>AI4Impact B.V. — Simple Partner Offer (1-Pager)</title>
+  <meta name="description" content="Simple Partner Offer (1-Pager) for AI4Impact B.V.: 15% equity, 24-month vesting with 3-month cliff, €10k 0% shareholder loan, ops cap €500/mo, one-off cap €1,500, ROFR/Tag/Drag, board-observer, IP belongs to AI4Impact B.V., to-do checklist and signatures." />
   <style>
     :root{
       --bg: #0f1220;
@@ -58,18 +58,11 @@
     .meta{display:flex; gap:12px; flex-wrap:wrap; margin-top:4px}
     .meta .chip{background:var(--chip); border:1px solid var(--border); color:var(--ink); padding:6px 10px; border-radius:999px; font-size:.9rem}
 
-    main{margin-top:20px}
-    .grid{display:grid; grid-template-columns: repeat(12,1fr); gap:18px}
+    /* One-column flow: just stack cards full width */
     .card{
-      grid-column: span 12; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 18px 10px;
+      background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 18px 10px;
       box-shadow: 0 10px 30px rgba(3,7,18,0.35);
-    }
-    @media(min-width:900px){
-      .col-7{grid-column:span 7}
-      .col-5{grid-column:span 5}
-      .col-6{grid-column:span 6}
-      .col-4{grid-column:span 4}
-      .col-8{grid-column:span 8}
+      margin:18px 0;
     }
     .card h2{margin:4px 0 6px; font-size:1.15rem}
     .divider{height:1px; background:linear-gradient(90deg, transparent, #2a3553, transparent); margin:12px 0}
@@ -98,35 +91,6 @@
     .step .label{font-weight:700}
     .step .note{display:block; font-size:.9rem; color:var(--muted)}
 
-    .price-wrap{display:flex; flex-wrap:wrap; gap:12px; margin:8px 0 14px}
-    .pill{
-      display:flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--border); border-radius:12px; background:linear-gradient(180deg, #1c2540, #1a2036);
-    }
-    .pill .amt{font-size:1.2rem; font-weight:700}
-    .pill .tag{font-size:.92rem; color:var(--muted)}
-    .math{
-      display:grid; grid-template-columns: 1fr auto; gap:6px 12px; align-items:center; margin-top:4px; font-size:1.02rem;
-    }
-    .math .label{color:var(--muted)}
-    .math .value{font-weight:700}
-    .math .total{font-size:1.25rem; font-weight:800}
-
-    .table-wrap{overflow:auto; margin-top:10px; border:1px solid var(--border); border-radius:12px}
-    table.cost-table{width:100%; border-collapse:separate; border-spacing:0}
-    .cost-table thead th{
-      position:sticky; top:0; background:rgba(255,255,255,0.03);
-      color:var(--muted); text-align:left; font-weight:700; padding:10px 12px; border-bottom:1px solid var(--border);
-    }
-    .cost-table tbody td{
-      padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top; font-size:.95rem;
-    }
-    .cost-table tbody tr:last-child td{border-bottom:none}
-    .cost-table td.num{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums}
-    .cost-table tfoot td{
-      padding:12px; font-weight:800; border-top:1px solid var(--border);
-    }
-    .cost-note{font-size:.88rem; color:var(--muted); margin-top:6px}
-
     .cta{display:flex; gap:12px; flex-wrap:wrap; margin:10px 0 20px}
     .btn{
       appearance:none; border:1px solid var(--border); background:linear-gradient(180deg, #1f2937, #111827);
@@ -137,12 +101,11 @@
     footer{margin:24px 0 8px; color:var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
     code.inline{background:rgba(255,255,255,.06); border:1px solid var(--border); padding:2px 6px; border-radius:8px}
 
-    .sig-grid{
-      display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:8px 0 12px;
-    }
+    /* Single-column signatures */
     .sig{
       border:1px dashed var(--border); border-radius:12px; padding:12px;
       background:linear-gradient(180deg, #161c30, #111827);
+      margin:10px 0;
     }
     .sig .line{height:1px; background:linear-gradient(90deg, transparent, #2a3553, transparent); margin:32px 0 8px}
     .sig .name{color:var(--muted); font-size:.92rem}
@@ -168,11 +131,11 @@
           <div class="tagline">We make you progress faster.</div>
         </div>
       </div>
-      <div class="badge">Partner Offer • 1‑Pager</div>
+      <div class="badge">Partner Offer • 1-Pager</div>
     </header>
 
     <section>
-      <h1>AI4Impact B.V. — Simple Partner Offer (1‑Pager)</h1>
+      <h1>AI4Impact B.V. — Simple Partner Offer (1-Pager)</h1>
       <p class="sub"><strong>Date:</strong> 5th Oct 2025 • <strong>Company:</strong> AI4Impact B.V. <span class="muted">(current legal name: Climate Fundraising Platform B.V.; trading name “AI4Impact”)</span></p>
       <div class="meta">
         <div class="chip">Equity: 15% ordinary</div>
@@ -181,198 +144,175 @@
         <div class="chip">Vesting: 24 mo + 3 mo cliff</div>
         <div class="chip">Loan: &euro;10k • 0% • subordinated</div>
         <div class="chip">Ops cap: &euro;500/mo</div>
-        <div class="chip">One‑off cap: &euro;1,500</div>
-        <div class="chip">ROFR • Tag‑along • Drag‑along 75%</div>
-        <div class="chip">Board‑observer</div>
+        <div class="chip">One-off cap: &euro;1,500</div>
+        <div class="chip">ROFR • Tag-along • Drag-along 75%</div>
+        <div class="chip">Board-observer</div>
         <div class="chip">KVK + Notary</div>
       </div>
     </section>
 
-    <main class="grid">
-      <!-- Key Terms -->
-      <section class="card col-7">
-        <h2>Key Terms</h2>
-        <div class="divider"></div>
+    <!-- Key Terms -->
+    <section class="card">
+      <h2>Key Terms</h2>
+      <div class="divider"></div>
 
-        <h3 class="muted" style="margin:6px 0 0">1) Equity &amp; Control</h3>
-        <ul class="list">
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Investor receives <strong>15% ordinary shares</strong> at closing.</li>
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Voting: <strong>1 share = 1 vote</strong>; Founder remains <strong>director</strong> with day‑to‑day control.</li>
-        </ul>
+      <h3 class="muted" style="margin:6px 0 0">1) Equity &amp; Control</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Investor receives <strong>15% ordinary shares</strong> at closing.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Voting: <strong>1 share = 1 vote</strong>; Founder remains <strong>director</strong> with day-to-day control.</li>
+      </ul>
 
-        <h3 class="muted" style="margin:6px 0 0">2) Vesting (keeps it fair)</h3>
-        <ul class="list">
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Investor’s 15% <strong>vests over 24 months</strong> with a <strong>3‑month cliff</strong>.</li>
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>If contribution stops during vesting, <strong>unvested</strong> shares are <strong>bought back at nominal</strong> value.</li>
-        </ul>
+      <h3 class="muted" style="margin:6px 0 0">2) Vesting (keeps it fair)</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Investor’s 15% <strong>vests over 24 months</strong> with a <strong>3-month cliff</strong>.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>If contribution stops during vesting, <strong>unvested</strong> shares are <strong>bought back at nominal</strong> value.</li>
+      </ul>
 
-        <h3 class="muted" style="margin:6px 0 0">3) Funding (simple, no interest)</h3>
-        <ul class="list">
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Investor provides a <strong>&euro;10,000 shareholder loan</strong>, <strong>0% interest</strong>, subordinated, drawn as needed.</li>
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Repay when cash allows</strong>; no fixed maturity.</li>
-        </ul>
+      <h3 class="muted" style="margin:6px 0 0">3) Funding (simple, no interest)</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Investor provides a <strong>&euro;10,000 shareholder loan</strong>, <strong>0% interest</strong>, subordinated, drawn as needed.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Repay when cash allows</strong>; no fixed maturity.</li>
+      </ul>
 
-        <h3 class="muted" style="margin:6px 0 0">4) What Costs This Covers</h3>
-        <ul class="list">
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Monthly ops</strong> (rent, servers, APIs, domains) <strong>up to &euro;500/month</strong> auto‑approved.</li>
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>One‑off items</strong> (e.g., notary; trade/legal name change) <strong>up to &euro;1,500</strong> with quick email OK.</li>
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Anything larger: both approve.</li>
-        </ul>
+      <h3 class="muted" style="margin:6px 0 0">4) What Costs This Covers</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Monthly ops</strong> (rent, servers, APIs, domains) <strong>up to &euro;500/month</strong> auto-approved.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>One-off items</strong> (e.g., notary; trade/legal name change) <strong>up to &euro;1,500</strong> with quick email OK.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Anything larger: both approve.</li>
+      </ul>
 
-        <h3 class="muted" style="margin:6px 0 0">5) Roles &amp; Light Commitments</h3>
-        <ul class="list">
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Founder: builds product, runs the company.</li>
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Investor: <strong>sales/strategy support</strong> + <strong>board‑observer</strong> rights; light KPI (e.g., <strong>1 warm intro/month</strong> or <strong>1 qualified lead/quarter</strong>).</li>
-        </ul>
+      <h3 class="muted" style="margin:6px 0 0">5) Roles &amp; Light Commitments</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Founder: builds product, runs the company.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Investor: <strong>sales/strategy support</strong> + <strong>board-observer</strong> rights; light KPI (e.g., <strong>1 warm intro/month</strong> or <strong>1 qualified lead/quarter</strong>).</li>
+      </ul>
 
-        <h3 class="muted" style="margin:6px 0 0">6) Exits &amp; Transfers (protect both sides)</h3>
-        <ul class="list">
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>24‑month lock‑up</strong>; afterwards: <strong>Right of First Refusal</strong> on any sale.</li>
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Tag‑along</strong> for investor; <strong>drag‑along at 75%</strong> shareholder approval.</li>
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>After vesting, if someone wants out: <strong>fair‑market‑value buy/sell</strong>; independent valuer if no agreement.</li>
-        </ul>
+      <h3 class="muted" style="margin:6px 0 0">6) Exits &amp; Transfers (protect both sides)</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>24-month lock-up</strong>; afterwards: <strong>Right of First Refusal</strong> on any sale.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Tag-along</strong> for investor; <strong>drag-along at 75%</strong> shareholder approval.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>After vesting, if someone wants out: <strong>fair-market-value buy/sell</strong>; independent valuer if no agreement.</li>
+      </ul>
 
-        <h3 class="muted" style="margin:6px 0 0">7) IP &amp; Brand</h3>
-        <ul class="list">
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>All code/IP belong to <strong>AI4Impact B.V.</strong></li>
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Trade name “AI4Impact”</strong> used now; legal name change can follow later.</li>
-        </ul>
+      <h3 class="muted" style="margin:6px 0 0">7) IP &amp; Brand</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>All code/IP belong to <strong>AI4Impact B.V.</strong></li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Trade name “AI4Impact”</strong> used now; legal name change can follow later.</li>
+      </ul>
 
-        <h3 class="muted" style="margin:6px 0 0">Documents to Sign</h3>
-        <ul class="list">
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Shareholders’ Agreement (SHA)</strong> and <strong>Loan Agreement</strong>.</li>
-          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Notary deed</strong> for share issue/transfer; <strong>update shareholder register</strong>.</li>
-        </ul>
-      </section>
+      <h3 class="muted" style="margin:6px 0 0">Documents to Sign</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Shareholders’ Agreement (SHA)</strong> and <strong>Loan Agreement</strong>.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Notary deed</strong> for share issue/transfer; <strong>update shareholder register</strong>.</li>
+      </ul>
+    </section>
 
-      <!-- Signatures & Quick Send -->
-      <aside class="card col-5">
-        <h2>Signatures &amp; Quick Send</h2>
-        <div class="divider"></div>
-        <p class="muted">Non‑binding summary — final terms go in SHA &amp; Loan Agreement.</p>
+    <!-- Signatures & Quick Send (stacked) -->
+    <section class="card">
+      <h2>Signatures &amp; Quick Send</h2>
+      <div class="divider"></div>
+      <p class="muted">Non-binding summary — final terms go in SHA &amp; Loan Agreement.</p>
 
-        <div class="sig-grid">
-          <div class="sig">
-            <div><strong>Founder</strong>: Hawkar Ali Abdulhaq</div>
-            <div class="line"></div>
-            <div class="name">Signature</div>
-          </div>
-          <div class="sig">
-            <div><strong>Investor/Partner</strong>: Mariwan Masoud</div>
-            <div class="line"></div>
-            <div class="name">Signature</div>
-          </div>
-        </div>
+      <div class="sig">
+        <div><strong>Founder</strong>: Hawkar Ali Abdulhaq</div>
+        <div class="line"></div>
+        <div class="name">Signature</div>
+      </div>
+      <div class="sig">
+        <div><strong>Investor/Partner</strong>: Mariwan Masoud</div>
+        <div class="line"></div>
+        <div class="name">Signature</div>
+      </div>
 
-        <div class="divider"></div>
-        <p class="muted" style="margin-top:8px">Quick message version:</p>
-        <p>
-          <code class="inline">AI4Impact Partner Offer — 15% ordinary shares; vest 24m w/ 3m cliff; €10k 0% shareholder loan; ops €500/mo & one‑off €1,500 caps; ROFR, tag‑along, drag‑along @75%; board‑observer. IP to AI4Impact B.V. Non‑binding; final in SHA & Loan.</code>
-        </p>
+      <div class="divider"></div>
+      <p class="muted" style="margin-top:8px">Quick message version:</p>
+      <p>
+        <code class="inline">AI4Impact Partner Offer — 15% ordinary shares; vest 24m w/ 3m cliff; €10k 0% shareholder loan; ops €500/mo & one-off €1,500 caps; ROFR, tag-along, drag-along @75%; board-observer. IP to AI4Impact B.V. Non-binding; final in SHA & Loan.</code>
+      </p>
 
-        <div class="cta">
-          <button class="btn" onclick="window.print()">Print / Save PDF</button>
-          <a class="btn secondary" rel="noopener"
-             href="mailto:?subject=AI4Impact%20B.V.%20%E2%80%94%20Partner%20Offer%20(1%E2%80%91Pager)&body=Date%3A%205th%20Oct%202025%0ACompany%3A%20AI4Impact%20B.V.%20(current%20legal%3A%20Climate%20Fundraising%20Platform%20B.V.%3B%20trade%20name%20%E2%80%9CAI4Impact%E2%80%9D)%0AFounder%3A%20Hawkar%20Ali%20Abdulhaq%20%7C%20Investor%2FPartner%3A%20Mariwan%20Masoud%0A%0A1)%20Equity%20%26%20Control%3A%2015%%20ordinary%20at%20closing%3B%201%20share%20%3D%201%20vote%3B%20Founder%20stays%20director.%0A2)%20Vesting%3A%2024%20months%20with%203-month%20cliff%3B%20unvested%20buy-back%20at%20nominal%20if%20contribution%20stops.%0A3)%20Funding%3A%20%E2%82%AC10%2C000%20shareholder%20loan%2C%200%%20interest%2C%20subordinated%2C%20drawn%20as%20needed%3B%20repay%20when%20cash%20allows.%0A4)%20Costs%3A%20Ops%20up%20to%20%E2%82%AC500%2Fmo%20(auto)%3B%20one-off%20up%20to%20%E2%82%AC1%2C500%20(quick%20email%20OK)%3B%20bigger%20by%20mutual%20approval.%0A5)%20Roles%3A%20Founder%20runs%20product%2Fcompany%3B%20Investor%20sales%2Fstrategy%20support%20%2B%20board-observer%3B%20light%20KPI%20(1%20intro%2Fmo%20or%201%20lead%2Fqtr).%0A6)%20Exits%2FTransfers%3A%2024-mo%20lock-up%3B%20ROFR%3B%20tag-along%3B%20drag-along%20at%2075%%3B%20FMV%20buy/sell%20post-vesting.%0A7)%20IP%20%26%20Brand%3A%20All%20code/IP%20to%20AI4Impact%20B.V.%3B%20trade%20name%20%E2%80%9CAI4Impact%E2%80%9D%3B%20legal%20name%20change%20later.%0A%0ADocuments%3A%20SHA%2C%20Loan%20Agreement%2C%20Notary%20deed%2C%20update%20shareholder%20register.%0A%0ANon-binding%20summary%20%E2%80%94%20final%20terms%20in%20SHA%20%26%20Loan.">Quick email</a>
-        </div>
-      </aside>
+      <div class="cta">
+        <button class="btn" onclick="window.print()">Print / Save PDF</button>
+        <a class="btn secondary" rel="noopener"
+           href="mailto:?subject=AI4Impact%20B.V.%20%E2%80%94%20Partner%20Offer%20(1%E2%80%91Pager)&body=Date%3A%205th%20Oct%202025%0ACompany%3A%20AI4Impact%20B.V.%20(current%20legal%3A%20Climate%20Fundraising%20Platform%20B.V.%3B%20trade%20name%20%E2%80%9CAI4Impact%E2%80%9D)%0AFounder%3A%20Hawkar%20Ali%20Abdulhaq%20%7C%20Investor%2FPartner%3A%20Mariwan%20Masoud%0A%0A1)%20Equity%20%26%20Control%3A%2015%%20ordinary%20at%20closing%3B%201%20share%20%3D%201%20vote%3B%20Founder%20stays%20director.%0A2)%20Vesting%3A%2024%20months%20with%203-month%20cliff%3B%20unvested%20buy-back%20at%20nominal%20if%20contribution%20stops.%0A3)%20Funding%3A%20%E2%82%AC10%2C000%20shareholder%20loan%2C%200%%20interest%2C%20subordinated%2C%20drawn%20as%20needed%3B%20repay%20when%20cash%20allows.%0A4)%20Costs%3A%20Ops%20up%20to%20%E2%82%AC500%2Fmo%20(auto)%3B%20one-off%20up%20to%20%E2%82%AC1%2C500%20(quick%20email%20OK)%3B%20bigger%20by%20mutual%20approval.%0A5)%20Roles%3A%20Founder%20runs%20product%2Fcompany%3B%20Investor%20sales%2Fstrategy%20support%20%2B%20board-observer%3B%20light%20KPI%20(1%20intro%2Fmo%20or%201%20lead%2Fqtr).%0A6)%20Exits%2FTransfers%3A%2024-mo%20lock-up%3B%20ROFR%3B%20tag-along%3B%20drag-along%20at%2075%%3B%20FMV%20buy/sell%20post-vesting.%0A7)%20IP%20%26%20Brand%3A%20All%20code/IP%20to%20AI4Impact%20B.V.%3B%20trade%20name%20%E2%80%9CAI4Impact%E2%80%9D%3B%20legal%20name%20change%20later.%0A%0ADocuments%3A%20SHA%2C%20Loan%20Agreement%2C%20Notary%20deed%2C%20update%20shareholder%20register.%0A%0ANon-binding%20summary%20%E2%80%94%20final%20terms%20in%20SHA%20%26%20Loan.">Quick email</a>
+      </div>
+    </section>
 
-      <!-- To‑Do List -->
-      <section class="card col-12">
-        <h2>To‑Do List (Super Simple)</h2>
+    <!-- To-Do List (stacked, single column) -->
+    <section class="card">
+      <h2>To-Do List (Super Simple)</h2>
+      <div class="divider"></div>
 
-        <div class="divider"></div>
-        <div class="stepper" aria-label="Milestones">
-          <div class="step">
-            <div class="dot">S1</div>
-            <div>
-              <div class="label">This Week</div>
-              <span class="note">Confirm numbers, pick notary, swap details, draft SHA & Loan</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="dot">S2</div>
-            <div>
-              <div class="label">Notary Day</div>
-              <span class="note">Execute deed; update shareholder register</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="dot">S3</div>
-            <div>
-              <div class="label">Within 7 Days</div>
-              <span class="note">Initial drawdown; expense policy; monthly check‑in</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="dot">S4</div>
-            <div>
-              <div class="label">Within 30 Days</div>
-              <span class="note">File trade name; update cap table; UBO check</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="dot">S5</div>
-            <div>
-              <div class="label">Before Next Year</div>
-              <span class="note">Decide DGA salary; set up payroll</span>
-            </div>
+      <div class="stepper" aria-label="Milestones">
+        <div class="step">
+          <div class="dot">S1</div>
+          <div>
+            <div class="label">This Week</div>
+            <span class="note">Confirm numbers, pick notary, swap details, draft SHA & Loan</span>
           </div>
         </div>
-
-        <div class="grid">
-          <div class="col-6">
-            <div class="divider"></div>
-            <h3 class="muted" style="margin:6px 0 0">This Week</h3>
-            <ul class="list">
-              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg><strong>Confirm numbers</strong>: 15% equity, <strong>&euro;10k</strong> loan cap, <strong>&euro;500/month</strong> ops cap, <strong>&euro;1,500</strong> one‑off cap.</li>
-              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg><strong>Pick a notary</strong> &amp; book appointment (share issue/transfer; optional name/statutes change).</li>
-              <li class="li"><svg viewBox="0 0 24 24  " width="18" height="18"><path d="M5 12l5 5L20 7"/></svg><strong>Swap details</strong> (IDs, addresses, KVK number).</li>
-              <li class="li"><svg viewBox="0 0 24 24  " width="18" height="18"><path d="M5 12l5 5L20 7"/></svg><strong>Draft &amp; sign</strong> short <strong>SHA</strong> + <strong>Loan Agreement</strong> (plain Dutch/English).</li>
-            </ul>
-          </div>
-          <div class="col-6">
-            <div class="divider"></div>
-            <h3 class="muted" style="margin:6px 0 0">Notary Day</h3>
-            <ul class="list">
-              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 12H4"/></svg>Execute <strong>share issue/transfer deed</strong>.</li>
-              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 12H4"/></svg><strong>Update shareholder register</strong> (required).</li>
-            </ul>
+        <div class="step">
+          <div class="dot">S2</div>
+          <div>
+            <div class="label">Notary Day</div>
+            <span class="note">Execute deed; update shareholder register</span>
           </div>
         </div>
-
-        <div class="grid">
-          <div class="col-6">
-            <div class="divider"></div>
-            <h3 class="muted" style="margin:6px 0 0">Within 7 Days After</h3>
-            <ul class="list">
-              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Investor wires <strong>initial drawdown</strong> (e.g., first 1–3 months of costs).</li>
-              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Set <strong>expense policy</strong> (the caps above) &amp; simple <strong>approval by email</strong>.</li>
-              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Start <strong>monthly check‑in</strong>: cash report + KPI (intros/leads).</li>
-            </ul>
-          </div>
-          <div class="col-6">
-            <div class="divider"></div>
-            <h3 class="muted" style="margin:6px 0 0">Within 30 Days</h3>
-            <ul class="list">
-              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 18h18"/></svg>File <strong>trade name “AI4Impact”</strong> at KVK (legal name change later if you want).</li>
-              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 18h18"/></svg>Update <strong>cap table</strong> and store all docs.</li>
-              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 18h18"/></svg><strong>UBO check</strong> (only matters if someone ≥25%).</li>
-            </ul>
+        <div class="step">
+          <div class="dot">S3</div>
+          <div>
+            <div class="label">Within 7 Days</div>
+            <span class="note">Initial drawdown; expense policy; monthly check-in</span>
           </div>
         </div>
-
-        <div class="grid">
-          <div class="col-12">
-            <div class="divider"></div>
-            <h3 class="muted" style="margin:6px 0 0">Before Next Year (Payroll Plan)</h3>
-            <ul class="list">
-              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>Decide if/when to start <strong>DGA salary</strong>; budget and set up payroll.</li>
-            </ul>
+        <div class="step">
+          <div class="dot">S4</div>
+          <div>
+            <div class="label">Within 30 Days</div>
+            <span class="note">File trade name; update cap table; UBO check</span>
           </div>
         </div>
-      </section>
-    </main>
+        <div class="step">
+          <div class="dot">S5</div>
+          <div>
+            <div class="label">Before Next Year</div>
+            <span class="note">Decide DGA salary; set up payroll</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="muted" style="margin:6px 0 0">This Week</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg><strong>Confirm numbers</strong>: 15% equity, <strong>&euro;10k</strong> loan cap, <strong>&euro;500/month</strong> ops cap, <strong>&euro;1,500</strong> one-off cap.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg><strong>Pick a notary</strong> &amp; book appointment (share issue/transfer; optional name/statutes change).</li>
+        <li class="li"><svg viewBox="0 0 24 24  " width="18" height="18"><path d="M5 12l5 5L20 7"/></svg><strong>Swap details</strong> (IDs, addresses, KVK number).</li>
+        <li class="li"><svg viewBox="0 0 24 24  " width="18" height="18"><path d="M5 12l5 5L20 7"/></svg><strong>Draft &amp; sign</strong> short <strong>SHA</strong> + <strong>Loan Agreement</strong> (plain Dutch/English).</li>
+      </ul>
+
+      <h3 class="muted" style="margin:6px 0 0">Notary Day</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 12H4"/></svg>Execute <strong>share issue/transfer deed</strong>.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 12H4"/></svg><strong>Update shareholder register</strong> (required).</li>
+      </ul>
+
+      <h3 class="muted" style="margin:6px 0 0">Within 7 Days After</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Investor wires <strong>initial drawdown</strong> (e.g., first 1–3 months of costs).</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Set <strong>expense policy</strong> (the caps above) &amp; simple <strong>approval by email</strong>.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Start <strong>monthly check-in</strong>: cash report + KPI (intros/leads).</li>
+      </ul>
+
+      <h3 class="muted" style="margin:6px 0 0">Within 30 Days</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 18h18"/></svg>File <strong>trade name “AI4Impact”</strong> at KVK (legal name change later if you want).</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 18h18"/></svg>Update <strong>cap table</strong> and store all docs.</li>
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 18h18"/></svg><strong>UBO check</strong> (only matters if someone ≥25%).</li>
+      </ul>
+
+      <h3 class="muted" style="margin:6px 0 0">Before Next Year (Payroll Plan)</h3>
+      <ul class="list">
+        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>Decide if/when to start <strong>DGA salary</strong>; budget and set up payroll.</li>
+      </ul>
+    </section>
 
     <footer>
       <div>© <span id="year">2025</span> <a href="https://www.aiforimpact.net" target="_blank" rel="noopener">AI4Impact B.V.</a> • We make you progress faster.</div>
