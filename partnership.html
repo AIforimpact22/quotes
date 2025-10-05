@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI4Impact B.V. — Simple Partner Offer (1-Pager)</title>
-  <meta name="description" content="Simple Partner Offer (1-Pager) for AI4Impact B.V.: 15% equity, 24-month vesting with 3-month cliff, €10k 0% shareholder loan, ops cap €500/mo, one-off cap €1,500, ROFR/Tag/Drag, board-observer, IP belongs to AI4Impact B.V., to-do checklist and signatures." />
+  <title>Proposal • AMAS Hypermarket Management System — Phase 3</title>
+  <meta name="description" content="Proposal for AMAS Hypermarket Phase 3: Holdings backend (Jan 1–Jan 31, 2026), HR employee backend, LLM backend, Supplier & Customer backends, Bakery & Butchery integrations, and Enhancements (Data Room, Cashier, Price, Automated PO). Phase window Oct 11, 2025–Jan 31, 2026. Base $15,200 + 15% contingency = $17,480. Price Backend Enhancement is TBD and excluded from totals." />
   <style>
     :root{
       --bg: #0f1220;
@@ -58,11 +58,18 @@
     .meta{display:flex; gap:12px; flex-wrap:wrap; margin-top:4px}
     .meta .chip{background:var(--chip); border:1px solid var(--border); color:var(--ink); padding:6px 10px; border-radius:999px; font-size:.9rem}
 
-    /* One-column flow: just stack cards full width */
+    main{margin-top:20px}
+    .grid{display:grid; grid-template-columns: repeat(12,1fr); gap:18px}
     .card{
-      background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 18px 10px;
+      grid-column: span 12; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 18px 10px;
       box-shadow: 0 10px 30px rgba(3,7,18,0.35);
-      margin:18px 0;
+    }
+    @media(min-width:900px){
+      .col-7{grid-column:span 7}
+      .col-5{grid-column:span 5}
+      .col-6{grid-column:span 6}
+      .col-4{grid-column:span 4}
+      .col-8{grid-column:span 8}
     }
     .card h2{margin:4px 0 6px; font-size:1.15rem}
     .divider{height:1px; background:linear-gradient(90deg, transparent, #2a3553, transparent); margin:12px 0}
@@ -91,6 +98,35 @@
     .step .label{font-weight:700}
     .step .note{display:block; font-size:.9rem; color:var(--muted)}
 
+    .price-wrap{display:flex; flex-wrap:wrap; gap:12px; margin:8px 0 14px}
+    .pill{
+      display:flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--border); border-radius:12px; background:linear-gradient(180deg, #1c2540, #1a2036);
+    }
+    .pill .amt{font-size:1.2rem; font-weight:700}
+    .pill .tag{font-size:.92rem; color:var(--muted)}
+    .math{
+      display:grid; grid-template-columns: 1fr auto; gap:6px 12px; align-items:center; margin-top:4px; font-size:1.02rem;
+    }
+    .math .label{color:var(--muted)}
+    .math .value{font-weight:700}
+    .math .total{font-size:1.25rem; font-weight:800}
+
+    .table-wrap{overflow:auto; margin-top:10px; border:1px solid var(--border); border-radius:12px}
+    table.cost-table{width:100%; border-collapse:separate; border-spacing:0}
+    .cost-table thead th{
+      position:sticky; top:0; background:rgba(255,255,255,0.03);
+      color:var(--muted); text-align:left; font-weight:700; padding:10px 12px; border-bottom:1px solid var(--border);
+    }
+    .cost-table tbody td{
+      padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top; font-size:.95rem;
+    }
+    .cost-table tbody tr:last-child td{border-bottom:none}
+    .cost-table td.num{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums}
+    .cost-table tfoot td{
+      padding:12px; font-weight:800; border-top:1px solid var(--border);
+    }
+    .cost-note{font-size:.88rem; color:var(--muted); margin-top:6px}
+
     .cta{display:flex; gap:12px; flex-wrap:wrap; margin:10px 0 20px}
     .btn{
       appearance:none; border:1px solid var(--border); background:linear-gradient(180deg, #1f2937, #111827);
@@ -100,15 +136,6 @@
 
     footer{margin:24px 0 8px; color:var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
     code.inline{background:rgba(255,255,255,.06); border:1px solid var(--border); padding:2px 6px; border-radius:8px}
-
-    /* Single-column signatures */
-    .sig{
-      border:1px dashed var(--border); border-radius:12px; padding:12px;
-      background:linear-gradient(180deg, #161c30, #111827);
-      margin:10px 0;
-    }
-    .sig .line{height:1px; background:linear-gradient(90deg, transparent, #2a3553, transparent); margin:32px 0 8px}
-    .sig .name{color:var(--muted); font-size:.92rem}
 
     @media print{
       body{background:#fff}
@@ -123,205 +150,319 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <a href="https://www.aiforimpact.net" target="_blank" rel="noopener" class="logo-badge" aria-label="AI4Impact">
-          <img src="https://i.imgur.com/STm5VaG.png?w=118&h=118" alt="AI4Impact logo (white on dark badge)" />
+        <a href="https://www.aiforimpact.net" target="_blank" rel="noopener" class="logo-badge" aria-label="Ai For Impact">
+          <img src="https://i.imgur.com/STm5VaG.png?w=118&h=118" alt="Ai For Impact logo (white on dark badge)" />
         </a>
         <div>
-          <div class="name"><a href="https://www.aiforimpact.net" target="_blank" rel="noopener">AI4Impact B.V.</a></div>
+          <div class="name"><a href="https://www.aiforimpact.net" target="_blank" rel="noopener">Ai For Impact</a></div>
           <div class="tagline">We make you progress faster.</div>
         </div>
       </div>
-      <div class="badge">Partner Offer • 1-Pager</div>
+      <div class="badge">Proposal • AMAS Hypermarket — Phase 3</div>
     </header>
 
     <section>
-      <h1>AI4Impact B.V. — Simple Partner Offer (1-Pager)</h1>
-      <p class="sub"><strong>Date:</strong> 5th Oct 2025 • <strong>Company:</strong> AI4Impact B.V. <span class="muted">(current legal name: Climate Fundraising Platform B.V.; trading name “AI4Impact”)</span></p>
+      <h1>AMAS Hypermarket Management System — Phase 3</h1>
+      <p class="sub">Prepared for <strong>AMAS Founders</strong> • <span class="muted">Date: <span id="today">—</span></span></p>
       <div class="meta">
-        <div class="chip">Equity: 15% ordinary</div>
-        <div class="chip">Voting: 1 share = 1 vote</div>
-        <div class="chip">Founder stays director</div>
-        <div class="chip">Vesting: 24 mo + 3 mo cliff</div>
-        <div class="chip">Loan: &euro;10k • 0% • subordinated</div>
-        <div class="chip">Ops cap: &euro;500/mo</div>
-        <div class="chip">One-off cap: &euro;1,500</div>
-        <div class="chip">ROFR • Tag-along • Drag-along 75%</div>
-        <div class="chip">Board-observer</div>
-        <div class="chip">KVK + Notary</div>
+        <div class="chip">Holdings Backend (Jan 1–Jan 31, 2026)</div>
+        <div class="chip">HR Employee Backend</div>
+        <div class="chip">LLM Backend</div>
+        <div class="chip">Supplier Backend</div>
+        <div class="chip">Customer Backend</div>
+        <div class="chip">Bakery Integration</div>
+        <div class="chip">Butchery Integration</div>
+        <div class="chip">Enhancements: Data Room, Cashier, Price, Auto PO</div>
+        <div class="chip">Phase Window: Oct 11, 2025 → Jan 31, 2026</div>
+        <div class="chip">Base: $15,200</div>
+        <div class="chip">Contingency: 15% ($2,280)</div>
+        <div class="chip">Grand Total: $17,480</div>
+        <div class="chip">Price Enhancement: TBD (excluded)</div>
       </div>
     </section>
 
-    <!-- Key Terms -->
-    <section class="card">
-      <h2>Key Terms</h2>
-      <div class="divider"></div>
+    <main class="grid">
+      <!-- Scope & Modules -->
+      <section class="card col-7">
+        <h2>Scope &amp; Modules</h2>
+        <div class="divider"></div>
 
-      <h3 class="muted" style="margin:6px 0 0">1) Equity &amp; Control</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Investor receives <strong>15% ordinary shares</strong> at closing.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Voting: <strong>1 share = 1 vote</strong>; Founder remains <strong>director</strong> with day-to-day control.</li>
-      </ul>
+        <h3 class="muted" style="margin:6px 0 0">Holdings Backend (Separate from Finance)</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Schedule:</strong> Jan 1–Jan 31, 2026 (build, QA, deploy).</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Company holdings ledger: <strong>shares/cap table</strong>, <strong>fiscal</strong> overview, <strong>budget</strong> tracking, and <strong>inventory</strong> as an asset class.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Governance, audit trails, and cross-links to Finance & Inventory modules for consolidated reporting.</li>
+        </ul>
 
-      <h3 class="muted" style="margin:6px 0 0">2) Vesting (keeps it fair)</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Investor’s 15% <strong>vests over 24 months</strong> with a <strong>3-month cliff</strong>.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>If contribution stops during vesting, <strong>unvested</strong> shares are <strong>bought back at nominal</strong> value.</li>
-      </ul>
+        <h3 class="muted" style="margin:6px 0 0">HR Employee Backend</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Employee profiles & organizational roster; role/permission management.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Attendance & shift logs; monitoring dashboards (insights only, no auto decisions).</li>
+        </ul>
 
-      <h3 class="muted" style="margin:6px 0 0">3) Funding (simple, no interest)</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Investor provides a <strong>&euro;10,000 shareholder loan</strong>, <strong>0% interest</strong>, subordinated, drawn as needed.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Repay when cash allows</strong>; no fixed maturity.</li>
-      </ul>
+        <h3 class="muted" style="margin:6px 0 0">LLM Backend (AI Layer)</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Conversational interface for founders: insights, summaries, proactive alerts.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Connects to holdings, finance, inventory, supplier, and HR data for context-aware answers.</li>
+        </ul>
 
-      <h3 class="muted" style="margin:6px 0 0">4) What Costs This Covers</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Monthly ops</strong> (rent, servers, APIs, domains) <strong>up to &euro;500/month</strong> auto-approved.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>One-off items</strong> (e.g., notary; trade/legal name change) <strong>up to &euro;1,500</strong> with quick email OK.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Anything larger: both approve.</li>
-      </ul>
+        <h3 class="muted" style="margin:6px 0 0">Supplier Backend</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>PO lifecycle, invoices, delivery tracking; integrates with Automated PO logic.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Supplier accounts, terms, and performance analytics.</li>
+        </ul>
 
-      <h3 class="muted" style="margin:6px 0 0">5) Roles &amp; Light Commitments</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Founder: builds product, runs the company.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Investor: <strong>sales/strategy support</strong> + <strong>board-observer</strong> rights; light KPI (e.g., <strong>1 warm intro/month</strong> or <strong>1 qualified lead/quarter</strong>).</li>
-      </ul>
+        <h3 class="muted" style="margin:6px 0 0">Customer Backend</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Profiles, loyalty & credit, purchase history; CRM foundation.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Personalization signals for LLM and analytics.</li>
+        </ul>
 
-      <h3 class="muted" style="margin:6px 0 0">6) Exits &amp; Transfers (protect both sides)</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>24-month lock-up</strong>; afterwards: <strong>Right of First Refusal</strong> on any sale.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Tag-along</strong> for investor; <strong>drag-along at 75%</strong> shareholder approval.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>After vesting, if someone wants out: <strong>fair-market-value buy/sell</strong>; independent valuer if no agreement.</li>
-      </ul>
+        <h3 class="muted" style="margin:6px 0 0">Bakery Integration</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Ingredient usage, production, waste tracking, real-time sales syncing.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Links to inventory and supplier ordering to reduce stockouts.</li>
+        </ul>
 
-      <h3 class="muted" style="margin:6px 0 0">7) IP &amp; Brand</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>All code/IP belong to <strong>AI4Impact B.V.</strong></li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Trade name “AI4Impact”</strong> used now; legal name change can follow later.</li>
-      </ul>
+        <h3 class="muted" style="margin:6px 0 0">Butchery Integration</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Batch tracking, yield & waste, costing, and sales synchronization.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Improves stock precision and profitability analytics.</li>
+        </ul>
 
-      <h3 class="muted" style="margin:6px 0 0">Documents to Sign</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Shareholders’ Agreement (SHA)</strong> and <strong>Loan Agreement</strong>.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Notary deed</strong> for share issue/transfer; <strong>update shareholder register</strong>.</li>
-      </ul>
-    </section>
+        <h3 class="muted" style="margin:6px 0 0">Enhancements (Targeted Upgrades)</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Price Backend</strong>: price catalogs, rules, promotions, margin guardrails, and pricing analytics (<em>TBD budget</em>).</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Data Room</strong>: more metrics, dashboards; double analysis depth.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Cashier</strong>: founder/role-aware balances, credits, KPIs, anomaly alerts.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Automated PO</strong>: refined forecasting signals, reorder rules, approvals.</li>
+        </ul>
+      </section>
 
-    <!-- Signatures & Quick Send (stacked) -->
-    <section class="card">
-      <h2>Signatures &amp; Quick Send</h2>
-      <div class="divider"></div>
-      <p class="muted">Non-binding summary — final terms go in SHA &amp; Loan Agreement.</p>
-
-      <div class="sig">
-        <div><strong>Founder</strong>: Hawkar Ali Abdulhaq</div>
-        <div class="line"></div>
-        <div class="name">Signature</div>
-      </div>
-      <div class="sig">
-        <div><strong>Investor/Partner</strong>: Mariwan Masoud</div>
-        <div class="line"></div>
-        <div class="name">Signature</div>
-      </div>
-
-      <div class="divider"></div>
-      <p class="muted" style="margin-top:8px">Quick message version:</p>
-      <p>
-        <code class="inline">AI4Impact Partner Offer — 15% ordinary shares; vest 24m w/ 3m cliff; €10k 0% shareholder loan; ops €500/mo & one-off €1,500 caps; ROFR, tag-along, drag-along @75%; board-observer. IP to AI4Impact B.V. Non-binding; final in SHA & Loan.</code>
-      </p>
-
-      <div class="cta">
-        <button class="btn" onclick="window.print()">Print / Save PDF</button>
-        <a class="btn secondary" rel="noopener"
-           href="mailto:?subject=AI4Impact%20B.V.%20%E2%80%94%20Partner%20Offer%20(1%E2%80%91Pager)&body=Date%3A%205th%20Oct%202025%0ACompany%3A%20AI4Impact%20B.V.%20(current%20legal%3A%20Climate%20Fundraising%20Platform%20B.V.%3B%20trade%20name%20%E2%80%9CAI4Impact%E2%80%9D)%0AFounder%3A%20Hawkar%20Ali%20Abdulhaq%20%7C%20Investor%2FPartner%3A%20Mariwan%20Masoud%0A%0A1)%20Equity%20%26%20Control%3A%2015%%20ordinary%20at%20closing%3B%201%20share%20%3D%201%20vote%3B%20Founder%20stays%20director.%0A2)%20Vesting%3A%2024%20months%20with%203-month%20cliff%3B%20unvested%20buy-back%20at%20nominal%20if%20contribution%20stops.%0A3)%20Funding%3A%20%E2%82%AC10%2C000%20shareholder%20loan%2C%200%%20interest%2C%20subordinated%2C%20drawn%20as%20needed%3B%20repay%20when%20cash%20allows.%0A4)%20Costs%3A%20Ops%20up%20to%20%E2%82%AC500%2Fmo%20(auto)%3B%20one-off%20up%20to%20%E2%82%AC1%2C500%20(quick%20email%20OK)%3B%20bigger%20by%20mutual%20approval.%0A5)%20Roles%3A%20Founder%20runs%20product%2Fcompany%3B%20Investor%20sales%2Fstrategy%20support%20%2B%20board-observer%3B%20light%20KPI%20(1%20intro%2Fmo%20or%201%20lead%2Fqtr).%0A6)%20Exits%2FTransfers%3A%2024-mo%20lock-up%3B%20ROFR%3B%20tag-along%3B%20drag-along%20at%2075%%3B%20FMV%20buy/sell%20post-vesting.%0A7)%20IP%20%26%20Brand%3A%20All%20code/IP%20to%20AI4Impact%20B.V.%3B%20trade%20name%20%E2%80%9CAI4Impact%E2%80%9D%3B%20legal%20name%20change%20later.%0A%0ADocuments%3A%20SHA%2C%20Loan%20Agreement%2C%20Notary%20deed%2C%20update%20shareholder%20register.%0A%0ANon-binding%20summary%20%E2%80%94%20final%20terms%20in%20SHA%20%26%20Loan.">Quick email</a>
-      </div>
-    </section>
-
-    <!-- To-Do List (stacked, single column) -->
-    <section class="card">
-      <h2>To-Do List (Super Simple)</h2>
-      <div class="divider"></div>
-
-      <div class="stepper" aria-label="Milestones">
-        <div class="step">
-          <div class="dot">S1</div>
-          <div>
-            <div class="label">This Week</div>
-            <span class="note">Confirm numbers, pick notary, swap details, draft SHA & Loan</span>
+      <!-- Price & Terms -->
+      <aside class="card col-5">
+        <h2>Pricing &amp; Terms</h2>
+        <div class="divider"></div>
+        <div class="price-wrap">
+          <div class="pill" title="Base subtotal">
+            <span class="amt">$15,200</span>
+            <span class="tag">base subtotal</span>
+          </div>
+          <div class="pill" title="Contingency">
+            <span class="amt">$2,280</span>
+            <span class="tag">contingency (15%)</span>
+          </div>
+          <div class="pill" title="Grand Total">
+            <span class="amt">$17,480</span>
+            <span class="tag">grand total</span>
           </div>
         </div>
-        <div class="step">
-          <div class="dot">S2</div>
-          <div>
-            <div class="label">Notary Day</div>
-            <span class="note">Execute deed; update shareholder register</span>
+
+        <div class="math" aria-label="Billing summary">
+          <div class="label">Phase Window</div><div class="value">Oct 11, 2025 → Jan 31, 2026</div>
+          <div class="label">Billing</div><div class="value">Milestone-based</div>
+          <div class="label">Includes</div><div class="value">Implementation, integration, QA/hardening, handover & training</div>
+        </div>
+
+        <div class="divider"></div>
+        <h3 class="muted" style="margin:6px 0 0">Cost Breakdown by Module</h3>
+        <div class="table-wrap" role="region" aria-label="Cost breakdown table" tabindex="0">
+          <table class="cost-table">
+            <thead>
+              <tr>
+                <th scope="col">Module</th>
+                <th scope="col" class="num">Allocation</th>
+                <th scope="col" class="num">Budget (USD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Holdings Backend</td>
+                <td class="num">16.4%</td>
+                <td class="num">2,500.00</td>
+              </tr>
+              <tr>
+                <td>HR Employee Backend</td>
+                <td class="num">11.8%</td>
+                <td class="num">1,800.00</td>
+              </tr>
+              <tr>
+                <td>LLM Backend (AI Layer)</td>
+                <td class="num">15.1%</td>
+                <td class="num">2,300.00</td>
+              </tr>
+              <tr>
+                <td>Supplier Backend</td>
+                <td class="num">13.2%</td>
+                <td class="num">2,000.00</td>
+              </tr>
+              <tr>
+                <td>Customer Backend</td>
+                <td class="num">13.2%</td>
+                <td class="num">2,000.00</td>
+              </tr>
+              <tr>
+                <td>Bakery Integration</td>
+                <td class="num">8.6%</td>
+                <td class="num">1,300.00</td>
+              </tr>
+              <tr>
+                <td>Butchery Integration</td>
+                <td class="num">8.6%</td>
+                <td class="num">1,300.00</td>
+              </tr>
+              <tr>
+                <td>Enhancements (Total)</td>
+                <td class="num">13.2%</td>
+                <td class="num">2,000.00</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td><strong>Base Subtotal</strong></td>
+                <td class="num"><strong>100.0%</strong></td>
+                <td class="num"><strong>15,200.00</strong></td>
+              </tr>
+              <tr>
+                <td>+ Contingency</td>
+                <td class="num">15%</td>
+                <td class="num">2,280.00</td>
+              </tr>
+              <tr>
+                <td class="total"><strong>Grand Total</strong></td>
+                <td class="num"></td>
+                <td class="num total"><strong>17,480.00</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <p class="cost-note">Percentages are rounded to one decimal (may show minor rounding variance). <strong>Price Backend Enhancement is TBD and excluded from the Base/Grand totals above.</strong></p>
+
+        <div class="divider"></div>
+        <h3 class="muted" style="margin:6px 0 0">Enhancements Breakdown</h3>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Data Room Enhancement</strong> — $800</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Enhanced Cashier System</strong> — $700</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Automated Purchase Order Enhancement</strong> — $500</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg><strong>Price Backend Enhancement</strong> — <em>TBD</em></li>
+        </ul>
+        <p class="cost-note">Enhancement figures listed above (except Price Backend) are included in the “Enhancements (Total)” line.</p>
+
+        <div class="divider"></div>
+        <p class="muted" style="margin-top:8px">Quick message version:</p>
+        <p>
+          <code class="inline">AMAS Phase 3 (Oct 11, 2025–Jan 31, 2026). Base $15,200 + 15% contingency $2,280 = $17,480. Modules: Holdings $2,500 (Jan 1–Jan 31, 2026); HR Employee $1,800; LLM $2,300; Supplier $2,000; Customer $2,000; Bakery $1,300; Butchery $1,300; Enhancements $2,000 (Data Room $800; Cashier $700; Auto PO $500; Price Backend TBD). Note: Price Backend Enhancement is TBD and excluded from totals.</code>
+        </p>
+
+        <div class="cta">
+          <button class="btn" onclick="window.print()">Print / Save PDF</button>
+          <a class="btn secondary" href="mailto:?subject=AMAS%20Phase%203%20Proposal&body=Dear%20Team%2C%0A%0AAMAS%20Phase%203%20(Oct%2011%2C%202025%E2%80%93Jan%2031%2C%202026).%0ABase%20%2415%2C200%20%2B%2015%25%20contingency%20%242%2C280%20%3D%20%2417%2C480.%0A%0AModules%3A%20Holdings%20%242%2C500%20(Jan%201%E2%80%93Jan%2031%2C%202026)%3B%20HR%20Employee%20%241%2C800%3B%20LLM%20%242%2C300%3B%20Supplier%20%242%2C000%3B%20Customer%20%242%2C000%3B%20Bakery%20%241%2C300%3B%20Butchery%20%241%2C300%3B%20Enhancements%20%242%2C000%20(Data%20Room%20%24800%3B%20Cashier%20%24700%3B%20Auto%20PO%20%24500%3B%20Price%20Backend%20TBD).%0A%0ANote%3A%20Price%20Backend%20Enhancement%20TBD%20(not%20included%20in%20totals).%0A%0ARegards%2C%0A" rel="noopener">Quick email</a>
+        </div>
+      </aside>
+
+      <!-- Timeline -->
+      <section class="card col-12">
+        <h2>Timeline &amp; Milestones (Phase 3)</h2>
+
+        <div class="meta" style="margin-top:2px">
+          <div class="chip">Kickoff: Oct 11, 2025</div>
+          <div class="chip">Target completion: Jan 31, 2026</div>
+        </div>
+        <div class="divider"></div>
+
+        <div class="stepper" aria-label="Phase 3 milestones">
+          <div class="step">
+            <div class="dot">S1</div>
+            <div>
+              <div class="label">Kickoff & Architecture</div>
+              <span class="note">Phase plan, data contracts, environments ready (Oct 11)</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">S2</div>
+            <div>
+              <div class="label">LLM Foundation + Data Room Uplift</div>
+              <span class="note">LLM endpoints, prompts, analytics extension (Oct–Early Nov)</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">S3</div>
+            <div>
+              <div class="label">Supplier Backend</div>
+              <span class="note">POs, invoices, deliveries (Oct–Nov 20)</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">S4</div>
+            <div>
+              <div class="label">Customer Backend</div>
+              <span class="note">Profiles, loyalty & credit (Nov 15–Dec 20)</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">S5</div>
+            <div>
+              <div class="label">HR Employee Backend</div>
+              <span class="note">Profiles, shifts, monitoring dashboards (Nov–Dec)</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">S6</div>
+            <div>
+              <div class="label">Enhancements (Cashier, Price, Auto PO)</div>
+              <span class="note">Targeted refinements (Nov–Dec 20)</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">S7</div>
+            <div>
+              <div class="label">Bakery & Butchery Integrations • Go‑Live</div>
+              <span class="note">Dept integrations, security pass, training & handover (Dec)</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="dot">S8</div>
+            <div>
+              <div class="label">Holdings Backend</div>
+              <span class="note">Jan 1–Jan 31, 2026 (build • QA • deploy)</span>
+            </div>
           </div>
         </div>
-        <div class="step">
-          <div class="dot">S3</div>
-          <div>
-            <div class="label">Within 7 Days</div>
-            <span class="note">Initial drawdown; expense policy; monthly check-in</span>
+
+        <div class="grid">
+          <div class="col-6">
+            <div class="divider"></div>
+            <h3 class="muted" style="margin:6px 0 0">Oct–Nov Focus</h3>
+            <ul class="list">
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>LLM core, prompts, governance; Data Room expansion.</li>
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Supplier backend from PO to delivery tracking.</li>
+              <li class="li"><svg viewBox="0 0 24 24  " width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Start Customer & HR foundations; begin enhancements threads.</li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <div class="divider"></div>
+            <h3 class="muted" style="margin:6px 0 0">Dec–Jan • Stabilize, Launch & Holdings</h3>
+            <ul class="list">
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18M3 6h18M3 18h18"/></svg>December: complete Customer & HR; finalize enhancements; Bakery & Butchery go‑live; QA & hardening.</li>
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 12H4"/></svg>January: build, test, and deploy Holdings Backend (Jan 1–Jan 31, 2026); closeout & handover.</li>
+              <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Final sign‑off by founders on Jan 31, 2026.</li>
+            </ul>
           </div>
         </div>
-        <div class="step">
-          <div class="dot">S4</div>
-          <div>
-            <div class="label">Within 30 Days</div>
-            <span class="note">File trade name; update cap table; UBO check</span>
-          </div>
-        </div>
-        <div class="step">
-          <div class="dot">S5</div>
-          <div>
-            <div class="label">Before Next Year</div>
-            <span class="note">Decide DGA salary; set up payroll</span>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="muted" style="margin:6px 0 0">This Week</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg><strong>Confirm numbers</strong>: 15% equity, <strong>&euro;10k</strong> loan cap, <strong>&euro;500/month</strong> ops cap, <strong>&euro;1,500</strong> one-off cap.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg><strong>Pick a notary</strong> &amp; book appointment (share issue/transfer; optional name/statutes change).</li>
-        <li class="li"><svg viewBox="0 0 24 24  " width="18" height="18"><path d="M5 12l5 5L20 7"/></svg><strong>Swap details</strong> (IDs, addresses, KVK number).</li>
-        <li class="li"><svg viewBox="0 0 24 24  " width="18" height="18"><path d="M5 12l5 5L20 7"/></svg><strong>Draft &amp; sign</strong> short <strong>SHA</strong> + <strong>Loan Agreement</strong> (plain Dutch/English).</li>
-      </ul>
-
-      <h3 class="muted" style="margin:6px 0 0">Notary Day</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 12H4"/></svg>Execute <strong>share issue/transfer deed</strong>.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 12H4"/></svg><strong>Update shareholder register</strong> (required).</li>
-      </ul>
-
-      <h3 class="muted" style="margin:6px 0 0">Within 7 Days After</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Investor wires <strong>initial drawdown</strong> (e.g., first 1–3 months of costs).</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Set <strong>expense policy</strong> (the caps above) &amp; simple <strong>approval by email</strong>.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Start <strong>monthly check-in</strong>: cash report + KPI (intros/leads).</li>
-      </ul>
-
-      <h3 class="muted" style="margin:6px 0 0">Within 30 Days</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 18h18"/></svg>File <strong>trade name “AI4Impact”</strong> at KVK (legal name change later if you want).</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 18h18"/></svg>Update <strong>cap table</strong> and store all docs.</li>
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 18h18"/></svg><strong>UBO check</strong> (only matters if someone ≥25%).</li>
-      </ul>
-
-      <h3 class="muted" style="margin:6px 0 0">Before Next Year (Payroll Plan)</h3>
-      <ul class="list">
-        <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>Decide if/when to start <strong>DGA salary</strong>; budget and set up payroll.</li>
-      </ul>
-    </section>
+      </section>
+    </main>
 
     <footer>
-      <div>© <span id="year">2025</span> <a href="https://www.aiforimpact.net" target="_blank" rel="noopener">AI4Impact B.V.</a> • We make you progress faster.</div>
-      <div class="muted">Prepared for: Founder (Hawkar Ali Abdulhaq) &amp; Investor/Partner (Mariwan Masoud)</div>
+      <div>© <span id="year">2025</span> <a href="https://www.aiforimpact.net" target="_blank" rel="noopener">Ai For Impact</a> • We make you progress faster.</div>
+      <div class="muted">Prepared for: AMAS Founders</div>
     </footer>
   </div>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const today = new Date();
+    const fmt = today.toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
+    document.getElementById('today').textContent = fmt;
+    document.getElementById('year').textContent = today.getFullYear();
   </script>
 </body>
 </html>
