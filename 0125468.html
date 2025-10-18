@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Official Quotation • Administrative Evaluation & Reporting Web Application (Flask)</title>
+  <meta name="description" content="Quotation for an Administrative Evaluation & Reporting Web Application (Flask): scope, commercials, service levels, timeline, payment terms, assumptions, and acceptance." />
+  <style>
+    :root{
+      --bg:#0f1220; --card:#171a2b; --ink:#e9ecf1; --muted:#b8c0d1;
+      --accent:#6ee7ff; --chip:#24304a; --border:#2a3553;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 800px at 90% -10%, #1a2a48 0%, #0f1220 60%) no-repeat,
+        var(--bg);
+      color:var(--ink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:1100px; margin:24px auto; padding:24px}
+
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+      padding:16px 20px; background:rgba(255,255,255,0.02);
+      border:1px solid var(--border); border-radius:14px; backdrop-filter: blur(6px);
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo-badge{
+      width:52px; height:52px; border-radius:50%; display:grid; place-items:center;
+      background: radial-gradient(60% 60% at 30% 30%, #263150 0%, #111827 70%);
+      border:1px solid var(--border); overflow:hidden;
+    }
+    .logo-badge img{
+      width:42px; height:42px; display:block;
+      filter: drop-shadow(0 0 4px rgba(255,255,255,.25));
+    }
+    .brand .name{font-weight:700; letter-spacing:.2px}
+    .tagline{color:var(--muted); font-size:.92rem}
+    .badge{padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:var(--chip); color:var(--muted); font-size:.9rem}
+
+    h1{margin:20px 0 6px; font-size:clamp(1.4rem, 2.6vw, 2rem)}
+    .sub{color:var(--muted); margin:0 0 18px}
+    .meta{display:flex; gap:12px; flex-wrap:wrap; margin-top:4px}
+    .meta .chip{background:var(--chip); border:1px solid var(--border); color:var(--ink); padding:6px 10px; border-radius:999px; font-size:.9rem}
+
+    main{margin-top:20px}
+    .grid{display:grid; grid-template-columns: repeat(12,1fr); gap:18px}
+    .card{
+      grid-column: span 12; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 18px 10px;
+      box-shadow: 0 10px 30px rgba(3,7,18,0.35);
+    }
+    @media(min-width:900px){
+      .col-7{grid-column:span 7}
+      .col-5{grid-column:span 5}
+      .col-6{grid-column:span 6}
+      .col-12{grid-column:span 12}
+    }
+    .card h2{margin:4px 0 6px; font-size:1.15rem}
+    .divider{height:1px; background:linear-gradient(90deg, transparent, #2a3553, transparent); margin:12px 0}
+    .list{margin:8px 0 14px; padding:0; list-style:none}
+    .li{display:flex; align-items:flex-start; gap:10px; padding:8px 0}
+    .li svg{flex:0 0 18px; margin-top:2px}
+    .li svg path{stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; fill:none}
+    .muted{color:var(--muted)}
+    .small{font-size:.92rem}
+
+    /* Details grid */
+    .info-grid{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    .info-block{border:1px solid var(--border); border-radius:12px; padding:12px; background:linear-gradient(180deg, #1b2339, #1a2036)}
+    .info-block h3{margin:0 0 8px; font-size:1rem}
+    .kv{display:grid; grid-template-columns: 140px 1fr; gap:6px 12px; font-size:.95rem}
+    .kv .k{color:var(--muted)}
+    .mono{font-variant-numeric:tabular-nums}
+
+    /* Cost table */
+    .table-wrap{overflow:auto; margin-top:10px; border:1px solid var(--border); border-radius:12px}
+    table.cost-table{width:100%; border-collapse:separate; border-spacing:0}
+    .cost-table thead th{
+      position:sticky; top:0; background:rgba(255,255,255,0.03);
+      color:var(--muted); text-align:left; font-weight:700; padding:10px 12px; border-bottom:1px solid var(--border);
+    }
+    .cost-table tbody td{
+      padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top; font-size:.95rem;
+    }
+    .cost-table tbody tr:last-child td{border-bottom:none}
+    .num{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums}
+    .tfoot td{padding:12px; font-weight:800; border-top:1px solid var(--border)}
+
+    /* Buttons */
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin:10px 0 20px}
+    .btn{
+      appearance:none; border:1px solid var(--border); background:linear-gradient(180deg, #1f2937, #111827);
+      color:var(--ink); padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600
+    }
+    .btn.secondary{background:transparent}
+
+    /* Signature lines */
+    .sign-grid{display:grid; grid-template-columns: 1fr 1fr; gap:16px}
+    .sig{border:1px dashed var(--border); padding:12px; border-radius:10px}
+    .sig .line{border-bottom:1px solid var(--border); margin:18px 0 8px}
+    .sig .label{color:var(--muted); font-size:.92rem}
+
+    footer{margin:24px 0 8px; color:var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+
+    @media print{
+      body{background:#fff}
+      .wrap{margin:0; max-width:none}
+      header, .btn{filter:none; box-shadow:none}
+      .btn{display:none}
+      footer{color:#333}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <a href="https://www.aiforimpact.net" target="_blank" rel="noopener" class="logo-badge" aria-label="Ai For Impact">
+          <img src="https://i.imgur.com/STm5VaG.png?w=118&h=118" alt="Ai For Impact logo (white on dark badge)" />
+        </a>
+        <div>
+          <div class="name"><a href="https://www.aiforimpact.net" target="_blank" rel="noopener">Ai For Impact</a></div>
+          <div class="tagline">We make you progress faster.</div>
+        </div>
+      </div>
+      <div class="badge">Official Quotation</div>
+    </header>
+
+    <section>
+      <h1>Administrative Evaluation &amp; Reporting Web Application (Flask)</h1>
+      <p class="sub"><strong>Project:</strong> Evaluation forms, rubric management, approvals, bilingual UI, evidence uploads, PDF export, RBAC, dashboard &amp; CSV, deployment.</p>
+      <div class="meta">
+        <div class="chip">Flask Web App</div>
+        <div class="chip">Bilingual: Sorani &amp; English (RTL)</div>
+        <div class="chip">PDF reports (official layout)</div>
+        <div class="chip">Approvals &amp; Digital Stamp</div>
+        <div class="chip">Evidence Uploads</div>
+        <div class="chip">Deployment &amp; Handover</div>
+      </div>
+    </section>
+
+    <!-- Vendor/Client + Quote Info -->
+    <section class="card">
+      <h2>Quote Details</h2>
+      <div class="divider"></div>
+      <div class="info-grid">
+        <div class="info-block">
+          <h3>Vendor</h3>
+          <div class="kv">
+            <div class="k">Name / Company</div><div><strong>[Your Name / Company]</strong></div>
+            <div class="k">Address</div><div>[Address]</div>
+            <div class="k">Phone</div><div>[Number]</div>
+            <div class="k">Email</div><div>[Email]</div>
+          </div>
+        </div>
+        <div class="info-block">
+          <h3>Client</h3>
+          <div class="kv">
+            <div class="k">Client Name</div><div><strong>[Client / Institution Name]</strong></div>
+            <div class="k">Quote No.</div><div class="mono" id="qno">Q-[YYYYMMDD]-001</div>
+            <div class="k">Date</div><div id="qdate">[DD Mon YYYY]</div>
+            <div class="k">Valid Until</div><div id="valid">[DD Mon YYYY] (30 days)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="grid">
+      <!-- Scope -->
+      <section class="card col-7">
+        <h2>Scope (summary)</h2>
+        <div class="divider"></div>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Evaluation forms with numeric &amp; written scoring; automatic totals.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Rubric/criteria management.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Review &amp; approval workflow with digital stamp/signature.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Bilingual UI (Sorani &amp; English) with RTL support.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Evidence uploads; PDF report identical to official layout.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Role‑based access, audit logging, dashboard &amp; CSV export.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg>Deployment and handover.</li>
+        </ul>
+      </section>
+
+      <!-- Commercials -->
+      <aside class="card col-5">
+        <h2>Commercials (USD)</h2>
+        <div class="divider"></div>
+        <div class="table-wrap" role="region" aria-label="Commercials table" tabindex="0">
+          <table class="cost-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Description</th>
+                <th class="num">Qty/Term</th>
+                <th class="num">Unit Price (USD)</th>
+                <th class="num">Amount (USD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>A. Development &amp; Deployment</strong></td>
+                <td>End‑to‑end build of the Flask web app as per scope</td>
+                <td class="num">Fixed</td>
+                <td class="num">—</td>
+                <td class="num"><strong>4,000.00</strong></td>
+              </tr>
+              <tr>
+                <td><strong>B. Monitoring &amp; Maintenance</strong></td>
+                <td>Security updates, uptime monitoring, log checks, backup verification, minor bug fixes (non‑feature), monthly health report</td>
+                <td class="num"><strong>6 months</strong></td>
+                <td class="num"><strong>100.00 / month</strong></td>
+                <td class="num"><strong>600.00</strong></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="tfoot">
+                <td colspan="4" class="num">Subtotal</td>
+                <td class="num"><strong>4,600.00</strong></td>
+              </tr>
+              <tr class="tfoot">
+                <td colspan="4" class="num">Taxes/VAT</td>
+                <td class="num"><strong>[If applicable]</strong></td>
+              </tr>
+              <tr class="tfoot">
+                <td colspan="4" class="num">Total Due</td>
+                <td class="num"><strong>4,600.00 USD</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <p class="small muted" style="margin-top:8px">
+          <em>Note:</em> Hosting/server fees and new feature requests are <strong>not</strong> included in this quote and can be provided separately if needed.
+        </p>
+      </aside>
+
+      <!-- Service Levels -->
+      <section class="card col-6">
+        <h2>Service Levels (Monitoring &amp; Maintenance)</h2>
+        <div class="divider"></div>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg><strong>Response time:</strong> within <strong>1 business day</strong> for standard issues; <strong>4 hours</strong> for high‑severity outages.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg><strong>Maintenance window:</strong> as scheduled with client (off‑hours preferred).</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg><strong>Deliverables:</strong> monthly health report; applied patches/change log.</li>
+        </ul>
+      </section>
+
+      <!-- Timeline -->
+      <section class="card col-6">
+        <h2>Timeline</h2>
+        <div class="divider"></div>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Planning &amp; design: <strong>1 week</strong></li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Development: <strong>3 weeks</strong></li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 6L9 17l-5-5"/></svg>Testing &amp; deployment: <strong>1 week</strong></li>
+        </ul>
+        <p class="muted"><strong>Estimated total:</strong> ~<strong>5 weeks</strong> from project kickoff.</p>
+      </section>
+
+      <!-- Payment Terms -->
+      <section class="card col-6">
+        <h2>Payment Terms</h2>
+        <div class="divider"></div>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg><strong>30%</strong> advance on acceptance.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg><strong>50%</strong> upon delivery to staging (feature‑complete).</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12l5 5L20 7"/></svg><strong>20%</strong> upon production deployment &amp; acceptance.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 6v6l4 2"/></svg>Monitoring &amp; Maintenance billed <strong>monthly in advance</strong> (or <strong>$600</strong> upfront if preferred).</li>
+        </ul>
+      </section>
+
+      <!-- Assumptions -->
+      <section class="card col-6">
+        <h2>Assumptions &amp; Exclusions</h2>
+        <div class="divider"></div>
+        <ul class="list">
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Existing branding/assets provided by client.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Feature changes beyond the scope quoted will be handled via change orders.</li>
+          <li class="li"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12h18"/></svg>Hosting, domain, SSL, and email/SMS gateways are billed separately (at cost or by client’s provider).</li>
+        </ul>
+      </section>
+
+      <!-- Acceptance -->
+      <section class="card col-12">
+        <h2>Acceptance</h2>
+        <div class="divider"></div>
+        <p>By signing below, the client accepts this quotation, scope, and terms.</p>
+        <div class="sign-grid">
+          <div class="sig">
+            <div><strong>Client Representative:</strong></div>
+            <div class="line"></div>
+            <div class="label">Name &nbsp;|&nbsp; Date &nbsp;|&nbsp; Title/Department</div>
+          </div>
+          <div class="sig">
+            <div><strong>Supplier (Your Name):</strong></div>
+            <div class="line"></div>
+            <div class="label">Name &nbsp;|&nbsp; Date</div>
+          </div>
+        </div>
+
+        <div class="cta">
+          <button class="btn" onclick="window.print()">Print / Save PDF</button>
+          <a class="btn secondary" href="mailto:?subject=Official%20Quotation%20%E2%80%93%20Administrative%20Evaluation%20%26%20Reporting%20(Flask)&body=Dear%20%5BClient%20Name%5D%2C%0A%0APlease%20find%20attached%20the%20quotation%20for%20the%20Administrative%20Evaluation%20%26%20Reporting%20Web%20Application%20(Flask).%0A%0ASubtotal%3A%20%244%2C600.00%0ATotal%20Due%3A%20%244%2C600.00%20USD%20(excluding%20applicable%20taxes).%0A%0ARegards%2C%0A%5BYour%20Name%20%2F%20Company%5D">Quick email</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year">2025</span> <a href="https://www.aiforimpact.net" target="_blank" rel="noopener">Ai For Impact</a> • We make you progress faster.</div>
+      <div class="muted">Quote No.: <span id="qno-footer">Q-[YYYYMMDD]-001</span></div>
+    </footer>
+  </div>
+
+  <script>
+    // Auto-fill Date, Valid Until (+30 days), Quote No.
+    const now = new Date();
+    const pad = n => String(n).padStart(2,'0');
+    const fmtDate = (d) => {
+      return d.toLocaleDateString(undefined, { day:'2-digit', month:'short', year:'numeric' });
+    };
+    const y = now.getFullYear(), m = pad(now.getMonth()+1), d = pad(now.getDate());
+    const quoteNo = `Q-${y}${m}${d}-001`;
+    const valid = new Date(now); valid.setDate(valid.getDate()+30);
+
+    document.getElementById('qdate').textContent = fmtDate(now);
+    document.getElementById('valid').textContent = `${fmtDate(valid)} (30 days)`;
+    document.getElementById('qno').textContent = quoteNo;
+    document.getElementById('qno-footer').textContent = quoteNo;
+    document.getElementById('year').textContent = y;
+  </script>
+</body>
+</html>
